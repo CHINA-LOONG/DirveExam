@@ -1,0 +1,9 @@
+.vs
+Library/
+Temp/
+Build/
+[Oo]bj/
+*.csproj
+*.sln
+UnityPackageManager/
+/*.user
