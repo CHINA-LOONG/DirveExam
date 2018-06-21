@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\shaders"/></dataSet><dataSet config="release"><source path="C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\release\shaders"/></dataSet></merger>

@@ -1,0 +1,144 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:1-43:12
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:1-43:12
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:1-43:12
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:1-43:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\96d44ea6767b4f540895cc387bc08c46\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\458e28f8f7c34900b733c4b7c005834c\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\b3ad4278141ec415deac71be9f8accda\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\c8c074f7570f3433b77cea98bdb9a52e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\91184b3719e1c2a2cb2226b964621dfd\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d7f5afcce189bd97dd4887c3702c5edc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\654d99c2338fd35bf2d641d8b7bd719f\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\f2314847f124b4668370fe4965410457\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\92c9b658ab3a1f7ae3a8cb69b193d0ed\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\8324759bc905a2fd462c25446b9cdb1e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\aed8c3c1a6ee98e8e32ffa050720f638\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:1-43:12
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:1-43:12
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:1-43:12
+	package
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:2:5-35
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:4:5-30
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:1:11-69
+	android:versionCode
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:3:5-28
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+uses-sdk
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:6:5-8:41
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:6:5-8:41
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\96d44ea6767b4f540895cc387bc08c46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\96d44ea6767b4f540895cc387bc08c46\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\458e28f8f7c34900b733c4b7c005834c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\458e28f8f7c34900b733c4b7c005834c\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\b3ad4278141ec415deac71be9f8accda\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\b3ad4278141ec415deac71be9f8accda\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\c8c074f7570f3433b77cea98bdb9a52e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\c8c074f7570f3433b77cea98bdb9a52e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\91184b3719e1c2a2cb2226b964621dfd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\91184b3719e1c2a2cb2226b964621dfd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d7f5afcce189bd97dd4887c3702c5edc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\d7f5afcce189bd97dd4887c3702c5edc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\654d99c2338fd35bf2d641d8b7bd719f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\654d99c2338fd35bf2d641d8b7bd719f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\f2314847f124b4668370fe4965410457\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\f2314847f124b4668370fe4965410457\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\92c9b658ab3a1f7ae3a8cb69b193d0ed\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\92c9b658ab3a1f7ae3a8cb69b193d0ed\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\8324759bc905a2fd462c25446b9cdb1e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\8324759bc905a2fd462c25446b9cdb1e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\aed8c3c1a6ee98e8e32ffa050720f638\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\xuelo\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\aed8c3c1a6ee98e8e32ffa050720f638\AndroidManifest.xml:20:5-44
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:6:5-8:41
+INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:6:5-8:41
+	android:targetSdkVersion
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:8:9-38
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:7:9-34
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:12:5-79
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:12:22-76
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:13:5-80
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:13:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:14:5-81
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:14:22-78
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:15:5-73
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:15:22-70
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:16:5-75
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:16:22-72
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:17:5-76
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:17:22-73
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:18:5-76
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:18:22-73
+application
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:20:5-41:19
+	android:label
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:23:9-41
+	android:icon
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:22:9-45
+	android:allowBackup
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:21:9-35
+	android:theme
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:24:9-40
+activity#com.baidu.tts.sample.MainActivity
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:25:9-31:20
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:25:19-67
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:27:13-30:29
+action#android.intent.action.MAIN
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:28:17-69
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:28:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:29:17-77
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:29:27-74
+activity#com.baidu.tts.sample.SynthActivity
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:32:9-34:39
+	android:label
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:34:13-36
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:33:13-62
+activity#com.baidu.tts.sample.MiniActivity
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:35:9-37:37
+	android:label
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:37:13-34
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:36:13-61
+activity#com.baidu.tts.sample.SaveFileActivity
+ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:38:9-40:40
+	android:label
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:40:13-37
+	android:name
+		ADDED from C:\Development\DirveExam\Tools\Baidu-TTS-Android-2.3.4.20180419_5a5fec8\app\src\main\AndroidManifest.xml:39:13-65
