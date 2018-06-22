@@ -26,3 +26,73 @@ desc "Description of what the lane does"
 lane:do_set_package_setting do |options|
 
 end
+
+
+#private_
+lane :do_update_version do |options|
+
+	version = (options[:version] || :Generate).to_sym
+	next if version == :Skip
+
+	saved = build_version
+	UI.important "saved build_version: #{saved}"
+
+ensure
+
+end
+
+def builder_version
+	"1001".strip
+end
+
+def build_number
+	"2556 ".strip
+end
+
+def build_version
+	"#{builder_version}.#{build_number}"
+end
+
+
+def print_info
+	params = Hash[
+		:working,`pwd`.strip,
+		:setting_file,ENV['SETTING_FILE']
+	]
+
+	###### print params list###################################
+	UI.message "\n#{Terminal::Table.new(
+		title: 'Build info'.green,
+		headings: %w[Option Value],
+		rows: FastlaneCore::PrintTable.transform_output(params)
+	)}"
+
+	print_help
+end
+
+def print_help
+    UI.message '
+    options:
+        version:        Generate, Commit, Skip
+        collection:     GenerateAll, GenerateSystem, Skip
+        streaming:      StreamingAll, StreamingSystem, Skip
+        export:         Skip
+        icon:           Skip
+        upload:         Skip
+        cleanup:        n, Skip
+        unity_symbols:  Debug, Release, Skip
+        gradle_build:   Debug, Release, Skip
+        unity_tee:      True, False
+        match:          AdHoc, AppStore, Skip
+        testflight_waiting:     True, False
+
+        for examples:
+            fastlane ios beta version:Skip collection:Skip streaming:Skip unity_symbols:Skip
+            fastlane android deploy
+    '
+end
+
+import './FastfileIOS'
+import './FastfileAndroid'
+import './FastfileMac'
+import './FastfileWindows'
