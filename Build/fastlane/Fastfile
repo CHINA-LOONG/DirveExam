@@ -30,27 +30,61 @@ end
 
 #private_
 lane :do_update_version do |options|
+    version = (options[:version] || :Generate).to_sym
+    next if version == :Skip
 
-	version = (options[:version] || :Generate).to_sym
-	next if version == :Skip
+    method = version == :Commit ? 'GenerateGameVersionAndComit' : 'GenerateGameVersion'
+    unity_tee = (options[:unity_tee] || :False).to_sym == :True
 
-	saved = build_version
-	UI.important "saved build_version: #{saved}"
+    saved = build_version
+    UI.important "saved build_version: #{saved}"
 
+    unity(
+        execute_method: "Plugins.Editor.BuildPackage.CommandLineBuild.#{method}",
+        project_path: project_path,
+        use_tee: unity_tee,
+        logfile: temp_path('Unity.GenerateGameVersion.log')
+    )
+
+    sh("
+        mkdir -p #{build_path}
+        mv #{temp_path('Unity.GenerateGameVersion.log')} #{log_path(method)}
+    ")
+
+    UI.important "current build_version: #{build_version}"
+    UI.important "build_version #{saved} changed to: #{build_version}" if saved != build_version
+
+    :VersionChanged if saved != build_version
 ensure
-
+    #teamcity_artifact(temp_path('Unity.GenerateGameVersion.log'))
+    #teamcity_artifact(log_path(method))
 end
 
-def builder_version
-	"1001".strip
+
+
+
+def temp_path(name)
+	"#{project_path}/Build/Output/#{@platform}/#{name}"
+end
+
+def project_path
+	%x(dirname `pwd` | xargs dirname).strip
+end
+
+def bundle_version
+	#"1001".strip
+	`find ./../../Assets -name GameVersion.cs\\
+	-exec grep "BundleVersion = .*;" {} \\; | awk -F'\"' '{printf $2}'`.strip
 end
 
 def build_number
-	"2556 ".strip
+	#"2556 ".strip
+	`find ./../../Assets -name GameVersion.cs\\
+	-exec grep "BuildNumber = .*;" {} \\; | awk -F'\"' '{printf $2}'`.strip
 end
 
 def build_version
-	"#{builder_version}.#{build_number}"
+	"#{bundle_version}.#{build_number}"
 end
 
 
