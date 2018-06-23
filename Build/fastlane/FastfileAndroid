@@ -10,14 +10,93 @@ platform :android do
     ##########################################################
     #
     desc 'android info'
+    #private_
     lane :info do |options|
         UI.important "options: #{options}"
         print_info
     end
     ############################################
     #
-    desc 'android update version'
+    desc 'GenerateGameVersion from version'
     lane :update_version do |options|
-    	
+    	do_update_version(opeions)
     end
+    ############################################
+    #
+    desc 'Generate Game Resources'
+    lane :generate_asset do |options|
+
+    end
+    ############################################
+    #
+    desc 'Copy asset bundles Game Resources'
+    lane :copy_asset do |options|
+
+    end
+    ############################################
+    #
+    desc ''
+    lane :export do |options|
+        do_export(options)
+    end
+    ############################################
+    #
+    lane :icon do |options|
+        path = "/Output/#{@platform}/Build-#{build_version}/loveworld"
+        options[:glob] = "#{path}/src/main/res/*/app_icon*.{png,PNG}"
+
+        do_icon(options)
+
+        path = "/Output/#{@platform}/Build-#{build_version}/loveworld"
+        options[:glob] = "#{path}/Unity-iPhone/Images.xcassets/AppIcon.appiconset/*.{png,PNG}"
+
+        do_icon(options)
+    end
+    ############################################
+    #
+    lane :teamcity_export_parameter do
+
+    end
+    lane :teamcity_artifacts do
+
+    end
+    ############################################
+    #
+    lane :assemble do |options|
+
+    end
+    ############################################
+    #
+    lane :upload_assets do |options|
+    end
+    ############################################
+    #
+    lane :upload_bugly do |options|
+    end
+    ############################################
+    #
+    lane :manifest do |options|
+
+    end
+    ############################################
+    #
+    lane :deploy do |options|
+
+    end
+    ############################################
+    #
+    desc 'Submit a new Beta Build'
+    lane :beta do |options|
+
+        info(options)
+        #update_version(options)
+        #generate_asset(options)
+        #copy_asset(options)
+        export(options)
+        icon(options)
+        assemble(options)
+        deploy(options)
+    end
+    ############################################
+    #
 end

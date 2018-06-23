@@ -5,7 +5,22 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.006436">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.017847">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="1: Switch to android do_export lane" time="0.001747">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: Switch to android do_set_package_setting lane" time="0.001234">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="3: unity" time="23.190718">
         
       </testcase>
     

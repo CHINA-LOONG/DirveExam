@@ -20,20 +20,6 @@ or alternatively using `brew cask install fastlane`
 fastlane do_set_package_setting
 ```
 Description of what the lane does
-### do_update_version
-```
-fastlane do_update_version
-```
-
-
-----
-
-## iOS
-### ios custom_lane
-```
-fastlane ios custom_lane
-```
-Description of what the lane does
 
 ----
 
@@ -47,7 +33,67 @@ android info
 ```
 fastlane android update_version
 ```
-android update version
+GenerateGameVersion from version
+### android generate_asset
+```
+fastlane android generate_asset
+```
+Generate Game Resources
+### android copy_asset
+```
+fastlane android copy_asset
+```
+Copy asset bundles Game Resources
+### android export
+```
+fastlane android export
+```
+
+### android icon
+```
+fastlane android icon
+```
+
+### android teamcity_export_parameter
+```
+fastlane android teamcity_export_parameter
+```
+
+### android teamcity_artifacts
+```
+fastlane android teamcity_artifacts
+```
+
+### android assemble
+```
+fastlane android assemble
+```
+
+### android upload_assets
+```
+fastlane android upload_assets
+```
+
+### android upload_bugly
+```
+fastlane android upload_bugly
+```
+
+### android manifest
+```
+fastlane android manifest
+```
+
+### android deploy
+```
+fastlane android deploy
+```
+
+### android beta
+```
+fastlane android beta
+```
+Submit a new Beta Build
 
 ----
 

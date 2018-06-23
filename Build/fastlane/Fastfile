@@ -49,12 +49,78 @@ private_lane :do_update_version do |options|
     UI.important "build_version #{saved} changed to: #{build_version}" if saved != build_version
 
     :VersionChanged if saved != build_version
-ensure
-    teamcity_artifact(temp_path('Unity.GenerateGameVersion.log'))
-    teamcity_artifact(log_path(method))
+#ensure
+#    UI.important "---------------------------"
+#    teamcity_artifact(temp_path('Unity.GenerateGameVersion.log'))
+#    teamcity_artifact(log_path(method))
+end
+
+desc 'AssetGraph Game Resources by specified collection'
+private_lane :do_generate_asset do |options|
+    #GenerateAll, GenerateSystem
+    collection = (options[:collection] || :GenerateSystem).to_sym
+    next if collection == :Skip
+
+    unity_tee = (options[:unity_tee] || :False).to_sym == :True
+
+    unity(
+        execute_method: 'UnityEngine.AssetGraph.CUIUtility.BuildFromCommandline',
+        project_path: project_path,
+        xcargs: "-target #{@platform} -collection #{collection}",
+        use_tee: unity_tee,
+        logfile: log_path(collection)
+    )
+#ensure
+    #teamcity_artifact(log_path(collection))
 end
 
 
+
+
+#############################################
+#
+private_lane :do_export do |options|
+    export = (options[:export] || :Nothing).to_sym
+    next if export == :Skip
+    unity_tee = (options[:unity_tee] || :False).to_sym == :True
+
+    do_set_package_setting(options)
+
+    unity(
+        execute_method: "Plugins.Editor.BuildPackage.CommandLineBuild.Export#{@platform}",
+        project_path: project_path,
+        xcargs: "-buildlocation #{build_path}",
+        use_tee: unity_tee,
+        logfile: log_path('Export')
+    )
+
+    UI.user_error!( `
+        if [ ! -d #{export_path} ]; then
+            echo 'Unity export failed. file not found at: #{export_path}'
+            echo 'Unity export log: #{log_path('Export')}'
+        fi
+    `) unless File.directory? export_path
+
+#ensure
+#    teamcity_artifact(log_path('Export'))
+end
+#############################################
+#
+private_lane :do_icon do |options|
+    UI.message options[:glob].to_s
+
+    icon = (options[:icon] || :Nothing).to_sym
+    next if icon == :Skip
+
+
+    add_badge(
+        glob: options[:glob].to_s,
+        alpha: ENV['ICON_ALPHA'],
+        dark: true,
+        shield: "#{ENV['ICON_SHIELD']}-#{bundle_version}.#{build_number}-red",
+        shield_scale: '0.618'
+    )
+end
 
 #############################################
 #
@@ -67,6 +133,10 @@ end
 #
 def project_path
     %x(dirname `pwd` | xargs dirname).strip
+end
+
+def unity_editor_platform
+    `cat ../../Library/PlayerDataCache/ScriptLayoutHashes.txt | head -n1`.strip
 end
 
 def temp_path(name)
@@ -178,8 +248,18 @@ end
 
 def print_info
 	params = Hash[
-		:working,`pwd`.strip,
-		:setting_file,ENV['SETTING_FILE']
+		:working, `pwd`.strip,
+		:setting_file, ENV['SETTING_FILE'],
+        :platform, @platform,
+        :project_path, project_path,
+        :unity_editor_platform, unity_editor_platform,
+        :build_path, build_path,
+        :ipa_path, ipa_path,
+        :apk_path, apk_path,
+        :build_version, build_version,
+        :product_name, product_name,
+        :bundle_version, bundle_version,
+        :build_number, build_number,
 	]
 
 	###### print params list###################################
