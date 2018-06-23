@@ -8,13 +8,14 @@ platform :android do
     	@platform = :Android
     end
     ##########################################################
-
+    #
     desc 'android info'
     lane :info do |options|
         UI.important "options: #{options}"
         print_info
     end
-
+    ############################################
+    #
     desc 'android update version'
     lane :update_version do |options|
     	

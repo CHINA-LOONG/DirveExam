@@ -13,14 +13,9 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
-default_platform(:ios)
 
-platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
-  end
-end
+default_platform :ios
+
 
 desc "Description of what the lane does"
 lane:do_set_package_setting do |options|
@@ -28,8 +23,7 @@ lane:do_set_package_setting do |options|
 end
 
 
-#private_
-lane :do_update_version do |options|
+private_lane :do_update_version do |options|
     version = (options[:version] || :Generate).to_sym
     next if version == :Skip
 
@@ -56,20 +50,33 @@ lane :do_update_version do |options|
 
     :VersionChanged if saved != build_version
 ensure
-    #teamcity_artifact(temp_path('Unity.GenerateGameVersion.log'))
-    #teamcity_artifact(log_path(method))
+    teamcity_artifact(temp_path('Unity.GenerateGameVersion.log'))
+    teamcity_artifact(log_path(method))
 end
 
 
 
+#############################################
+#
+def teamcity_artifact(path)
+    path.sub! "#{project_path}/", ''
+    sh("echo \"##teamcity[publishArtifacts '#{path}']\"")
+end
+
+#############################################
+#
+def project_path
+    %x(dirname `pwd` | xargs dirname).strip
+end
 
 def temp_path(name)
 	"#{project_path}/Build/Output/#{@platform}/#{name}"
 end
 
-def project_path
-	%x(dirname `pwd` | xargs dirname).strip
+def log_path(name)
+    "#{build_path}/Unity.Build#{@platform}-#{build_version}-#{name}.log"
 end
+
 
 def bundle_version
 	#"1001".strip
@@ -87,6 +94,87 @@ def build_version
 	"#{bundle_version}.#{build_number}"
 end
 
+def product_name
+    `grep productName ../../ProjectSettings/ProjectSettings.asset\\
+    | awk '{print $2}'`.strip
+end
+
+def export_path
+    case @platform
+    when :iOS
+        xcodeproj_path
+    when :Android
+        gradle_path
+    else
+        UI.error "export_path: Platform #{@platform} not support."
+        ''
+    end
+end
+
+def gradle_path
+    "#{build_path}/#{product_name}"
+end
+
+def xcodeproj_path
+    "#{build_path}/Unity-iPhone.xcodeproj"
+end
+
+def build_path
+    # UI.message "build_path: Platform #{@platform}."
+    case @platform
+    when :IOS
+        "#{project_path}/Build/Output/#{@platform}/Build-#{build_version}/#{product_name}"
+    when :Android, :StandaloneOSX, :StandaloneWindows64
+        "#{project_path}/Build/Output/#{@platform}/Build-#{build_version}"
+    else
+        UI.error "build_path: Platform #{@platform} not support."
+        ''
+    end
+end
+
+def app_identifier
+    # UI.message "app_identifier: Platform #{@platform}."
+    case @platform
+    when :iOS
+        ENV['IOS_IDENTIFIER']
+    when :Android
+        ENV['ANDROID_IDENTIFIER']
+    else
+        UI.error "app_identifier: Platform #{@platform} not support."
+        ''
+    end
+end
+
+def ipa_name
+    "#{app_identifier}-#{build_version}.ipa"
+end
+
+def ipa_path
+    "#{build_path}/#{ipa_name}"
+end
+
+def dSYM_name
+    "#{app_identifier}-#{build_version}.app.dSYM.zip"
+end
+
+def dSYM_path
+    "#{build_path}/#{dSYM_name}"
+end
+
+def apk_name
+    "#{product_name}-release.apk"
+end
+
+def apk_path
+    "#{gradle_path}/build/outputs/apk/release/#{apk_name}"
+end
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Output.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used. No personal data is recorded.
+# Learn more at https://github.com/fastlane/fastlane#metrics
+#
 
 def print_info
 	params = Hash[
