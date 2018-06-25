@@ -1,92 +1,162 @@
-# android platform
+# android paltform
 
 platform :android do
-
-
     ##########################################################
+    #
     before_all do
-    	@platform = :Android
+        @platform = :Android
+
+        # ENV['FL_UNITY_EXECUTABLE'] = "/Applications/Unity/Unity-5.6.2f1.app/Contents/MacOS/Unity"
+        # ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     end
     ##########################################################
     #
-    desc 'android info'
-    #private_
     lane :info do |options|
         UI.important "options: #{options}"
         print_info
     end
     ############################################
     #
-    desc 'GenerateGameVersion from version'
+    desc 'GenerateGameVersion from svn version'
     lane :update_version do |options|
-    	do_update_version(opeions)
+        do_update_version(options)
     end
     ############################################
     #
     desc 'Generate Game Resources'
     lane :generate_asset do |options|
-
+        do_generate_asset(options)
     end
-    ############################################
+    #############################################
     #
     desc 'Copy asset bundles Game Resources'
     lane :copy_asset do |options|
-
+        do_copy_asset(options)
     end
-    ############################################
+    #############################################
     #
-    desc ''
     lane :export do |options|
         do_export(options)
     end
-    ############################################
+    ##########################################################
     #
     lane :icon do |options|
-        path = "/Output/#{@platform}/Build-#{build_version}/loveworld"
+        path = "/Output/#{@platform}/Build-#{build_version}/DriveExam"
         options[:glob] = "#{path}/src/main/res/*/app_icon*.{png,PNG}"
 
         do_icon(options)
-
-        path = "/Output/#{@platform}/Build-#{build_version}/loveworld"
-        options[:glob] = "#{path}/Unity-iPhone/Images.xcassets/AppIcon.appiconset/*.{png,PNG}"
-
-        do_icon(options)
     end
-    ############################################
+    #############################################
     #
     lane :teamcity_export_parameter do
-
+        teamcity_export_parameter
     end
-    lane :teamcity_artifacts do
-
-    end
-    ############################################
+    #############################################
     #
-    lane :assemble do |options|
-
+    lane :teamcity_artifacts do
+        artifacts = [
+            "Build/Output/Android/Build-#{build_version}/loveworld/build/outputs/apk/release/loveworld-release.apk",
+            "Build/Output/Android/Build-#{build_version}/loveworld/build/outputs/apk/release/output.json",
+            "Build/Output/Android/Build-#{build_version}/*.log",
+            "Build/Output/Android/Build-#{build_version}/loveworld => loveworld",
+            "Build/Output/Android/Build-#{build_version}/index.html",
+            'Build/Template/Android/jquery.qrcode.min.js',
+            'Build/Template/Android/jquery-3.2.1.slim.min.js',
+            "AssetBundles/#{@platform} => AssetBundles/#{@platform}",
+            # "AssetBundles/Output/#{@platform} => AssetBundles/Output/#{@platform}",
+            "Config/#{@platform}/#{build_number} => Config/#{@platform}/#{build_number}"
+        ]
+        artifacts.each { |x| sh("echo \"##teamcity[publishArtifacts '#{x}']\"") }
     end
-    ############################################
+    #############################################
+    #
+    lane :assemble3 do |options|
+        sh("keytool -list -printcert -jarfile #{apk_path}")
+    end
+    lane :assemble do |options|
+        gradle_build = (options[:gradle_build] || :Release).to_sym
+
+        `
+        cp #{project_path}/Assets/Plugins/Android/gradle.properties #{gradle_path}/
+        yes | ~/Library/Android/sdk/tools/bin/sdkmanager --licenses
+        gradle wrapper --gradle-version=4.4.1 --distribution-type=bin\
+         --project-dir #{gradle_path}
+        `
+
+        gradle_output = gradle(
+            project_dir: gradle_path,
+            task: 'assemble',
+            build_type: gradle_build.to_s,
+            print_command: true,
+            print_command_output: true
+        )
+
+        #sh("keytool -list -printcert -jarfile #{apk_path}")
+
+        #hash_md5 = `md5 -q #{apk_path}`.strip
+        #hash_sha1 = `shasum #{apk_path} | cut -f 1 -d " "`.strip
+
+        #UI.message "
+        #    #{`stat -l #{apk_path}`.strip}
+        #    md5:  #{hash_md5}
+        #    sha1: #{hash_sha1}
+        #"
+    #ensure
+        #{}`echo "#{gradle_output}" > #{log_path("gradle-#{gradle_build}")}`
+        #teamcity_artifact(log_path("gradle-#{gradle_build}"))
+    end
+    ##########################################################
     #
     lane :upload_assets do |options|
+        do_upload_assets(options)
     end
-    ############################################
+    ##########################################################
     #
     lane :upload_bugly do |options|
+        bugly = (options[:bugly] || :Nothing).to_sym
+        next if bugly == :Skip
+
+        sh("
+            java -jar ./../Tools/buglySymbolAndroid2.6.3/buglySymbolAndroid.jar\
+             -i #{build_path}\
+             -u\
+             -id #{ENV['BUGLY_ID']}\
+             -key #{ENV['BUGLY_KEY']}\
+             -package #{app_identifier}\
+             -version #{build_version}
+        ")
     end
-    ############################################
+    ##########################################################
     #
     lane :manifest do |options|
+        url = options[:url] || ''
 
+        script = '../Template/Android/generate_manifest.sh'
+
+        sh("#{script} #{build_path} #{url} #{apk_name} #{app_identifier}\
+         #{build_version} #{product_name}")
     end
-    ############################################
+    ##########################################################
     #
-    lane :deploy do |options|
+    lane :deploy do
+        next if `adb get-state`.strip != 'device'
 
+        UI.message "install package #{apk_path}"
+        result = `adb install -r #{apk_path} 2>&1`
+        next unless result.include? 'INSTALL_FAILED_VERSION_DOWNGRADE'
+
+        UI.important "INSTALL_FAILED_VERSION_DOWNGRADE:\
+         package #{app_identifier} exist, remove first."
+
+        sh("adb uninstall #{app_identifier}")
+        sh("adb install -r #{apk_path}")
     end
-    ############################################
+    ##########################################################
     #
     desc 'Submit a new Beta Build'
     lane :beta do |options|
+        options[:collection] = options[:collection] || :GenerateSystem
+        options[:streaming] = options[:streaming] || :StreamingSystem
 
         info(options)
         #update_version(options)
@@ -95,8 +165,65 @@ platform :android do
         export(options)
         icon(options)
         assemble(options)
-        deploy(options)
+        #deploy(options)
     end
-    ############################################
+    ##########################################################
     #
+    desc 'lane for fork'
+    lane :fork do |options|
+        options[:collection] = options[:collection] || :GenerateAll
+        options[:streaming] = options[:streaming] || :StreamingSystem
+        options[:version] = options[:version] || :Commit
+
+        info(options)
+        # https://stackoverflow.com/questions/4689592/how-to-run-multiple-external-commands-in-the-background-in-ruby?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+        fork { info(options) }
+        fork { info(options) }
+        fork { info(options) }
+
+        puts Process.waitall
+    end
+    ##########################################################
+    #
+    desc 'lane for teamcity'
+    lane :teamcity do |options|
+        options[:collection] = options[:collection] || :GenerateAll
+        options[:streaming] = options[:streaming] || :StreamingSystem
+        options[:version] = options[:version] || :Commit
+
+        info(options)
+        next if update_version(options) == :VersionChanged
+        generate_asset(options)
+        copy_asset(options)
+        export(options)
+        icon(options)
+        assemble(options)
+        teamcity_export_parameter
+        manifest(options)
+        # upload_assets(options)
+        # upload_bugly(options)
+        # teamcity_artifacts
+
+        fork { upload_assets(options) }
+        fork { upload_bugly(options) }
+        fork { teamcity_artifacts }
+
+        puts Process.waitall
+
+        do_cleanup(options)
+    end
+    ##########################################################
+    #
+    after_all do |lane|
+        # This block is called, only if the executed lane was successful
+
+        # slack(
+        #   message: "Successfully deployed new App Update."
+        # )
+    end
+    ##########################################################
+    #
+    error do |_lane, exception|
+        puts "[#{product_name}] build #{@platform} failed: #{exception.message}"
+    end
 end

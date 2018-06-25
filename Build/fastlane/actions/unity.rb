@@ -175,7 +175,7 @@ module Fastlane
                 UI.important("Unity failed: #{ex}")
 
                 log_checking(params)
-            ensure
+            #ensure
                 UI.important "Time elapsed #{Time.now - beginning_time} seconds"
             end
 

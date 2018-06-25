@@ -1,27 +1,23 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
+# Customise this file, documentation can be found here,
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
 
-# Uncomment the line if you want fastlane to automatically update itself
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
 # update_fastlane
 
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version '2.80.0'
+
+add_extra_platforms(
+    platforms: [:windows]
+)
 
 default_platform :ios
-
-
-desc "Description of what the lane does"
-lane:do_set_package_setting do |options|
-
-end
-
 
 private_lane :do_update_version do |options|
     version = (options[:version] || :Generate).to_sym
@@ -50,17 +46,15 @@ private_lane :do_update_version do |options|
 
     :VersionChanged if saved != build_version
 #ensure
-#    UI.important "---------------------------"
-#    teamcity_artifact(temp_path('Unity.GenerateGameVersion.log'))
-#    teamcity_artifact(log_path(method))
+    teamcity_artifact(temp_path('Unity.GenerateGameVersion.log'))
+    teamcity_artifact(log_path(method))
 end
 
 desc 'AssetGraph Game Resources by specified collection'
 private_lane :do_generate_asset do |options|
-    #GenerateAll, GenerateSystem
+    # GenerateAll, GenerateSystem
     collection = (options[:collection] || :GenerateSystem).to_sym
     next if collection == :Skip
-
     unity_tee = (options[:unity_tee] || :False).to_sym == :True
 
     unity(
@@ -71,13 +65,42 @@ private_lane :do_generate_asset do |options|
         logfile: log_path(collection)
     )
 #ensure
-    #teamcity_artifact(log_path(collection))
+    teamcity_artifact(log_path(collection))
 end
+##########################################################
+#
+desc 'Copy Asset Resources to StreamingAsset'
+private_lane :do_copy_asset do |options|
+    # StreamingAll, StreamingSystem
+    streaming = (options[:streaming] || :StreamingSystem).to_sym
+    next if streaming == :Skip
+    unity_tee = (options[:unity_tee] || :False).to_sym == :True
 
+    method = streaming == :StreamingSystem ? 'CopySystemAssetBundle' : 'CopyAssetBundle'
 
+    sh("setopt rm_star_silent
+        du -h #{project_path}/Assets/StreamingAssets
+        rm -rf #{project_path}/Assets/StreamingAssets/*
+    ")
 
+    unity(
+        execute_method: 'BuildAssetBundles.BuildStaticData',
+        project_path: project_path,
+        use_tee: unity_tee,
+        logfile: log_path('BuildStaticData')
+    )
 
-#############################################
+    unity(
+        execute_method: "BuildAssetBundles.#{method}#{@platform}",
+        project_path: project_path,
+        use_tee: unity_tee,
+        logfile: log_path("#{method}#{@platform}")
+    )
+#ensure
+    teamcity_artifact(log_path('BuildStaticData'))
+    teamcity_artifact(log_path("#{method}#{@platform}"))
+end
+##########################################################
 #
 private_lane :do_export do |options|
     export = (options[:export] || :Nothing).to_sym
@@ -102,16 +125,15 @@ private_lane :do_export do |options|
     `) unless File.directory? export_path
 
 #ensure
-#    teamcity_artifact(log_path('Export'))
+    teamcity_artifact(log_path('Export'))
 end
-#############################################
+##########################################################
 #
 private_lane :do_icon do |options|
     UI.message options[:glob].to_s
 
     icon = (options[:icon] || :Nothing).to_sym
     next if icon == :Skip
-
 
     add_badge(
         glob: options[:glob].to_s,
@@ -120,6 +142,87 @@ private_lane :do_icon do |options|
         shield: "#{ENV['ICON_SHIELD']}-#{bundle_version}.#{build_number}-red",
         shield_scale: '0.618'
     )
+end
+##########################################################
+#
+private_lane :do_upload_assets do |options|
+    upload = (options[:upload] || :Nothing).to_sym
+    next if upload == :Skip
+
+    sh("cd #{project_path}/AssetBundles && ./make_hash.sh #{@platform}")
+
+    build_cos_config("AssetBundles/Output/#{@platform}", "AssetBundles/#{@platform}")
+    output = sh("#{project_path}/Build/Tools/cos_sync_tools_v5/start_cos_sync.sh")
+    UI.user_error!("update assets failed with error.") if output.include? '[fail]'
+
+    build_cos_config("Config/#{@platform}/#{build_number}", "Config/#{@platform}/#{build_number}")
+    output = sh("#{project_path}/Build/Tools/cos_sync_tools_v5/start_cos_sync.sh")
+    UI.user_error!("update assets failed with error.") if output.include? '[fail]'
+end
+##########################################################
+#
+desc 'Cleanup generate project. cleanup is the first index to cleanup in the project folder
+ ordered by sort -r. For example: 1 for cleanup all, 3 for left 2'
+private_lane :do_cleanup do |options|
+    cleanup = (options[:cleanup] || '3').to_sym
+    next if cleanup == :Skip
+
+    UI.message `
+        echo "before cleanup."
+        ls -d ../Output/#{@platform}/*/ | sort -rV
+    `
+
+    sh("ls -d ../Output/#{@platform}/*/ | sort -rV | sed -n '#{cleanup},100p' | xargs rm -rf")
+
+    UI.message `
+        echo "after cleanup."
+        ls -d ../Output/#{@platform}/*/ | sort -rV
+    `
+end
+
+#############################################
+#
+lane :do_set_package_setting do |options|
+    # Debug, Release
+    unity_symbols = (options[:unity_symbols] || :Skip).to_sym
+    next if unity_symbols == :Skip
+    unity_tee = (options[:unity_tee] || :False).to_sym == :True
+
+    method = unity_symbols == 'Debug' ? 'EnableDebugPackage' : 'DisableDebugPackage'
+
+    unity(
+        execute_method: "DefineSymbolsSetting.#{method}",
+        project_path: project_path,
+        use_tee: unity_tee,
+        logfile: log_path(method)
+    )
+#ensure
+    teamcity_artifact(log_path(method))
+end
+#############################################
+#
+lane :upload_hockey do |_options|
+    # apk_name = app_identifier + "-" + get_bundle_version + "." + get_build_number + ".apk";
+
+    hockey(
+        api_token: '1750180cd8a34e3fb108deafbc5854c6',
+        apk: build_path + '/' + apk_name,
+        notes:
+            '### init release' + "\n####local url : https://gmaker.funplus.io/cooking/android/Build-" + build_version
+    )
+end
+#############################################
+#
+def teamcity_export_parameter
+    sh("echo \"##teamcity[setParameter name='env.bundleVersion' value='#{bundle_version}']\"
+        export bundleVersion=#{bundle_version}
+
+        echo \"##teamcity[setParameter name='env.buildNumber' value='#{build_number}']\"
+        export buildNumber=#{build_number}
+
+        echo \"##teamcity[setParameter name='env.buildVersion' value='#{build_version}']\"
+        export buildVersion=#{build_version}
+       ")
 end
 
 #############################################
@@ -131,42 +234,12 @@ end
 
 #############################################
 #
-def project_path
-    %x(dirname `pwd` | xargs dirname).strip
-end
-
-def unity_editor_platform
-    `cat ../../Library/PlayerDataCache/ScriptLayoutHashes.txt | head -n1`.strip
-end
-
 def temp_path(name)
-	"#{project_path}/Build/Output/#{@platform}/#{name}"
+    "#{project_path}/Build/Output/#{@platform}/#{name}"
 end
 
 def log_path(name)
     "#{build_path}/Unity.Build#{@platform}-#{build_version}-#{name}.log"
-end
-
-
-def bundle_version
-	#"1001".strip
-	`find ./../../Assets -name GameVersion.cs\\
-	-exec grep "BundleVersion = .*;" {} \\; | awk -F'\"' '{printf $2}'`.strip
-end
-
-def build_number
-	#"2556 ".strip
-	`find ./../../Assets -name GameVersion.cs\\
-	-exec grep "BuildNumber = .*;" {} \\; | awk -F'\"' '{printf $2}'`.strip
-end
-
-def build_version
-	"#{bundle_version}.#{build_number}"
-end
-
-def product_name
-    `grep productName ../../ProjectSettings/ProjectSettings.asset\\
-    | awk '{print $2}'`.strip
 end
 
 def export_path
@@ -189,10 +262,52 @@ def xcodeproj_path
     "#{build_path}/Unity-iPhone.xcodeproj"
 end
 
+def bundle_version
+    `find ./../../Assets -name GameVersion.cs\\
+    -exec grep "BundleVersion =.*;" {} \\; | awk -F'\"' '{printf $2}'`.strip
+end
+
+def build_number
+    `find ./../../Assets -name GameVersion.cs\\
+    -exec grep "BuildNumber =.*;" {} \\; | awk -F'\"' '{printf $2}'`.strip
+end
+
+def build_version
+    "#{bundle_version}.#{build_number}"
+end
+
+def product_name
+    `grep productName ../../ProjectSettings/ProjectSettings.asset\\
+    | awk '{print $2}'`.strip
+end
+
+def project_path
+    %x(dirname `pwd` | xargs dirname).strip
+end
+
+def unity_editor_platform
+    `cat ../../Library/PlayerDataCache/ScriptLayoutHashes.txt | head -n1`.strip
+end
+
+def build_cos_config(source, destination)
+    `cat <<EOF > #{project_path}/Build/Tools/cos_sync_tools_v5/conf/config.ini
+
+secret_id=#{ENV['CDN_SECRET_ID']}
+secret_key=#{ENV['CDN_SECRET_KEY']}
+bucket=#{ENV['CDN_BUCKET']}
+region=ap-shanghai
+storage_class=standard
+local_path=#{File.join(project_path, source)}
+cos_path=#{File.join(ENV['CDN_ROOT_PATH'], destination)}
+enable_https=0
+
+EOF`
+end
+
 def build_path
     # UI.message "build_path: Platform #{@platform}."
     case @platform
-    when :IOS
+    when :iOS
         "#{project_path}/Build/Output/#{@platform}/Build-#{build_version}/#{product_name}"
     when :Android, :StandaloneOSX, :StandaloneWindows64
         "#{project_path}/Build/Output/#{@platform}/Build-#{build_version}"
@@ -247,9 +362,9 @@ end
 #
 
 def print_info
-	params = Hash[
-		:working, `pwd`.strip,
-		:setting_file, ENV['SETTING_FILE'],
+    params = Hash[
+        :working, `pwd`.strip,
+        :setting_file, ENV['SETTING_FILE'],
         :platform, @platform,
         :project_path, project_path,
         :unity_editor_platform, unity_editor_platform,
@@ -260,16 +375,15 @@ def print_info
         :product_name, product_name,
         :bundle_version, bundle_version,
         :build_number, build_number,
-	]
+    ]
 
-	###### print params list###################################
-	UI.message "\n#{Terminal::Table.new(
-		title: 'Build info'.green,
-		headings: %w[Option Value],
-		rows: FastlaneCore::PrintTable.transform_output(params)
-	)}"
+    UI.message "\n#{Terminal::Table.new(
+        title: 'Build info'.green,
+        headings: %w[Option Value],
+        rows: FastlaneCore::PrintTable.transform_output(params)
+    )}"
 
-	print_help
+    print_help
 end
 
 def print_help

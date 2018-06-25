@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam/libs/unity-classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="7e2055687e591ef7c407e598aa5df67b41e374a6">
+        <dex dex="/Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam/build/intermediates/pre-dexed/release/unity-classes_5ba9bd546b093c4359325d9bed5100b643668a2c.jar" />
+    </item>
+
+</items>

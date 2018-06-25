@@ -1,0 +1,52 @@
+NDK is missing a platforms directory.
+If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to /Users/xuelong/Library/Android/sdk/ndk-bundle.
+If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.
+
+The CompileOptions.bootClasspath property has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the CompileOptions.bootstrapClasspath property instead.
+The setTestClassesDir(File) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the setTestClassesDirs(FileCollection) method instead.
+The getTestClassesDir() method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the getTestClassesDirs() method instead.
+The ConfigurableReport.setDestination(Object) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the method ConfigurableReport.setDestination(File) instead.
+:preBuild UP-TO-DATE
+:preReleaseBuild UP-TO-DATE
+:checkReleaseManifest
+:prepareReleaseDependencies
+:compileReleaseAidl
+:compileReleaseRenderscript
+:generateReleaseBuildConfig
+:generateReleaseResValues
+:generateReleaseResources
+:mergeReleaseResources
+:processReleaseManifest
+:processReleaseResources
+:generateReleaseSources
+:incrementalReleaseJavaCompilationSafeguard
+:javaPreCompileRelease
+:compileReleaseJavaWithJavac
+:compileReleaseNdk NO-SOURCE
+:compileReleaseSources
+:lintVitalRelease
+:mergeReleaseShaders
+:compileReleaseShaders
+:generateReleaseAssets
+:mergeReleaseAssets
+:transformClassesWithDexForRelease
+
+Running dex as a separate process.
+
+To run dex in process, the Gradle daemon needs a larger heap.
+It currently has 1024 MB.
+For faster builds, increase the maximum heap size for the Gradle daemon to at least 1536 MB.
+To do this set org.gradle.jvmargs=-Xmx1536M in the project gradle.properties.
+For more information see https://docs.gradle.org/current/userguide/build_environment.html
+
+:mergeReleaseJniLibFolders
+:transformNativeLibsWithMergeJniLibsForRelease
+:processReleaseJavaRes NO-SOURCE
+:transformResourcesWithMergeJavaResForRelease
+:validateSigningRelease
+:packageRelease
+:assembleRelease
+
+BUILD SUCCESSFUL in 15s
+22 actionable tasks: 22 executed
+

@@ -1,0 +1,286 @@
+# ios paltform
+
+platform :ios do
+    ##########################################################
+    #
+    before_all do
+        @platform = :iOS
+    end
+    ##########################################################
+    #
+    lane :info do |options|
+        UI.important "options: #{options}"
+        print_info
+    end
+    ##########################################################
+    #
+    desc 'GenerateGameVersion from svn version'
+    lane :update_version do |options|
+        do_update_version(options)
+    end
+    ############################################
+    #
+    desc 'Generate Game Resources'
+    lane :generate_asset do |options|
+        do_generate_asset(options)
+    end
+    #############################################
+    #
+    desc 'Copy asset bundles Game Resources'
+    lane :copy_asset do |options|
+        do_copy_asset(options)
+    end
+    #############################################
+    #
+    lane :export do |options|
+        do_export(options)
+    end
+    ##########################################################
+    #
+    lane :icon do |options|
+        path = "/Output/#{@platform}/Build-#{build_version}/loveworld"
+        options[:glob] = "#{path}/Unity-iPhone/Images.xcassets/AppIcon.appiconset/*.{png,PNG}"
+
+        do_icon(options)
+    end
+    #############################################
+    #
+    lane :teamcity_export_parameter do
+        teamcity_export_parameter
+    end
+    #############################################
+    #
+    lane :teamcity_artifacts do
+        artifacts = [
+            "Build/Output/iOS/Build-#{build_version}/loveworld => loveworld",
+            "Build/Output/iOS/Build-#{build_version}/*.log",
+            "Build/Output/iOS/Build-#{build_version}/index.html",
+            "Build/Output/iOS/Build-#{build_version}/loveworld/cn.lemongrassmedia.loveworld.*",
+            'Build/Template/iOS/jquery.qrcode.min.js',
+            'Build/Template/iOS/jquery-3.2.1.slim.min.js',
+            "AssetBundles/#{@platform} => AssetBundles/#{@platform}",
+            # "AssetBundles/Output/#{@platform} => AssetBundles/Output/#{@platform}",
+            "Config/#{@platform}/#{build_number} => Config/#{@platform}/#{build_number}"
+        ]
+        artifacts.each { |x| sh("echo \"##teamcity[publishArtifacts '#{x}']\"") }
+    end
+    ##########################################################
+    #
+    lane :entitlements do
+        `
+        cp #{project_path}/Build/keys/build.entitlements #{build_path}/Unity-iPhone/
+        `
+
+        fastlane_require 'xcodeproj'
+        proj = Xcodeproj::Project.open(xcodeproj_path)
+        targetid = proj.targets.first.uuid
+
+        proj.root_object.attributes['TargetAttributes'] = {
+            targetid => { 'SystemCapabilities' => { 'com.apple.Push' => { 'enabled' => 1 } } }
+        }
+
+        proj.build_configurations.each do |config|
+            config.build_settings.store('CODE_SIGN_ENTITLEMENTS', 'Unity-iPhone/build.entitlements')
+        end
+
+        proj.recreate_user_schemes
+        proj.save
+    end
+    ##########################################################
+    #
+    lane :certificates do |options|
+        # AdHoc, AppStore
+        match = (options[:match] || :AdHoc).to_sym
+        next if match == :Skip
+
+        method = match == :AdHoc ? 'adhoc' : 'appstore'
+
+        match(
+            type: method,
+            app_identifier: app_identifier,
+            readonly: true
+        )
+    end
+    ##########################################################
+    #
+    lane :assemble do |options|
+        # AdHoc, AppStore
+        match = (options[:match] || :AdHoc).to_sym
+
+        method = match == :AdHoc ? 'AdHoc' : 'AppStore'
+
+        puts "path: #{xcodeproj_path}"
+
+        automatic_code_signing(
+            path: xcodeproj_path,
+            use_automatic_signing: false
+        )
+
+        certificates(options)
+
+        update_project_team(
+            path: xcodeproj_path,
+            teamid: ENV['IOS_TEAM_ID']
+        )
+
+        update_app_identifier(
+            xcodeproj: xcodeproj_path,
+            plist_path: 'Info.plist',
+            app_identifier: app_identifier
+        )
+
+        update_provisioning_profile_specifier(
+            xcodeproj: xcodeproj_path,
+            new_specifier: ENV['IOS_PROVISIONING_PROFILE_SPECIFIER']
+        )
+
+        # entitlements
+
+        gym(
+            project: xcodeproj_path,
+            archive_path: build_path,
+            scheme: 'Unity-iPhone',
+            clean: true,
+            output_directory: build_path,
+            output_name: ipa_name,
+            xcargs: "CODE_SIGN_IDENTITY=\"#{ENV['IOS_CODE_SIGN_IDENTITY']}\""
+        )
+
+        gym_log = "/Users/#{`whoami`.strip}/Library/Logs/gym/AvgMaker-Unity-iPhone.log"
+
+        `
+        if [ -f #{gym_log} ]; then
+            mv #{gym_log} #{log_path('gym')}
+        fi
+        `
+
+        teamcity_artifact(log_path('gym'))
+
+        hash_md5 = `md5 -q #{ipa_path}`.strip
+        hash_sha1 = `shasum #{ipa_path} | cut -f 1 -d " "`.strip
+
+        UI.message "
+            #{`stat -l #{ipa_path}`.strip}
+            md5:  #{hash_md5}
+            sha1: #{hash_sha1}
+        "
+    end
+    ##########################################################
+    #
+    lane :upload_assets do |options|
+        do_upload_assets(options)
+    end
+    ##########################################################
+    #
+    lane :upload_testflight do |options|
+        testflight_waiting = (options[:testflight_waiting] || :False).to_sym == :True
+
+        upload_to_testflight(
+            username: ENV['IOS_DEVELOPER'],
+            app_identifier: app_identifier,
+            changelog: '・User experience improvement and bug fixes.',
+            # itc_provider: "abcde12345" # pass a specific value to the iTMSTransporter -itc_provider option
+            ipa: ipa_path,
+            skip_waiting_for_build_processing: !testflight_waiting
+        )
+    end
+    ##########################################################
+    #
+    lane :upload_bugly do |options|
+        bugly = (options[:bugly] || :Nothing).to_sym
+        next if bugly == :Skip
+
+        # sh("
+        #     unzip -o #{dSYM_path} -d #{build_path}
+        # ")
+
+        bugly_symbol = "buglySymbol_build_#{build_version}.zip"
+        bugly_url = 'https://api.bugly.qq.com/openapi/file/upload/symbol'
+
+        sh("
+            java -jar ./../Tools/buglySymboliOS2.4.3/buglySymboliOS.jar\
+             -i #{build_path}.xcarchive/dSYMs\
+             -o #{build_path}/#{bugly_symbol}
+        ")
+
+        sh("
+            curl -k '#{bugly_url}?app_key=#{ENV['BUGLY_KEY']}&app_id=#{ENV['BUGLY_ID']}'\
+             --form 'api_version=1'\
+             --form 'app_id=#{ENV['BUGLY_ID']}'\
+             --form 'app_key=#{ENV['BUGLY_KEY']}'\
+             --form 'symbolType=2'\
+             --form 'bundleId=#{app_identifier}'\
+             --form 'productVersion=#{build_version}'\
+             --form 'fileName=#{bugly_symbol}'\
+             --form 'file=@#{build_path}/#{bugly_symbol}'\
+             --verbose
+        ")
+    end
+    ##########################################################
+    #
+    lane :deploy do
+        sh("ios-deploy -b #{ipa_path}")
+    end
+    ##########################################################
+    #
+    desc 'Submit a new Beta Build'
+    lane :beta do |options|
+        options[:collection] = options[:collection] || :GenerateSystem
+        options[:streaming] = options[:streaming] || :StreamingSystem
+
+        info(options)
+        update_version(options)
+        generate_asset(options)
+        copy_asset(options)
+        export(options)
+        icon(options)
+        assemble(options)
+        deploy(options)
+    end
+    ##########################################################
+    #
+    desc 'lane for teamcity'
+    lane :teamcity do |options|
+        options[:version] = options[:version] || :Commit
+        options[:collection] = options[:collection] || :GenerateAll
+        options[:streaming] = options[:streaming] || :StreamingSystem
+        options[:match] = options[:match] || :AppStore
+        options[:testflight_waiting] = options[:testflight_waiting] || :True
+
+        info(options)
+        next if update_version(options) == :VersionChanged
+        generate_asset(options)
+        copy_asset(options)
+        export(options)
+        icon(options)
+        assemble(options)
+        teamcity_export_parameter
+        # upload_testflight(options)
+        # upload_assets(options)
+        # upload_bugly(options)
+        # teamcity_artifacts
+
+        fork { upload_testflight(options) }
+        fork { upload_assets(options) }
+        fork { upload_bugly(options) }
+        fork { teamcity_artifacts }
+
+        puts Process.waitall
+
+        do_cleanup(options)
+    end
+    ##########################################################
+    #
+    after_all do |lane|
+        # This block is called, only if the executed lane was successful
+
+        # slack(
+        #   message: "Successfully deployed new App Update."
+        # )
+    end
+    ##########################################################
+    #
+    error do |_lane, exception|
+        puts "[#{product_name}] build #{@platform} failed: #{exception.message}"
+    end
+end
