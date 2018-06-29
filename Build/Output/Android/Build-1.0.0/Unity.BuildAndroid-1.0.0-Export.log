@@ -1,8 +1,8 @@
-[Package Manager] Server::Start -- Port 64324 was selected
+[Package Manager] Server::Start -- Port 60124 was selected
 
-LICENSE SYSTEM [2018625 16:17:44] No start/stop license dates set
+LICENSE SYSTEM [2018626 16:51:9] No start/stop license dates set
 
-LICENSE SYSTEM [2018625 16:17:44] Next license update check is after 2027-08-23T00:17:35
+LICENSE SYSTEM [2018626 16:51:9] Next license update check is after 2027-08-23T00:17:35
 
 
  COMMAND LINE ARGUMENTS:
@@ -20,11 +20,11 @@ Plugins.Editor.BuildPackage.CommandLineBuild.ExportAndroid
 /Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/Unity.BuildAndroid-1.0.0-Export.log
 Successfully changed project path to: /Users/xuelong/Development/DirveExam
 /Users/xuelong/Development/DirveExam
-Loading GUID <-> Path mappings...0.000061 seconds
-Loading Asset Database...0.010313 seconds
+Loading GUID <-> Path mappings...0.000055 seconds
+Loading Asset Database...0.010892 seconds
 Audio: FMOD Profiler initialized on port 54900
-AssetDatabase consistency checks...0.070125 seconds
-Refreshing native plugins compatible for Editor in 8.00 ms, found 0 plugins.
+AssetDatabase consistency checks...0.061426 seconds
+Refreshing native plugins compatible for Editor in 4.70 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 DisplayProgressbar: Unity Package Manager
 [Package Manager] Resolving 4 packages:
@@ -48,7 +48,7 @@ Initialize mono
 Mono path[0] = '/Applications/Unity/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Unity.app/Contents/Mono/lib/mono/2.0'
 Mono config path = '/Applications/Unity/Unity.app/Contents/Mono/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56087
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,defer=y,address=0.0.0.0:56745
 Begin MonoManager ReloadAssembly
 Initializing Unity.PackageManager (PackageManager) v2017.4.3 for Unity v2017.4.3f1
 Registering precompiled unity dll's ...
@@ -56,37 +56,59 @@ Register platform support module: /Applications/Unity/PlaybackEngines/AndroidPla
 Register platform support module: /Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: /Applications/Unity/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: /Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.001064 seconds.
-Refreshing native plugins compatible for Editor in 0.52 ms, found 3 plugins.
-Preloading 1 native plugins for Editor in 6.36 ms.
+Registered in 0.001235 seconds.
+Refreshing native plugins compatible for Editor in 0.55 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 2.20 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.187 seconds
+- Completed reload, in  1.138 seconds
 Registering platform support modules:
-Registered platform support modules in: 0.111873s.
+Registered platform support modules in: 0.10913s.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Native extension for iOS target not found
-[XcodeApplications] RefreshListOfAvailableXcodeApplications in: 0.022858s.
+[XcodeApplications] RefreshListOfAvailableXcodeApplications in: 0.021847s.
 Native extension for Android target not found
 Begin MonoManager ReloadAssembly
 Registering precompiled user dll's ...
-Registered in 0.068184 seconds.
+Registered in 0.070053 seconds.
 Refreshing native plugins compatible for Editor in 0.51 ms, found 3 plugins.
-Preloading 1 native plugins for Editor in 0.48 ms.
+Preloading 1 native plugins for Editor in 0.46 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.841 seconds
+- Completed reload, in  0.830 seconds
 Initializing Unity.PackageManager (PackageManager) v2017.4.3 for Unity v2017.4.3f1
 Registering platform support modules:
-Registered platform support modules in: 0.067944s.
+Registered platform support modules in: 0.064781s.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Native extension for iOS target not found
-Refreshing native plugins compatible for Editor in 0.58 ms, found 3 plugins.
-[XcodeApplications] RefreshListOfAvailableXcodeApplications in: 0.003645s.
+Refreshing native plugins compatible for Editor in 0.51 ms, found 3 plugins.
+[XcodeApplications] RefreshListOfAvailableXcodeApplications in: 0.004004s.
 Native extension for Android target not found
-Validating Project structure ... 0.028279 seconds.
-Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.043340 seconds (Nothing changed)
-Warming cache for 1155 main assets: 0.001255 seconds elapsed
+Validating Project structure ... 0.027190 seconds.
+Refresh: detecting if any assets need to be imported or removed ... 
+Hashing assets ... 0.000 seconds
+  file open: 0.000 seconds (2 files)
+  file read: 0.000 seconds (0.002 MB)
+  hash: 0.000 seconds
+----- Compute hash(es) for 1 asset(s).
+----- Asset named Assets/Plugins/Scripts/GameVersion.cs is skipped as no actual change.
+
+Refresh: elapses 0.107953 seconds
+Updating ProjectSettings/ProjectSettings.asset - GUID: 00000000000000004000000000000000...
+ done. [Time: 64.394348 ms] 
+Unloading 990 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 282.4 MB.
+System memory in use after: 282.6 MB.
+
+Unloading 112 unused Assets to reduce memory usage. Loaded Objects now: 1519.
+Total: 2.197842 ms (FindLiveObjects: 0.323134 ms CreateObjectMapping: 0.066638 ms MarkObjects: 1.769296 ms  DeleteObjects: 0.038024 ms)
+
+Refreshing native plugins compatible for Editor in 16.10 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 0.45 ms.
+
+----- Total AssetImport time: 0.251403s, AssetImport time: 0.164501s, Asset hashing: 0.000543s [2.6 KB, 4.587563 mb/s]
+
+Warming cache for 1157 main assets: 0.001051 seconds elapsed
 Initializing Unity extensions:
  '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll'  GUID: 12fd8a0055b84bb59e84c9835a37e333
  '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/Runtime/UnityEngine.Timeline.dll'  GUID: 6a10b2909283487f913b00d94cd3faf5
@@ -114,12 +136,12 @@ Initializing Unity extensions:
  '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll'  GUID: 4b3fa4bde7f1451a8218c03ee6a8ded8
  '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll'  GUID: b8a0574e92bd43a59e19d6c3c6ae54c7
  '/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll'  GUID: 7668179ede524d6396c8b7d84461ea29
-Unloading 994 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 284.1 MB.
-System memory in use after: 284.2 MB.
+Unloading 58 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 266.8 MB.
+System memory in use after: 266.9 MB.
 
-Unloading 76 unused Assets to reduce memory usage. Loaded Objects now: 1554.
-Total: 1.785675 ms (FindLiveObjects: 0.425287 ms CreateObjectMapping: 0.053461 ms MarkObjects: 1.277782 ms  DeleteObjects: 0.027502 ms)
+Unloading 16 unused Assets to reduce memory usage. Loaded Objects now: 1557.
+Total: 2.504681 ms (FindLiveObjects: 0.494442 ms CreateObjectMapping: 0.065619 ms MarkObjects: 1.909680 ms  DeleteObjects: 0.033249 ms)
 
 Build Location for Android set to /Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0
 UnityEngine.DebugLogHandler:Internal_Log(LogType, String, Object)
@@ -133,7 +155,7 @@ Plugins.Editor.BuildPackage.CommandLineBuild:ExportAndroid() (at Assets/Plugins/
 (Filename: Assets/Plugins/Editor/BuildPackage/CommandLineBuild.cs Line: 219)
 
 DisplayProgressbar: Checking prerequisutes
-Android PostProcess task "Checking prerequisutes" took 2.338 ms
+Android PostProcess task "Checking prerequisutes" took 1.824 ms
 DisplayProgressbar: Detecting Android SDK
 AndroidSDKTools:
 
@@ -149,17 +171,17 @@ AndroidSDKTools:
 AndroidJavaTools:
 	java     : /Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home/bin/java
 
-Android PostProcess task "Detecting Android SDK" took 1591.044 ms
-Android PostProcess task "Detect Android NDK" took 0.183 ms
-Android PostProcess task "Trying to find a suitable Android device" took 0.205 ms
+Android PostProcess task "Detecting Android SDK" took 1576.205 ms
+Android PostProcess task "Detect Android NDK" took 0.216 ms
+Android PostProcess task "Trying to find a suitable Android device" took 0.199 ms
 BuildPlayer: start building target 13
 - Starting compile Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
 
 -----Compiler Commandline Arguments:
 Filename: /Applications/Unity/Unity.app/Contents/MonoBleedingEdge/bin/mono
-Arguments: '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.5/mcs.exe'  @Temp/UnityTempFile-cda3e3a356ed74f278eb70d784c4a116
+Arguments: '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.5/mcs.exe'  @Temp/UnityTempFile-ec27a8e5b4c4d4eecb2b7fa62e25a945
 index: 81
-Responsefile: Temp/UnityTempFile-cda3e3a356ed74f278eb70d784c4a116 Contents: 
+Responsefile: Temp/UnityTempFile-ec27a8e5b4c4d4eecb2b7fa62e25a945 Contents: 
 -debug
 -target:library
 -nowarn:0169
@@ -1221,14 +1243,14 @@ Assets/Plugins/MP3Sharp/Decoding/Huffman.cs(704,22): warning CS0414: The private
 - Finished compile Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
 Symbols will be read from Temp/Assembly-CSharp-firstpass.dll.mdb
 Script Module: Assembly-CSharp-firstpass.dll
-Pass: 0 took 20 milliseconds
-Pass: 1 took 10 milliseconds
+Pass: 0 took 11 milliseconds
+Pass: 1 took 11 milliseconds
 - Starting compile Library/ScriptAssemblies/Assembly-CSharp.dll
 - Finished compile Library/ScriptAssemblies/Assembly-CSharp.dll
 Symbols will be read from Temp/Assembly-CSharp.dll.mdb
 Script Module: Assembly-CSharp.dll
 Pass: 0 took 4 milliseconds
-Pass: 1 took 6 milliseconds
+Pass: 1 took 7 milliseconds
 Assets/Plugins/LitJson/JsonData.cs(448,13): warning CS0162: Unreachable code detected
  
 (Filename: Assets/Plugins/LitJson/JsonData.cs Line: 448)
@@ -1277,35 +1299,35 @@ Assets/Plugins/MP3Sharp/Decoding/Huffman.cs(704,22): warning CS0414: The private
  
 (Filename: Assets/Plugins/MP3Sharp/Decoding/Huffman.cs Line: 704)
 
-Refreshing native plugins compatible for Editor in 0.62 ms, found 3 plugins.
+Refreshing native plugins compatible for Editor in 0.46 ms, found 3 plugins.
 DisplayProgressbar: Building Player
 
 Packing sprites:
 [     39 MB ]- Skipping packing - Sprite Packer (Legacy) is off.
 [     39 MB ]Opening scene 'Assets/main.unity'
-Load scene 'Assets/main.unity' time: 0.046656 ms 
+Load scene 'Assets/main.unity' time: 0.035998 ms 
 Unloading 19 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 292.7 MB.
-System memory in use after: 292.8 MB.
+System memory in use before: 293.1 MB.
+System memory in use after: 293.1 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3610.
-Total: 14.723975 ms (FindLiveObjects: 0.756248 ms CreateObjectMapping: 0.200859 ms MarkObjects: 12.126109 ms  DeleteObjects: 1.638269 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3612.
+Total: 15.343086 ms (FindLiveObjects: 0.717150 ms CreateObjectMapping: 0.205065 ms MarkObjects: 12.596054 ms  DeleteObjects: 1.822975 ms)
 
-Created GICache directory at /Users/xuelong/Library/Caches/com.unity3d.UnityEditor/GiCache. Took: 0.004s, timestamps: [12.089 - 12.093]
+Created GICache directory at /Users/xuelong/Library/Caches/com.unity3d.UnityEditor/GiCache. Took: 0.004s, timestamps: [11.674 - 11.678]
 [00:00:00] Enlighten: Precompute started.
 [PathTracer] Issuing atlassing job. Atlas hash: bc06a9703e5ae257241f86e6e5e9cb62, width: 1024, height: 1024
 [00:00:00] Enlighten: Finished 1 Layout Systems job (0.00s execute, 0.00s integrate, 0.01s wallclock)
 [00:00:00] Enlighten: Finished 1 Tetrahedralize Probes job (0.00s execute, 0.00s integrate, 0.01s wallclock)
-[00:00:00] Enlighten: Precompute took 0.021990 seconds.
+[00:00:00] Enlighten: Precompute took 0.022511 seconds.
 Enlighten scene contents:   0 geometries.   0 instances.   0 systems.   0 probe groups.   0 cube maps. Scene is up-to-date.
 [00:00:00] Enlighten: Bake started.
 [PathTracer][LP] Issuing deduplication and tetrahedralization job. Combined: 80257199cfa681a16be5e09b3c2208f4, tetrahedralized probes: 00000000000000000000000000000000, non-tetrahedralized probes: 00000000000000000000000000000000, dependencies: 00000000000000000000000000000000
-Launched and connected shader compiler UnityShaderCompiler after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 7000040f9000 -> priority: 1 
-  Thread -> id: 70000417c000 -> priority: 1 
-[00:00:00] Enlighten: Finished 1 Bake Runtime job (0.02s execute, 0.00s integrate, 0.07s wallclock)
-[00:00:00] Enlighten: Bake took 0.073059 seconds.
+  Thread -> id: 70000aaa6000 -> priority: 1 
+  Thread -> id: 70000ab29000 -> priority: 1 
+[00:00:00] Enlighten: Finished 1 Bake Runtime job (0.02s execute, 0.00s integrate, 0.06s wallclock)
+[00:00:00] Enlighten: Bake took 0.058688 seconds.
 [PathTracer][LP] Integrating deduplicated and tetrahedralized probes for hash 80257199cfa681a16be5e09b3c2208f4.
 [PathTracer] Common reset.
 [PathTracer] Lightmap reset.
@@ -1344,25 +1366,25 @@ Dependency assembly - UnityEngine.StandardEvents.dll
 
 DisplayProgressbar: Fetching assembly references
 Unloading 14 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 297.1 MB.
+System memory in use before: 297.4 MB.
+System memory in use after: 297.5 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3565.
+Total: 13.095831 ms (FindLiveObjects: 0.670437 ms CreateObjectMapping: 0.106906 ms MarkObjects: 10.681973 ms  DeleteObjects: 1.634673 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 296.9 MB.
 System memory in use after: 297.1 MB.
 
-Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3563.
-Total: 12.080281 ms (FindLiveObjects: 0.585401 ms CreateObjectMapping: 0.070393 ms MarkObjects: 9.845226 ms  DeleteObjects: 1.577514 ms)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 3577.
+Total: 10.528758 ms (FindLiveObjects: 0.581702 ms CreateObjectMapping: 0.069562 ms MarkObjects: 9.868440 ms  DeleteObjects: 0.007581 ms)
 
 Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 296.5 MB.
-System memory in use after: 296.8 MB.
+System memory in use before: 341.8 MB.
+System memory in use after: 297.3 MB.
 
-Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 3575.
-Total: 10.506038 ms (FindLiveObjects: 0.602494 ms CreateObjectMapping: 0.069617 ms MarkObjects: 9.823814 ms  DeleteObjects: 0.008413 ms)
-
-Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 341.5 MB.
-System memory in use after: 297.0 MB.
-
-Unloading 145 unused Assets to reduce memory usage. Loaded Objects now: 3562.
-Total: 39.057245 ms (FindLiveObjects: 0.393188 ms CreateObjectMapping: 0.074846 ms MarkObjects: 10.178927 ms  DeleteObjects: 28.409491 ms)
+Unloading 145 unused Assets to reduce memory usage. Loaded Objects now: 3564.
+Total: 41.314640 ms (FindLiveObjects: 0.560669 ms CreateObjectMapping: 0.099572 ms MarkObjects: 10.654210 ms  DeleteObjects: 29.998846 ms)
 
 DisplayProgressbar: Building Player
 Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
@@ -1371,7 +1393,7 @@ Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
 Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
 Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
 Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
-Launched and connected shader compiler UnityShaderCompiler after 0.04 seconds
+Launched and connected shader compiler UnityShaderCompiler after 0.03 seconds
 Compressed texture icon_36 is used as icon. This might compromise visual quality of the final image. Uncompressed format might be considered as better import option.
 UnityEditor.BuildPipeline:BuildPlayerInternalNoCheck(String[], String, String, BuildTargetGroup, BuildTarget, BuildOptions, Boolean)
 UnityEditor.BuildPipeline:BuildPlayerInternal(String[], String, String, BuildTargetGroup, BuildTarget, BuildOptions) (at /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/BuildPipelineBindings.gen.cs:337)
@@ -1445,37 +1467,37 @@ Plugins.Editor.BuildPackage.CommandLineBuild:ExportAndroid() (at Assets/Plugins/
 (Filename: /Users/builduser/buildslave/unity/build/artifacts/generated/common/editor/BuildPipelineBindings.gen.cs Line: 337)
 
 DisplayProgressbar: Creating staging area
-Android PostProcess task "Creating staging area" took 2.042 ms
+Android PostProcess task "Creating staging area" took 1.816 ms
 DisplayProgressbar: Generating Build Id
-Android PostProcess task "Generating Build Id" took 0.172 ms
+Android PostProcess task "Generating Build Id" took 0.197 ms
 DisplayProgressbar: Preparing Unity resources
-Android PostProcess task "Preparing Unity resources" took 10.071 ms
+Android PostProcess task "Preparing Unity resources" took 10.466 ms
 DisplayProgressbar: Splitting assets
-Android PostProcess task "Splitting assets" took 3.8 ms
-Android PostProcess task "Processing OBB assets" took 0.099 ms
+Android PostProcess task "Splitting assets" took 3.921 ms
+Android PostProcess task "Processing OBB assets" took 0.084 ms
 DisplayProgressbar: Preparing Unity libraries
-Android PostProcess task "Preparing Unity libraries" took 76.414 ms
+Android PostProcess task "Preparing Unity libraries" took 50.586 ms
 DisplayProgressbar: Processing resources
-Android PostProcess task "Processing resources" took 0.249 ms
+Android PostProcess task "Processing resources" took 0.208 ms
 DisplayProgressbar: Preparing APK resources
-Android PostProcess task "Preparing APK resources" took 23.569 ms
+Android PostProcess task "Preparing APK resources" took 22.736 ms
 DisplayProgressbar: Processing plugins
-Android PostProcess task "Processing plugins" took 67.765 ms
+Android PostProcess task "Processing plugins" took 68.073 ms
 DisplayProgressbar: Processing Android libraries
-Android PostProcess task "Processing Android libraries" took 0.95 ms
+Android PostProcess task "Processing Android libraries" took 0.87 ms
 DisplayProgressbar: Creating Android manifest
 DisplayProgressbar: Fetching assembly references
-Android PostProcess task "Creating Android manifest" took 1306.313 ms
+Android PostProcess task "Creating Android manifest" took 1208.671 ms
 DisplayProgressbar: Compiling resources
-Android PostProcess task "Compiling resources" took 3.174 ms
-Android PostProcess task "IL2CPP" took 0.414 ms
-Android PostProcess task "Build native Unity binary" took 0.136 ms
-Android PostProcess task "Zipping symbols" took 0.299 ms
-Android PostProcess task "Performance Reporting Symbol Upload" took 0.254 ms
+Android PostProcess task "Compiling resources" took 3.162 ms
+Android PostProcess task "IL2CPP" took 0.412 ms
+Android PostProcess task "Build native Unity binary" took 0.116 ms
+Android PostProcess task "Zipping symbols" took 0.309 ms
+Android PostProcess task "Performance Reporting Symbol Upload" took 0.24 ms
 DisplayProgressbar: Preparing streaming assets
-Android PostProcess task "Preparing streaming assets" took 0.853 ms
-Android PostProcess task "fastzip" took 0.077 ms
-Android PostProcess task "AAPT: Compiling all assets into one archive" took 0.23 ms
+Android PostProcess task "Preparing streaming assets" took 0.787 ms
+Android PostProcess task "fastzip" took 0.078 ms
+Android PostProcess task "AAPT: Compiling all assets into one archive" took 0.27 ms
 DisplayProgressbar: Exporting project
 Trying to add file /Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam/libs/unity-classes.jar to the list of ouptut files in the build report, but a file at that path has already been added.
 UnityEditor.BuildReporting.BuildReport:AddFile(String, String)
@@ -1500,7 +1522,7 @@ Plugins.Editor.BuildPackage.CommandLineBuild:ExportAndroid() (at Assets/Plugins/
 [/Users/builduser/buildslave/unity/build/Editor/Src/BuildReporting/BuildReport.cpp line 135] 
 (Filename: /Users/builduser/buildslave/unity/build/Editor/Mono/BuildPipeline/PostprocessBuildPlayer.cs Line: 272)
 
-Android PostProcess task "Exporting project" took 153.243 ms
+Android PostProcess task "Exporting project" took 135.72 ms
 
 -------------------------------------------------------------------------------
 Build Report
@@ -2430,31 +2452,31 @@ Used Assets and files from the Resources folder, sorted by uncompressed size:
  0.1 kb	 0.0% Assets/WitBaiduAip/Examples/Asr/AsrDemo.cs
 -------------------------------------------------------------------------------
 Unloading 19 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 299.2 MB.
-System memory in use after: 299.2 MB.
+System memory in use before: 299.6 MB.
+System memory in use after: 299.6 MB.
 
-Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3583.
-Total: 12.553493 ms (FindLiveObjects: 0.595448 ms CreateObjectMapping: 0.071855 ms MarkObjects: 10.261266 ms  DeleteObjects: 1.623408 ms)
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 3585.
+Total: 13.196532 ms (FindLiveObjects: 0.653609 ms CreateObjectMapping: 0.126908 ms MarkObjects: 10.748789 ms  DeleteObjects: 1.665468 ms)
 
-Load scene 'Temp/__Backupscenes/0.backup' time: 0.051447 ms 
+Load scene 'Temp/__Backupscenes/0.backup' time: 0.041251 ms 
 Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
-[00:00:00] Enlighten: Reflection Probes took 4.791983 seconds. Cancelled, so not done yet.
-System memory in use before: 298.7 MB.
-System memory in use after: 298.9 MB.
+[00:00:00] Enlighten: Reflection Probes took 4.282471 seconds. Cancelled, so not done yet.
+System memory in use before: 299.0 MB.
+System memory in use after: 299.3 MB.
 
-Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 3573.
-Total: 12.396969 ms (FindLiveObjects: 0.664628 ms CreateObjectMapping: 0.072432 ms MarkObjects: 11.646032 ms  DeleteObjects: 0.012080 ms)
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 3575.
+Total: 13.975079 ms (FindLiveObjects: 0.760521 ms CreateObjectMapping: 0.102230 ms MarkObjects: 13.101959 ms  DeleteObjects: 0.009462 ms)
 
 
-*** Completed 'Build.Player.AndroidPlayer' in 12 seconds (11938 ms)
+*** Completed 'Build.Player.AndroidPlayer' in 11 seconds (11186 ms)
 
 - Starting compile Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll
 
 -----Compiler Commandline Arguments:
 Filename: /Applications/Unity/Unity.app/Contents/MonoBleedingEdge/bin/mono
-Arguments: '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.5/mcs.exe'  @Temp/UnityTempFile-a5e81b97519174b49acb63d61110bca1
+Arguments: '/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.5/mcs.exe'  @Temp/UnityTempFile-654ef86363b0f4271bddcc811f390496
 index: 81
-Responsefile: Temp/UnityTempFile-a5e81b97519174b49acb63d61110bca1 Contents: 
+Responsefile: Temp/UnityTempFile-654ef86363b0f4271bddcc811f390496 Contents: 
 -debug
 -target:library
 -nowarn:0169
@@ -3538,15 +3560,15 @@ Assets/Plugins/MP3Sharp/Decoding/Huffman.cs(704,22): warning CS0414: The private
 Symbols will be read from Temp/Assembly-CSharp-firstpass.dll.mdb
 Script Module: Assembly-CSharp-firstpass.dll
 Pass: 0 took 10 milliseconds
-Pass: 1 took 8 milliseconds
+Pass: 1 took 20 milliseconds
 - Starting compile Library/ScriptAssemblies/Assembly-CSharp.dll
 - Starting compile Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll
+- Finished compile Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll
 - Finished compile Library/ScriptAssemblies/Assembly-CSharp.dll
 Symbols will be read from Temp/Assembly-CSharp.dll.mdb
 Script Module: Assembly-CSharp.dll
 Pass: 0 took 3 milliseconds
-Pass: 1 took 7 milliseconds
-- Finished compile Library/ScriptAssemblies/Assembly-CSharp-Editor-firstpass.dll
+Pass: 1 took 6 milliseconds
 Assets/Plugins/LitJson/JsonData.cs(448,13): warning CS0162: Unreachable code detected
  
 (Filename: Assets/Plugins/LitJson/JsonData.cs Line: 448)
@@ -3597,33 +3619,33 @@ Assets/Plugins/MP3Sharp/Decoding/Huffman.cs(704,22): warning CS0414: The private
 
 Reloading assemblies after script compilation.
 Begin MonoManager ReloadAssembly
-Refreshing native plugins compatible for Editor in 1.74 ms, found 3 plugins.
-Preloading 1 native plugins for Editor in 0.55 ms.
+Refreshing native plugins compatible for Editor in 1.56 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 0.48 ms.
 Mono: successfully reloaded assembly
-Refreshing native plugins compatible for Editor in 0.52 ms, found 3 plugins.
-Preloading 1 native plugins for Editor in 0.50 ms.
+Refreshing native plugins compatible for Editor in 0.45 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 0.47 ms.
 
------ Total AssetImport time: 0.096779s, AssetImport time: 0.000006s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+----- Total AssetImport time: 0.105182s, AssetImport time: 0.000000s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
 
-- Completed reload, in  1.372 seconds
+- Completed reload, in  1.411 seconds
 Initializing Unity.PackageManager (PackageManager) v2017.4.3 for Unity v2017.4.3f1
 Registering platform support modules:
-Registered platform support modules in: 0.049991s.
+Registered platform support modules in: 0.051792s.
 Native extension for OSXStandalone target not found
 Native extension for WebGL target not found
 Native extension for iOS target not found
-[XcodeApplications] RefreshListOfAvailableXcodeApplications in: 0.003992s.
+[XcodeApplications] RefreshListOfAvailableXcodeApplications in: 0.00372s.
 Native extension for Android target not found
 Batchmode quit successfully invoked - shutting down!
-Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.039781 seconds (Nothing changed)
+Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.038841 seconds (Nothing changed)
 Updating ProjectSettings/ProjectSettings.asset - GUID: 00000000000000004000000000000000...
- done. [Time: 49.702576 ms] 
-Refreshing native plugins compatible for Editor in 0.49 ms, found 3 plugins.
-Preloading 1 native plugins for Editor in 0.47 ms.
+ done. [Time: 42.914022 ms] 
+Refreshing native plugins compatible for Editor in 0.50 ms, found 3 plugins.
+Preloading 1 native plugins for Editor in 0.52 ms.
 
------ Total AssetImport time: 0.152598s, AssetImport time: 0.091285s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
+----- Total AssetImport time: 0.141386s, AssetImport time: 0.077983s, Asset hashing: 0.000000s [0 B, 0.000000 mb/s]
 
-Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.038949 seconds (Nothing changed)
+Refresh: detecting if any assets need to be imported or removed ... Refresh: elapses 0.039088 seconds (Nothing changed)
 [Package Manager] Server::Kill -- Server was shutdown
 Cleanup mono
 Exiting batchmode successfully now!

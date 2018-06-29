@@ -79,9 +79,39 @@ fastlane ios entitlements
 fastlane ios certificates
 ```
 
+### ios match_certificates
+```
+fastlane ios match_certificates
+```
+
+### ios automatic_signing
+```
+fastlane ios automatic_signing
+```
+
+### ios update_identifier
+```
+fastlane ios update_identifier
+```
+
+### ios update_team
+```
+fastlane ios update_team
+```
+
+### ios update_provisioning
+```
+fastlane ios update_provisioning
+```
+
 ### ios assemble
 ```
 fastlane ios assemble
+```
+
+### ios assemble_source
+```
+fastlane ios assemble_source
 ```
 
 ### ios upload_assets
@@ -156,11 +186,6 @@ fastlane android teamcity_export_parameter
 ### android teamcity_artifacts
 ```
 fastlane android teamcity_artifacts
-```
-
-### android assemble3
-```
-fastlane android assemble3
 ```
 
 ### android assemble

@@ -5,6 +5,16 @@
         is-multidex="false"
         jar="/Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam/libs/unity-classes.jar"
         jumboMode="false"
+        min-sdk-version="16"
+        optimize="true"
+        revision="27.0.3"
+        sha1="7e2055687e591ef7c407e598aa5df67b41e374a6">
+        <dex dex="/Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam/build/intermediates/transforms/preDex/release/1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam/libs/unity-classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="27.0.3"
         sha1="7e2055687e591ef7c407e598aa5df67b41e374a6">

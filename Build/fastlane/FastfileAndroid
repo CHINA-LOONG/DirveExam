@@ -70,9 +70,6 @@ platform :android do
     end
     #############################################
     #
-    lane :assemble3 do |options|
-        sh("keytool -list -printcert -jarfile #{apk_path}")
-    end
     lane :assemble do |options|
         gradle_build = (options[:gradle_build] || :Release).to_sym
 
@@ -91,19 +88,19 @@ platform :android do
             print_command_output: true
         )
 
-        #sh("keytool -list -printcert -jarfile #{apk_path}")
+        sh("keytool -list -printcert -jarfile #{apk_path}")
 
-        #hash_md5 = `md5 -q #{apk_path}`.strip
-        #hash_sha1 = `shasum #{apk_path} | cut -f 1 -d " "`.strip
+        hash_md5 = `md5 -q #{apk_path}`.strip
+        hash_sha1 = `shasum #{apk_path} | cut -f 1 -d " "`.strip
 
-        #UI.message "
-        #    #{`stat -l #{apk_path}`.strip}
-        #    md5:  #{hash_md5}
-        #    sha1: #{hash_sha1}
-        #"
+        UI.message "
+            #{`stat -l #{apk_path}`.strip}
+            md5:  #{hash_md5}
+            sha1: #{hash_sha1}
+        "
     #ensure
         #{}`echo "#{gradle_output}" > #{log_path("gradle-#{gradle_build}")}`
-        #teamcity_artifact(log_path("gradle-#{gradle_build}"))
+        teamcity_artifact(log_path("gradle-#{gradle_build}"))
     end
     ##########################################################
     #

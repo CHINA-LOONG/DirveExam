@@ -38,7 +38,7 @@ platform :ios do
     ##########################################################
     #
     lane :icon do |options|
-        path = "/Output/#{@platform}/Build-#{build_version}/loveworld"
+        path = "/Output/#{@platform}/Build-#{build_version}/#{product_name}"
         options[:glob] = "#{path}/Unity-iPhone/Images.xcassets/AppIcon.appiconset/*.{png,PNG}"
 
         do_icon(options)
@@ -88,22 +88,106 @@ platform :ios do
     end
     ##########################################################
     #
-    lane :certificates do |options|
-        # AdHoc, AppStore
-        match = (options[:match] || :AdHoc).to_sym
-        next if match == :Skip
-
-        method = match == :AdHoc ? 'adhoc' : 'appstore'
-
+    lane :certificates do
         match(
-            type: method,
+            type: 'enterprise',
             app_identifier: app_identifier,
             readonly: true
         )
     end
     ##########################################################
     #
+
+    lane :match_certificates do
+        # AdHoc, AppStore
+        match(
+            type: "enterprise",
+            app_identifier: app_identifier,
+            readonly: true
+        )
+    end
+    lane :automatic_signing do
+        #是否自动签名
+        automatic_code_signing(
+            path: xcodeproj_path,
+            use_automatic_signing: false
+        )
+    end
+    lane :update_identifier do
+        update_app_identifier(
+            xcodeproj: xcodeproj_path,
+            plist_path: 'Info.plist',
+            app_identifier: app_identifier
+        )
+    end
+    lane :update_team do
+        update_project_team(
+            path: xcodeproj_path,
+            teamid: ENV['IOS_TEAM_ID']
+        )
+    end
+
+
+    lane :update_provisioning do
+
+        UI.message ENV['IOS_PROVISIONING_PROFILE_SPECIFIER']
+        update_provisioning_profile_specifier(
+            xcodeproj: xcodeproj_path,
+            new_specifier: ENV['IOS_PROVISIONING_PROFILE_SPECIFIER']
+        )
+    end
+
     lane :assemble do |options|
+
+        UI.message "CODE_SIGN_IDENTITY=\"#{ENV['IOS_CODE_SIGN_IDENTITY']}\""
+        automatic_code_signing(
+            path: xcodeproj_path,
+            use_automatic_signing: false
+        )
+        update_app_identifier(
+            xcodeproj: xcodeproj_path,
+            plist_path: 'Info.plist',
+            app_identifier: app_identifier
+        )
+        update_project_provisioning(
+            xcodeproj: xcodeproj_path,
+            code_signing_identity: ENV['IOS_CODE_SIGN_IDENTITY'],
+            profile: ENV['IOS_PROVISIONING_PROFILE_PATH']
+        )
+
+        gym(
+            project: xcodeproj_path,
+            archive_path: build_path,
+            scheme: 'Unity-iPhone',
+            clean: true,
+            output_directory: build_path,
+            output_name: ipa_name,
+            export_method: 'enterprise',
+            codesigning_identity: ENV['IOS_CODE_SIGN_IDENTITY'],
+            export_options:{provisioningProfiles:{"com.loong.DriveExam" => 'jiakaoUnityInhouse'}}
+        )
+        gym_log = "/Users/#{`whoami`.strip}/Library/Logs/gym/AvgMaker-Unity-iPhone.log"
+
+        `
+        if [ -f #{gym_log} ]; then
+            mv #{gym_log} #{log_path('gym')}
+        fi
+        `
+
+        teamcity_artifact(log_path('gym'))
+
+        hash_md5 = `md5 -q #{ipa_path}`.strip
+        hash_sha1 = `shasum #{ipa_path} | cut -f 1 -d " "`.strip
+
+        UI.message "
+            #{`stat -l #{ipa_path}`.strip}
+            md5:  #{hash_md5}
+            sha1: #{hash_sha1}
+        "
+    end
+
+
+    lane :assemble_source do |options|
         # AdHoc, AppStore
         match = (options[:match] || :AdHoc).to_sym
 
@@ -228,14 +312,14 @@ platform :ios do
         options[:collection] = options[:collection] || :GenerateSystem
         options[:streaming] = options[:streaming] || :StreamingSystem
 
-        info(options)
-        update_version(options)
-        generate_asset(options)
-        copy_asset(options)
+        #info(options)
+        #update_version(options)
+        #generate_asset(options)
+        #copy_asset(options)
         export(options)
         icon(options)
         assemble(options)
-        deploy(options)
+        #deploy(options)
     end
     ##########################################################
     #

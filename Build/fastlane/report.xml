@@ -5,74 +5,87 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="00: Verifying fastlane version" time="0.002872">
+      <testcase classname="fastlane.lanes" name="00: Verifying fastlane version" time="0.002412">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="01: add_extra_platforms" time="0.002392">
+      <testcase classname="fastlane.lanes" name="01: add_extra_platforms" time="0.002243">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="02: default_platform" time="0.001636">
+      <testcase classname="fastlane.lanes" name="02: default_platform" time="0.001544">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="03: Switch to android info lane" time="0.002031">
+      <testcase classname="fastlane.lanes" name="03: Switch to ios export lane" time="0.001681">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="04: Switch to android export lane" time="0.002873">
+      <testcase classname="fastlane.lanes" name="04: Switch to ios do_export lane" time="0.001437">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="05: Switch to android do_export lane" time="0.001538">
+      <testcase classname="fastlane.lanes" name="05: Switch to ios do_set_package_setting lane" time="0.001394">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="06: Switch to android do_set_package_setting lane" time="0.001665">
+      <testcase classname="fastlane.lanes" name="06: unity" time="63.402693">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="07: unity" time="24.645687">
+      <testcase classname="fastlane.lanes" name="07: echo &quot;##teamcity[publishArtifacts 'Build/Output/iOS/Build-1.0.16/DriveExam/Unity.BuildiOS-1.0.16-Export.log']&quot;" time="0.009751">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="08: echo &quot;##teamcity[publishArtifacts 'Build/Output/Android/Build-1.0.0/Unity.BuildAndroid-1.0.0-Export.log']&quot;" time="0.00932">
+      <testcase classname="fastlane.lanes" name="08: Switch to ios icon lane" time="0.00208">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="09: Switch to android icon lane" time="0.002248">
+      <testcase classname="fastlane.lanes" name="09: Switch to ios do_icon lane" time="0.003315">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="10: Switch to android do_icon lane" time="0.002541">
+      <testcase classname="fastlane.lanes" name="10: add_badge" time="21.444651">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="11: add_badge" time="10.651199">
+      <testcase classname="fastlane.lanes" name="11: Switch to ios assemble lane" time="0.002098">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="12: Switch to android assemble lane" time="0.002031">
+      <testcase classname="fastlane.lanes" name="12: automatic_code_signing" time="0.244983">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="13: gradle" time="10.120979">
+      <testcase classname="fastlane.lanes" name="13: update_app_identifier" time="0.009794">
         
-          <failure message="/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:236:in `block in execute_action'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:231:in `chdir'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:231:in `execute_action'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:157:in `trigger_action_by_name'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/fast_file.rb:149:in `method_missing'&#10;FastfileAndroid:86:in `block (2 levels) in parsing_binding'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:204:in `try_switch_to_lane'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:146:in `trigger_action_by_name'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/fast_file.rb:149:in `method_missing'&#10;FastfileAndroid:167:in `block (2 levels) in parsing_binding'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/lane.rb:33:in `call'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:49:in `block in execute'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:45:in `chdir'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/runner.rb:45:in `execute'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/lane_manager.rb:59:in `cruise_lane'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/command_line_handler.rb:36:in `handle'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/commands_generator.rb:107:in `block (2 levels) in run'&#10;/Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:178:in `call'&#10;/Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/command.rb:153:in `run'&#10;/Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/runner.rb:476:in `run_active_command'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane_core/lib/fastlane_core/ui/fastlane_runner.rb:75:in `run!'&#10;/Library/Ruby/Gems/2.3.0/gems/commander-fastlane-4.4.6/lib/commander/delegates.rb:15:in `run!'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/commands_generator.rb:332:in `run'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/commands_generator.rb:41:in `start'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/fastlane/lib/fastlane/cli_tools_distributor.rb:108:in `take_off'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.98.0/bin/fastlane:20:in `&lt;top (required)&gt;'&#10;/usr/local/bin/fastlane:22:in `load'&#10;/usr/local/bin/fastlane:22:in `&lt;main&gt;'&#10;&#10;Exit status of command '/Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam/gradlew assembleRelease -p /Users/xuelong/Development/DirveExam/Build/Output/Android/Build-1.0.0/DriveExam' was 1 instead of 0.&#10;Starting a Gradle Daemon, 2 stopped Daemons could not be reused, use --status for details&#10;Parallel execution with configuration on demand is an incubating feature.&#10;NDK is missing a &quot;platforms&quot; directory.&#10;If you are using NDK, verify the ndk.dir is set to a valid NDK directory.  It is currently set to /Users/xuelong/Library/Android/sdk/ndk-bundle.&#10;If you are not using NDK, unset the NDK variable from ANDROID_NDK_HOME or local.properties to remove this warning.&#10;&#10;The CompileOptions.bootClasspath property has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the CompileOptions.bootstrapClasspath property instead.&#10;The setTestClassesDir(File) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the setTestClassesDirs(FileCollection) method instead.&#10;The getTestClassesDir() method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the getTestClassesDirs() method instead.&#10;The ConfigurableReport.setDestination(Object) method has been deprecated and is scheduled to be removed in Gradle 5.0. Please use the method ConfigurableReport.setDestination(File) instead.&#10;:preBuild UP-TO-DATE&#10;:preReleaseBuild UP-TO-DATE&#10;:checkReleaseManifest&#10;:prepareReleaseDependencies&#10;:compileReleaseAidl&#10;:compileReleaseRenderscript&#10;:generateReleaseBuildConfig&#10;:generateReleaseResValues&#10;:generateReleaseResources&#10;:mergeReleaseResources&#10;:processReleaseManifest&#10;:processReleaseResources&#10;:generateReleaseSources&#10;:incrementalReleaseJavaCompilationSafeguard&#10;:javaPreCompileRelease&#10;:compileReleaseJavaWithJavac&#10;:compileReleaseNdk NO-SOURCE&#10;:compileReleaseSources&#10;:lintVitalRelease&#10;:mergeReleaseShaders&#10;:compileReleaseShaders&#10;:generateReleaseAssets&#10;:mergeReleaseAssets&#10;:transformClassesWithDexForRelease&#10;:mergeReleaseJniLibFolders&#10;:transformNativeLibsWithMergeJniLibsForRelease&#10;:processReleaseJavaRes NO-SOURCE&#10;:transformResourcesWithMergeJavaResForRelease&#10;:validateSigningRelease&#10;:packageRelease FAILED&#10;&#10;FAILURE: Build failed with an exception.&#10;&#10;* What went wrong:&#10;Execution failed for task ':packageRelease'.&#10;&gt; com.android.ide.common.signing.KeytoolException: Failed to read key driveexam from store &quot;/Users/xuelong/Development/DirveExam/Assets/KeyStore/drive_exam.keystore&quot;: Keystore was tampered with, or password was incorrect&#10;&#10;* Try:&#10;Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output. Run with --scan to get full insights.&#10;&#10;* Get more help at https://help.gradle.org&#10;&#10;BUILD FAILED in 9s&#10;22 actionable tasks: 22 executed&#10;" />
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="14: update_project_provisioning" time="0.176495">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="15: gym" time="898.833035">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="16: echo &quot;##teamcity[publishArtifacts 'Build/Output/iOS/Build-1.0.16/DriveExam/Unity.BuildiOS-1.0.16-gym.log']&quot;" time="0.010116">
         
       </testcase>
     
