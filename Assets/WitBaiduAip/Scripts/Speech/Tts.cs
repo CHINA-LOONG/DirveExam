@@ -100,12 +100,13 @@ namespace Wit.BaiduAip.Speech
 
                 if (type == "audio/mp3")
                 {
-#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_UWP
+//#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_UWP
                     var clip = GetAudioClipFromMP3ByteArray(www.downloadHandler.data);
                     var response = new TtsResponse {clip = clip};
-#else
-                    var response = new TtsResponse {clip = DownloadHandlerAudioClip.GetContent(www) };
-#endif
+//#else
+//                    var response = new TtsResponse {clip = DownloadHandlerAudioClip.GetContent(www) };
+//#endif
+
                     callback(response);
                 }
                 else
@@ -119,7 +120,7 @@ namespace Wit.BaiduAip.Speech
         }
 
 
-#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_UWP
+//#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_UWP
         /// <summary>
         /// 将mp3格式的字节数组转换为audioclip
         /// </summary>
@@ -163,6 +164,6 @@ namespace Wit.BaiduAip.Speech
 
             return audioClip;
         }
-#endif
+//#endif
     }
 }

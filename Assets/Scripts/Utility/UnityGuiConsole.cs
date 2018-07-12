@@ -29,8 +29,8 @@ public class UnityGuiConsole : MonoBehaviour {
 	}
 
 	void Start(){
-	    Instance = this;        
-		Application.RegisterLogCallback(LogCallback);
+	    Instance = this;
+        Application.logMessageReceived += LogCallback;
 	}
 
     private float CoolDown_ = 0;

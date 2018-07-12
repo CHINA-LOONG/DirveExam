@@ -1,5 +1,20 @@
-﻿
+﻿using System.Collections.Generic;
+
 public class Data_Base { }
+
+/// <summary>
+/// 游戏配置文件
+/// </summary>
+public class GameConfig:Data_Base{
+    /// <summary>
+    /// 游戏配置版本
+    /// </summary>
+    public string version = "0";
+    /// <summary>
+    /// 试题列表
+    /// </summary>
+    public List<QuestionData> questions = new List<QuestionData>();
+}
 
 /// <summary>
 /// 試題的數據結構
@@ -9,8 +24,11 @@ public class QuestionData:Data_Base{
     /// 轉語音的文字描述
     /// </summary>
     public string question;
+    /// <summary>
+    /// 试题答案文案.
+    /// </summary>
+    public string answer;
 }
-
 
 ////抽奖箱子
 //public class pendingChest : Data_Base
@@ -19,10 +37,10 @@ public class QuestionData:Data_Base{
 //    public int type;
 //    public int value;
 //    public int status;
-
+//
 //    public pendingCard card;
-
-
+//
+//
 //    public static void Parse(LitJson.JsonData json, out pendingChest data)
 //    {
 //        data = new pendingChest();
@@ -47,5 +65,5 @@ public class QuestionData:Data_Base{
 //            throw;
 //        }
 //    }
-
+//
 //}

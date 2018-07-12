@@ -112,7 +112,7 @@ public class XSingletonCreator {
         ConstructorInfo ctor = Array.Find(ctors, c => c.GetParameters().Length == 0);
 
         if (ctor == null) {
-            Debug.LogWarning("Non-public ctor() not found!");
+            //Debug.LogWarning("Non-public ctor() not found!");
             ctors = typeof(T).GetConstructors(BindingFlags.Instance | BindingFlags.Public);
             ctor = Array.Find(ctors, c => c.GetParameters().Length == 0);
         }
@@ -151,6 +151,9 @@ public class XSingletonCreator {
                 }
 
                 instance.OnInit();
+            }else
+            {
+                UnityEngine.Object.DontDestroyOnLoad(instance.gameObject);
             }
         }
 
