@@ -3,20 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Networking;
+using Wit.BaiduAip.Speech;
 
 public class MainSceneMgr : MonoBehaviour
 {
+    public string APIKey = "WondCiSwY0RzHYc7hGS2bFoc";
+    public string SecretKey = "NjaCdrsUKPi9xiB6X6F6T46B2TdT8ZcT";
+
+    public UILoginWindow uiLoginWindow;
+    public Tts ttsString2Audio;
     private void Awake()
     {
+        ttsString2Audio = new Tts(APIKey, SecretKey);
         if (!GlobalManager.Instance.isLogin)
         {
             //未登录
-            UIManager.Instance.OpenWindow<UILoginWindow>();
+            uiLoginWindow = UIManager.Instance.OpenWindow<UILoginWindow>();
         }
         else
         {
             //已登录
-            UIManager.Instance.OpenWindow<UILoginWindow>();
+            uiLoginWindow = UIManager.Instance.OpenWindow<UILoginWindow>();
         }
         CheckConfigUpdate();
     }
@@ -32,17 +39,62 @@ public class MainSceneMgr : MonoBehaviour
         {
             if (result)
             {
-                
                 GameConfig gameConfig = LitJson.JsonMapper.ToObject<GameConfig>(content);
                 if (gameConfig.version != ConfigDataMgr.Instance.gameConfig.version)
                 {
-                    //初始化数据
-                    ConfigDataMgr.Instance.gameConfig = gameConfig;
-                    ConfigDataMgr.Instance.WriteGameConfigData();
+                    StartCoroutine(TurnString2Audio(gameConfig));
                 }
             }
         }));
     }
+
+    IEnumerator TurnString2Audio(GameConfig gameConfig)
+    {
+        List<string> turnList = new List<string>();
+
+        //通用语音检测部分
+        CheckStringToAudio(ConfigDataMgr.ExamStart, turnList);
+        //试题语音检测部分
+        for (int i = 0; i < gameConfig.questions.Count; i++)
+        {
+            QuestionData questionData = gameConfig.questions[i];
+            CheckStringToAudio(questionData.question, turnList);
+        }
+        //设置转换进度
+        for (int i = 0; i < turnList.Count; i++)
+        {
+            yield return StartCoroutine(ttsString2Audio.Synthesis(turnList[i], result =>
+            {
+                if (result.Success)
+                {
+                    Debug.LogFormat("Trun Success：{0}", turnList[i]);
+                    string fileName = System.Guid.NewGuid().ToString("N");
+                    ResourcesMgr.Instance.WriteAudioFile(fileName, result.data);
+                    ConfigDataMgr.Instance.audioDict.Add(turnList[i], fileName);
+                }
+                else
+                {
+                    Debug.LogErrorFormat("Error:Str2Audio errorno<{0}> errormsg<{1}>", result.err_no, result.err_msg);
+                }
+            }));
+            //更新转换进度
+        }
+        //记录文件映射表
+        ConfigDataMgr.Instance.WriteAudioDictData();
+        //更新题库数据
+        ConfigDataMgr.Instance.gameConfig = gameConfig;
+        ConfigDataMgr.Instance.WriteGameConfigData();
+    }
+
+    void CheckStringToAudio(string str2audio,List<string> turnList)
+    {
+        if (!ConfigDataMgr.Instance.audioDict.ContainsKey(str2audio))
+        {
+            turnList.Add(str2audio);
+        }
+    }
+
+
 
     /// <summary>
     /// Requests the network file.
@@ -85,5 +137,6 @@ public class MainSceneMgr : MonoBehaviour
             callback(false, null, null);
         }
     }
+
 
 }

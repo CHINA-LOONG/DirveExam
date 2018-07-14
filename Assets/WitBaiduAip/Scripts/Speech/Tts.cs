@@ -29,6 +29,7 @@ namespace Wit.BaiduAip.Speech
             get { return err_no == 0; }
         }
 
+        public byte[] data;
         public AudioClip clip;
     }
 
@@ -102,7 +103,7 @@ namespace Wit.BaiduAip.Speech
                 {
 //#if UNITY_STANDALONE || UNITY_EDITOR || UNITY_UWP
                     var clip = GetAudioClipFromMP3ByteArray(www.downloadHandler.data);
-                    var response = new TtsResponse {clip = clip};
+                    var response = new TtsResponse { clip = clip, data = www.downloadHandler.data };
 //#else
 //                    var response = new TtsResponse {clip = DownloadHandlerAudioClip.GetContent(www) };
 //#endif

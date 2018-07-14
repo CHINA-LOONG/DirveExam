@@ -11,11 +11,7 @@ public class GlobalManager : XMonoSingleton<GlobalManager>
     {
         GlobalManager.Instance.isLogin = false;
         UIManager.Instance.CloseAllWindow();
-
-
+        
         SceneManager.LoadScene("MainScene");
-
-        ConfigDataMgr.Instance.ReadGameConfigData();
-        ConfigDataMgr.Instance.WriteAudioDictData();
     }
 }

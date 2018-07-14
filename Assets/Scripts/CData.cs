@@ -14,6 +14,8 @@ public class GameConfig:Data_Base{
     /// 试题列表
     /// </summary>
     public List<QuestionData> questions = new List<QuestionData>();
+    
+    //public Dictionary<string,List<string>> 
 }
 
 /// <summary>

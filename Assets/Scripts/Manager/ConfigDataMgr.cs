@@ -14,8 +14,8 @@ public class ConfigDataMgr : XSingleton<ConfigDataMgr>
     public override void OnInit()
     {
         base.OnInit();
-        //audioDict.Add("aaa", "bbb");
-        //audioDict.Add("ccc", "bbb");
+        ReadGameConfigData();
+        ReadAudioDictData();
     }
 
     /// <summary>

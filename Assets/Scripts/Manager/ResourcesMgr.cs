@@ -11,10 +11,15 @@ public class ResourcesMgr : Singleton<ResourcesMgr>
         get
         {
 #if UNITY_EDITOR
-            return Path.Combine(Application.dataPath, "config");
+            string configPath = Path.Combine(Application.dataPath, "config");
 #else
-            return Path.Combine(Application.persistentDataPath, "config");
+            string configPath = Path.Combine(Application.persistentDataPath, "config");
 #endif
+            if (!Directory.Exists(configPath))
+            {
+                Directory.CreateDirectory(configPath);
+            }
+            return configPath;
         }
     }
     public static string AudioPath
@@ -22,16 +27,36 @@ public class ResourcesMgr : Singleton<ResourcesMgr>
         get
         {
 #if UNITY_EDITOR
-            return Path.Combine(Application.dataPath, "audio");
+            string audioPath = Path.Combine(Application.dataPath, "audio");
 #else
-            return Path.Combine(Application.persistentDataPath, "audio");
+            string audioPath = Path.Combine(Application.persistentDataPath, "audio");
 #endif
+            if (!Directory.Exists(audioPath))
+            {
+                Directory.CreateDirectory(audioPath);
+            }
+            return audioPath;
         }
     }
-
-
-
+    
     public GameObject LoadUIPrefab(string assetName){
         return Resources.Load(assetName) as GameObject;
+    }
+
+    public AudioClip GetAudioWithStr(string content)
+    {
+        string fileName = ConfigDataMgr.Instance.audioDict[content];
+        return ReadAudioFile(fileName);
+    }
+
+    public AudioClip ReadAudioFile(string fileName)
+    {
+        byte[] data = File.ReadAllBytes(Path.Combine(AudioPath, fileName));
+        AudioClip audioClip = Util.GetAudioClipFromMP3ByteArray(data);
+        return audioClip;
+    }
+    public void WriteAudioFile(string fileName, byte[] audio)
+    {
+        File.WriteAllBytes(Path.Combine(AudioPath, fileName), audio);
     }
 }

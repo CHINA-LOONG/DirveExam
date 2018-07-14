@@ -16,7 +16,7 @@ public class UIManager : XMonoSingleton<UIManager>
         base.OnInit();
     }
 
-    public void OpenWindow<T>() where T : UIPanelBase
+    public T OpenWindow<T>() where T : UIPanelBase
     {
         System.Type type = typeof(T);
 
@@ -24,18 +24,35 @@ public class UIManager : XMonoSingleton<UIManager>
         if (type.IsSubclassOf(typeof(UIWindow)))
         {
             GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.identity, wndParent);
-            T wnd = go.GetComponent<T>();
-
-            windowsStack.Push(wnd as UIWindow);
-            //Debug.Log("打開界面："+type.ToString());
+            UIWindow wnd = go.GetComponent<UIWindow>();
+            wnd.OnCreate();
+            //创建新的主界面时，删除所有界面
+            if (wnd.isMain)
+            {
+                while (windowsStack.Count > 0)
+                {
+                    UIWindow temp = windowsStack.Pop();
+                    temp.OnDispose();
+                    Destroy(temp.gameObject);
+                }
+            }
+            wnd.OnShow();
+            windowsStack.Push(wnd);
+            return wnd as T;
         }
         else if (type.IsSubclassOf(typeof(UIDialog)))
         {
-            //Debug.Log("打開彈框："+type.ToString());
+            GameObject go = Instantiate(prefab, Vector3.zero, Quaternion.identity, dlgParent);
+            UIDialog dlg = go.GetComponent<UIDialog>();
+            dlg.OnCreate();
+            dlg.OnShow();
+            dialogsStack.Push(dlg);
+            return dlg as T;
         }
         else
         {
             Debug.LogError("打開的UI類型有問題，請檢測類型");
+            return null;
         }
     }
 
