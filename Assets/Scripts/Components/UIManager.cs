@@ -36,6 +36,12 @@ public class UIManager : XMonoSingleton<UIManager>
                     Destroy(temp.gameObject);
                 }
             }
+            else if (windowsStack.Count > 0)
+            {
+                UIWindow temp = windowsStack.Peek();
+                temp.OnHide();
+                temp.gameObject.SetActive(false);
+            }
             wnd.OnShow();
             windowsStack.Push(wnd);
             return wnd as T;
@@ -56,8 +62,48 @@ public class UIManager : XMonoSingleton<UIManager>
         }
     }
 
-    public void CloseAllWindow(){
-        
+    public void CloseWindow(UIPanelBase uiPanel)
+    {
+        if (uiPanel.GetType().IsSubclassOf(typeof(UIWindow)))
+        {
+            if (!(uiPanel as UIWindow).isMain && windowsStack.Peek() == uiPanel)
+            {
+                windowsStack.Pop();
+                Destroy(uiPanel.gameObject);
+                UIWindow temp = windowsStack.Peek();
+                temp.gameObject.SetActive(true);
+                temp.OnShow();
+            }
+            else
+            {
+                Debug.LogError("要关闭的界面不是栈顶元素或是栈底元素");
+            }
+        }
+        else if (uiPanel.GetType().IsSubclassOf(typeof(UIDialog)))
+        {
+            if (dialogsStack.Peek() == uiPanel)
+            {
+                dialogsStack.Pop();
+                Destroy(uiPanel.gameObject);
+                if (dialogsStack.Count > 0)
+                {
+                    dialogsStack.Peek().OnShow();
+                }
+            }
+            else
+            {
+                Debug.LogError("要关闭的界面不是栈顶元素");
+            }
+        }
+        else
+        {
+            Debug.LogError("关闭的UI類型有問題，請檢測類型");
+        }
+    }
+
+    public void CloseAllWindow()
+    {
+
     }
 
 }

@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 114188807991890316}
   - component: {fileID: 114780709104285180}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: TipsList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,7 +207,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 224947738125013944}
-  - component: {fileID: 114010934898263660}
+  - component: {fileID: 114369006703192622}
   m_Layer: 5
   m_Name: UILoadingWindow
   m_TagString: Untagged
@@ -300,20 +300,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114010934898263660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1662813747754114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0d6bd574adeb416282120d47eb48dad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMain: 1
-  textProg: {fileID: 114952622144743062}
-  ProgressBar: {fileID: 114366121168361360}
 --- !u!114 &114079430398380366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -470,6 +456,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   imgProgress: {fileID: 114638785454564980}
+--- !u!114 &114369006703192622
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662813747754114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2547173cb3cfc46a7bf7a7b369e4aea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMain: 0
+  progressBar: {fileID: 114366121168361360}
 --- !u!114 &114378089182002542
 MonoBehaviour:
   m_ObjectHideFlags: 1

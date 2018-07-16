@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114569849151354498}
   - component: {fileID: 114930038522495540}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: ButtonAilishe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -244,7 +244,7 @@ GameObject:
   - component: {fileID: 114000338873961188}
   - component: {fileID: 114769294084218306}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ButtonJieda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMain: 1
-  textProg: {fileID: 0}
-  ProgressBar: {fileID: 0}
+  btnJieda: {fileID: 114769294084218306}
+  btnAilishe: {fileID: 114930038522495540}
 --- !u!114 &114080416676992920
 MonoBehaviour:
   m_ObjectHideFlags: 1

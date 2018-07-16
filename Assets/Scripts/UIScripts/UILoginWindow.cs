@@ -5,15 +5,51 @@ using UnityEngine.UI;
 
 public class UILoginWindow : UIWindow
 {
-    public enum State{
+    public Text textState;
+
+    [System.Serializable]
+    public class LoginGroup
+    {
+        public GameObject root;
+        public InputField iptAccount;
+        public InputField iptPassword;
+        public Button btnLogin;
+        public Button btnRegister;
+        public Button btnWechat;
+    }
+    public LoginGroup loginGroup;
+
+    [System.Serializable]
+    public class ProgressGroup
+    {
+        public GameObject root;
+        public Text textProg;
+        public ProgressBar progressBar;
+    }
+    public ProgressGroup progressGroup;
+
+
+    public enum State
+    {
         None,
-        Normal,
         Login,
         Update
     }
+    private State uiState = State.None;
 
-    public Button button;
-    public AudioSource audioSource;
+    public State UiState
+    {
+        get { return uiState; }
+        set
+        {
+            if (uiState != value)
+            {
+                uiState = value;
+                loginGroup.root.SetActive(uiState == State.Login);
+                progressGroup.root.SetActive(uiState == State.Update);
+            }
+        }
+    }
 
     protected override void BindListener()
     {
@@ -27,12 +63,39 @@ public class UILoginWindow : UIWindow
     public override void OnCreate()
     {
         base.OnCreate();
-        button.onClick.AddListener(OnClickButton);
+        loginGroup.btnLogin.onClick.AddListener(OnClickLogin);
+        loginGroup.btnWechat.onClick.AddListener(OnClickWechat);
+        loginGroup.btnRegister.onClick.AddListener(OnClickRegister);
     }
 
-    void OnClickButton()
+
+    public void SetLoginList()
     {
-        audioSource.clip = ResourcesMgr.Instance.GetAudioWithStr(ConfigDataMgr.ExamStart);
-        audioSource.Play();
+        UiState = State.Login;
+        SetState("");
+    }
+    public void SetProgress(float prog)
+    {
+        UiState = State.Update;
+        progressGroup.textProg.text = prog.ToString("P");
+        progressGroup.progressBar.Value = prog;
+    }
+    public void SetState(string strState)
+    {
+        textState.text = strState;
+    }
+
+
+    void OnClickLogin()
+    {
+        UIManager.Instance.OpenWindow<UIMainWindow>();
+    }
+    void OnClickWechat()
+    {
+
+    }
+    void OnClickRegister()
+    {
+
     }
 }

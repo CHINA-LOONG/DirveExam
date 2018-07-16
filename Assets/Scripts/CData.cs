@@ -5,23 +5,27 @@ public class Data_Base { }
 /// <summary>
 /// 游戏配置文件
 /// </summary>
-public class GameConfig:Data_Base{
+public class GameConfig : Data_Base
+{
     /// <summary>
-    /// 游戏配置版本
+    /// 配置版本
     /// </summary>
     public string version = "0";
     /// <summary>
     /// 试题列表
     /// </summary>
     public List<QuestionData> questions = new List<QuestionData>();
-    
-    //public Dictionary<string,List<string>> 
+    /// <summary>
+    /// 视频教学
+    /// </summary>
+    public Dictionary<string, List<VideoData>> video = new Dictionary<string, List<VideoData>>();
 }
 
 /// <summary>
 /// 試題的數據結構
 /// </summary>
-public class QuestionData:Data_Base{
+public class QuestionData : Data_Base
+{
     /// <summary>
     /// 轉語音的文字描述
     /// </summary>
@@ -30,6 +34,16 @@ public class QuestionData:Data_Base{
     /// 试题答案文案.
     /// </summary>
     public string answer;
+}
+
+/// <summary>
+/// 车型视频数据结构
+/// </summary>
+public class VideoData : Data_Base
+{
+    public string imgurl;
+    public string videourl;
+    public string videoname;
 }
 
 ////抽奖箱子
