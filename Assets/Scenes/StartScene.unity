@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -417,6 +417,8 @@ GameObject:
   - component: {fileID: 1564550662}
   - component: {fileID: 1564550661}
   - component: {fileID: 1564550665}
+  - component: {fileID: 1564550666}
+  - component: {fileID: 1564550660}
   m_Layer: 5
   m_Name: UIRoot
   m_TagString: Untagged
@@ -424,6 +426,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1564550660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564550659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c4b30361013504fbb56e90612fd7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  demoSkin: {fileID: 0}
+  ssdk: {fileID: 1564550666}
 --- !u!114 &1564550661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,6 +535,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wndParent: {fileID: 521285270}
   dlgParent: {fileID: 1643389398}
+--- !u!114 &1564550666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1564550659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d266d8e8bcccf488686d3be61cf1fa24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appKey: 26e83d145e058
+  appSecret: 0b77f55195b9ffc4e536523d14ae496b
+  devInfo:
+    qq:
+      Enable: 1
+      SortId: 2
+      AppId: 100371282
+      AppKey: aed9b0303e3ed1e27bae87c33761161d
+      ShareByAppClient: 1
+    wechat:
+      Enable: 1
+      SortId: 5
+      AppId: wx4868b35061f87885
+      AppSecret: 64020361b8ec4c99936c0e3999a9f249
+      UserName: gh_afb25ac019c9@app
+      Path: /page/API/pages/share/share
+      BypassApproval: 1
+      WithShareTicket: 1
+      MiniprogramType: 0
 --- !u!1 &1643389397
 GameObject:
   m_ObjectHideFlags: 0
