@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -562,7 +562,7 @@ MonoBehaviour:
       AppSecret: 64020361b8ec4c99936c0e3999a9f249
       UserName: gh_afb25ac019c9@app
       Path: /page/API/pages/share/share
-      BypassApproval: 1
+      BypassApproval: 0
       WithShareTicket: 1
       MiniprogramType: 0
 --- !u!1 &1643389397
