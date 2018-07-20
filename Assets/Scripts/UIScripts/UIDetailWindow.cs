@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIDetailWindow : UIWindow
@@ -27,6 +28,6 @@ public class UIDetailWindow : UIWindow
     /// </summary>
     void OnClickStart()
     {
-
+        AsyncOperation async = SceneManager.LoadSceneAsync("ExamScene");
     }
 }
