@@ -88,7 +88,7 @@ public class UILoginWindow : UIWindow
 
     void OnClickLogin()
     {
-        UIManager.Instance.OpenWindow<UIMainWindow>();
+        UIManager.Instance.OpenUI<UIMainWindow>();
     }
     void OnClickWechat()
     {

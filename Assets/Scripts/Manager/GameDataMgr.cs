@@ -20,4 +20,8 @@ public class GameDataMgr : XSingleton<GameDataMgr>
             accessToken = value; 
         }
     }
+
+
+    public CarType carType = CarType.DAZHONG;
+
 }

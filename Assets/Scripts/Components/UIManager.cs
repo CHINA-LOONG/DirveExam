@@ -16,7 +16,7 @@ public class UIManager : XMonoSingleton<UIManager>
         base.OnInit();
     }
 
-    public T OpenWindow<T>() where T : UIPanelBase
+    public T OpenUI<T>() where T : UIPanelBase
     {
         System.Type type = typeof(T);
 
@@ -62,7 +62,7 @@ public class UIManager : XMonoSingleton<UIManager>
         }
     }
 
-    public void CloseWindow(UIPanelBase uiPanel)
+    public void CloseUI(UIPanelBase uiPanel)
     {
         if (uiPanel.GetType().IsSubclassOf(typeof(UIWindow)))
         {

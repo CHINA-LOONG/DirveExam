@@ -19,7 +19,7 @@ public class MainSceneMgr : MonoBehaviour
 
         if (/* 是否有网络 */ true)
         {
-            uiLoginWindow = UIManager.Instance.OpenWindow<UILoginWindow>();
+            uiLoginWindow = UIManager.Instance.OpenUI<UILoginWindow>();
             uiLoginWindow.SetState("正在检查题库更新...");
             CheckConfigUpdate();
         }
@@ -34,7 +34,7 @@ public class MainSceneMgr : MonoBehaviour
         if (/* 是否已经登录过 */false)
         {
             //看是否更新数据进行网络交互
-            UIManager.Instance.OpenWindow<UIMainWindow>();
+            UIManager.Instance.OpenUI<UIMainWindow>();
         }
         else
         {
@@ -56,7 +56,7 @@ public class MainSceneMgr : MonoBehaviour
                 GameConfig gameConfig = LitJson.JsonMapper.ToObject<GameConfig>(content);
                 if (gameConfig.version != ConfigDataMgr.Instance.gameConfig.version)
                 {
-                    StartCoroutine(TurnString2Audio(gameConfig));
+                    StartCoroutine(UpdateResource(gameConfig));
                 }
                 else
                 {
@@ -69,39 +69,16 @@ public class MainSceneMgr : MonoBehaviour
             }
         }));
     }
-
-    IEnumerator TurnString2Audio(GameConfig gameConfig)
+    /// <summary>
+    /// 更新流程  1.转换语音  2.更新Video图片
+    /// </summary>
+    /// <returns>The resource.</returns>
+    /// <param name="gameConfig">Game config.</param>
+    IEnumerator UpdateResource(GameConfig gameConfig)
     {
-        List<string> turnList = new List<string>();
+        yield return StartCoroutine(TurnString2Audio(gameConfig));
+        yield return StartCoroutine(LoadVideoTexture(gameConfig));
 
-        //通用语音检测部分
-        CheckStringToAudio(ConfigDataMgr.ExamStart, turnList);
-        //试题语音检测部分
-        for (int i = 0; i < gameConfig.questions.Count; i++)
-        {
-            QuestionData questionData = gameConfig.questions[i];
-            CheckStringToAudio(questionData.question, turnList);
-        }
-        for (int i = 0; i < turnList.Count; i++)
-        {
-            //设置转换进度
-            uiLoginWindow.SetProgress((float)i / turnList.Count);
-            yield return StartCoroutine(ttsString2Audio.Synthesis(turnList[i], result =>
-            {
-                if (result.Success)
-                {
-                    Debug.LogFormat("Trun Success：{0}", turnList[i]);
-                    string fileName = System.Guid.NewGuid().ToString("N");
-                    ResourcesMgr.Instance.WriteAudioFile(fileName, result.data);
-                    ConfigDataMgr.Instance.audioDict.Add(turnList[i], fileName);
-                }
-                else
-                {
-                    Debug.LogErrorFormat("Error:Str2Audio errorno<{0}> errormsg<{1}>", result.err_no, result.err_msg);
-                }
-            }));
-        }
-        uiLoginWindow.SetProgress(1.0f);
         //记录文件映射表
         ConfigDataMgr.Instance.WriteAudioDictData();
         //更新题库数据
@@ -112,9 +89,87 @@ public class MainSceneMgr : MonoBehaviour
         CheckLoginState();
     }
 
+    /// <summary>
+    /// 转换语音文件
+    /// </summary>
+    /// <returns>The string2 audio.</returns>
+    /// <param name="gameConfig">Game config.</param>
+    IEnumerator TurnString2Audio(GameConfig gameConfig)
+    {
+        List<string> updateList = new List<string>();
+
+        //通用语音检测部分
+        CheckStringToAudio(ConfigDataMgr.ExamStart, updateList);
+        //试题语音检测部分
+        for (int i = 0; i < gameConfig.questions.Count; i++)
+        {
+            QuestionData questionData = gameConfig.questions[i];
+            CheckStringToAudio(questionData.question, updateList);
+        }
+        for (int i = 0; i < updateList.Count; i++)
+        {
+            //设置转换进度
+            uiLoginWindow.SetProgress((float)i / updateList.Count);
+            yield return StartCoroutine(ttsString2Audio.Synthesis(updateList[i], result =>
+            {
+                if (result.Success)
+                {
+                    Debug.LogFormat("Trun Success：{0}", updateList[i]);
+                    string fileName = System.Guid.NewGuid().ToString("N");
+                    ResourcesMgr.Instance.WriteAudioFile(fileName, result.data);
+                    ConfigDataMgr.Instance.resourceDict.Add(updateList[i], fileName);
+                }
+                else
+                {
+                    Debug.LogErrorFormat("Error:Str2Audio errorno<{0}> errormsg<{1}>", result.err_no, result.err_msg);
+                }
+            }));
+        }
+        uiLoginWindow.SetProgress(1.0f);
+    }
+
+    /// <summary>
+    /// 下载视频缓冲图
+    /// </summary>
+    /// <returns>The video texture.</returns>
+    /// <param name="gameConfig">Game config.</param>
+    IEnumerator LoadVideoTexture(GameConfig gameConfig)
+    {
+        yield return null;
+
+        List<string> updateList = new List<string>();
+        foreach (var item in gameConfig.video)
+        {
+            for (int i = 0; i < item.Value.Count; i++)
+            {
+                if (!ConfigDataMgr.Instance.resourceDict.ContainsKey(item.Value[i].imgurl))
+                {
+                    updateList.Add(item.Value[i].imgurl);
+                }
+            }
+        }
+
+        for (int i = 0; i < updateList.Count; i++)
+        {
+            //设置转换进度
+            uiLoginWindow.SetProgress((float)i / updateList.Count);
+            yield return RequestNetworkFile(updateList[i], (result, content, data) =>
+            {
+                if (result)
+                {
+                    string fileName = System.Guid.NewGuid().ToString("N");
+                    ResourcesMgr.Instance.WriteTextureFile(fileName, data);
+                    ConfigDataMgr.Instance.resourceDict.Add(updateList[i], fileName);
+                }
+            });
+        }
+        uiLoginWindow.SetProgress(1.0f);
+    }
+
+
     void CheckStringToAudio(string str2audio, List<string> turnList)
     {
-        if (!ConfigDataMgr.Instance.audioDict.ContainsKey(str2audio))
+        if (!ConfigDataMgr.Instance.resourceDict.ContainsKey(str2audio))
         {
             turnList.Add(str2audio);
         }

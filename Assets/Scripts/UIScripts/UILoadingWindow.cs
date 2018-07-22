@@ -14,6 +14,21 @@ public class UILoadingWindow : UIDialog
 
     private void Update()
     {
+        Debug.Log("进度" + async.progress);
         progressBar.Value = async.progress;
+        if (async.progress>=1f)
+        {
+            //大众
+            if (GameDataMgr.Instance.carType == CarType.DAZHONG)
+            {
+                UIManager.Instance.OpenUI<UIExamWindowDaZhong>();
+            }
+            //爱丽舍
+            else
+            {
+                UIManager.Instance.OpenUI<UIExamWindowAiLiShe>();
+            }
+            UIManager.Instance.CloseUI(this);
+        }
     }
 }

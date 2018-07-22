@@ -1,0 +1,2331 @@
+fileFormatVersion: 2
+guid: 9981ff89292d9064bac062ac13665fc8
+labels:
+- plant
+- bench
+- sundeck
+- balcony
+- patio
+- terrace
+- lightmaped
+- luxurious
+- high-end
+- night
+- day
+- minimal
+- exterior
+- interior
+- architecture
+- contemporary
+- loft
+- modern
+- realistic
+- urban
+- plane
+- birds
+- sun
+- skyline
+- cityscape
+- city
+- photoreal
+- low-poly
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: building_1
+    100002: building_10
+    100004: building_11
+    100006: building_12
+    100008: building_13
+    100010: building_14
+    100012: building_15
+    100014: building_16
+    100016: building_17
+    100018: building_18
+    100020: building_19
+    100022: building_2
+    100024: building_20
+    100026: building_21
+    100028: building_22
+    100030: building_23
+    100032: building_24
+    100034: building_25
+    100036: building_26
+    100038: building_27
+    100040: building_28
+    100042: building_29
+    100044: building_3
+    100046: building_30
+    100048: building_31
+    100050: building_32
+    100052: building_33
+    100054: building_34
+    100056: building_35
+    100058: building_36
+    100060: building_37
+    100062: building_38
+    100064: building_39
+    100066: building_4
+    100068: building_40
+    100070: building_41
+    100072: building_42
+    100074: building_43
+    100076: building_44
+    100078: building_45
+    100080: building_46
+    100082: building_47
+    100084: building_48
+    100086: building_49
+    100088: building_5
+    100090: building_50
+    100092: building_51
+    100094: building_52
+    100096: building_53
+    100098: building_54
+    100100: building_55
+    100102: building_56
+    100104: building_57
+    100106: building_58
+    100108: building_59
+    100110: building_6
+    100112: building_60
+    100114: building_61
+    100116: building_7
+    100118: building_8
+    100120: building_9
+    100122: flares_1
+    100124: flares_10
+    100126: flares_11
+    100128: flares_12
+    100130: flares_13
+    100132: flares_14
+    100134: flares_15
+    100136: flares_16
+    100138: flares_17
+    100140: flares_18
+    100142: flares_19
+    100144: flares_2
+    100146: flares_20
+    100148: flares_21
+    100150: flares_22
+    100152: flares_23
+    100154: flares_24
+    100156: flares_25
+    100158: flares_26
+    100160: flares_27
+    100162: flares_28
+    100164: flares_29
+    100166: flares_3
+    100168: flares_30
+    100170: flares_31
+    100172: flares_32
+    100174: flares_33
+    100176: flares_34
+    100178: flares_35
+    100180: flares_36
+    100182: flares_37
+    100184: flares_38
+    100186: flares_39
+    100188: flares_4
+    100190: flares_40
+    100192: flares_41
+    100194: flares_42
+    100196: flares_43
+    100198: flares_44
+    100200: flares_45
+    100202: flares_46
+    100204: flares_5
+    100206: flares_6
+    100208: flares_7
+    100210: flares_8
+    100212: flares_9
+    100214: interior
+    100216: light_flares_47
+    100218: light_flares_48
+    100220: light_flares_49
+    100222: light_flares_50
+    100224: light_flares_51
+    100226: light_flares_52
+    100228: light_flares_53
+    100230: light_flares_54
+    100232: light_flares_55
+    100234: light_flares_56
+    100236: light_flares_57
+    100238: light_flares_58
+    100240: light_flares_59
+    100242: light_flares_60
+    100244: light_flares_61
+    100246: rooftop_elements_1
+    100248: rooftop_elements_1 1
+    100250: rooftop_elements_10
+    100252: rooftop_elements_10 1
+    100254: rooftop_elements_100
+    100256: rooftop_elements_101
+    100258: rooftop_elements_102
+    100260: rooftop_elements_103
+    100262: rooftop_elements_104
+    100264: rooftop_elements_105
+    100266: rooftop_elements_106
+    100268: rooftop_elements_107
+    100270: rooftop_elements_108
+    100272: rooftop_elements_109
+    100274: rooftop_elements_11
+    100276: rooftop_elements_11 1
+    100278: rooftop_elements_110
+    100280: rooftop_elements_111
+    100282: rooftop_elements_112
+    100284: rooftop_elements_113
+    100286: rooftop_elements_114
+    100288: rooftop_elements_115
+    100290: rooftop_elements_116
+    100292: rooftop_elements_117
+    100294: rooftop_elements_118
+    100296: rooftop_elements_119
+    100298: rooftop_elements_12
+    100300: rooftop_elements_12 1
+    100302: rooftop_elements_120
+    100304: rooftop_elements_121
+    100306: rooftop_elements_122
+    100308: rooftop_elements_123
+    100310: rooftop_elements_124
+    100312: rooftop_elements_125
+    100314: rooftop_elements_126
+    100316: rooftop_elements_127
+    100318: rooftop_elements_128
+    100320: rooftop_elements_129
+    100322: rooftop_elements_13
+    100324: rooftop_elements_13 1
+    100326: rooftop_elements_130
+    100328: rooftop_elements_131
+    100330: rooftop_elements_132
+    100332: rooftop_elements_133
+    100334: rooftop_elements_134
+    100336: rooftop_elements_135
+    100338: rooftop_elements_136
+    100340: rooftop_elements_137
+    100342: rooftop_elements_138
+    100344: rooftop_elements_139
+    100346: rooftop_elements_14
+    100348: rooftop_elements_14 1
+    100350: rooftop_elements_140
+    100352: rooftop_elements_141
+    100354: rooftop_elements_142
+    100356: rooftop_elements_143
+    100358: rooftop_elements_144
+    100360: rooftop_elements_145
+    100362: rooftop_elements_146
+    100364: rooftop_elements_147
+    100366: rooftop_elements_148
+    100368: rooftop_elements_149
+    100370: rooftop_elements_15
+    100372: rooftop_elements_15 1
+    100374: rooftop_elements_150
+    100376: rooftop_elements_151
+    100378: rooftop_elements_152
+    100380: rooftop_elements_153
+    100382: rooftop_elements_154
+    100384: rooftop_elements_155
+    100386: rooftop_elements_156
+    100388: rooftop_elements_157
+    100390: rooftop_elements_158
+    100392: rooftop_elements_159
+    100394: rooftop_elements_16
+    100396: rooftop_elements_16 1
+    100398: rooftop_elements_160
+    100400: rooftop_elements_161
+    100402: rooftop_elements_162
+    100404: rooftop_elements_163
+    100406: rooftop_elements_164
+    100408: rooftop_elements_165
+    100410: rooftop_elements_166
+    100412: rooftop_elements_167
+    100414: rooftop_elements_168
+    100416: rooftop_elements_169
+    100418: rooftop_elements_17
+    100420: rooftop_elements_17 1
+    100422: rooftop_elements_170
+    100424: rooftop_elements_171
+    100426: rooftop_elements_172
+    100428: rooftop_elements_173
+    100430: rooftop_elements_174
+    100432: rooftop_elements_175
+    100434: rooftop_elements_18
+    100436: rooftop_elements_18 1
+    100438: rooftop_elements_19
+    100440: rooftop_elements_19 1
+    100442: rooftop_elements_2
+    100444: rooftop_elements_2 1
+    100446: rooftop_elements_20
+    100448: rooftop_elements_20 1
+    100450: rooftop_elements_21
+    100452: rooftop_elements_21 1
+    100454: rooftop_elements_22
+    100456: rooftop_elements_22 1
+    100458: rooftop_elements_23
+    100460: rooftop_elements_23 1
+    100462: rooftop_elements_24
+    100464: rooftop_elements_24 1
+    100466: rooftop_elements_25
+    100468: rooftop_elements_25 1
+    100470: rooftop_elements_26
+    100472: rooftop_elements_26 1
+    100474: rooftop_elements_27
+    100476: rooftop_elements_27 1
+    100478: rooftop_elements_28
+    100480: rooftop_elements_28 1
+    100482: rooftop_elements_29
+    100484: rooftop_elements_29 1
+    100486: rooftop_elements_3
+    100488: rooftop_elements_3 1
+    100490: rooftop_elements_30
+    100492: rooftop_elements_30 1
+    100494: rooftop_elements_31
+    100496: rooftop_elements_31 1
+    100498: rooftop_elements_32
+    100500: rooftop_elements_32 1
+    100502: rooftop_elements_33
+    100504: rooftop_elements_33 1
+    100506: rooftop_elements_34
+    100508: rooftop_elements_34 1
+    100510: rooftop_elements_35
+    100512: rooftop_elements_35 1
+    100514: rooftop_elements_36
+    100516: rooftop_elements_36 1
+    100518: rooftop_elements_37
+    100520: rooftop_elements_37 1
+    100522: rooftop_elements_38
+    100524: rooftop_elements_38 1
+    100526: rooftop_elements_39
+    100528: rooftop_elements_39 1
+    100530: rooftop_elements_4
+    100532: rooftop_elements_4 1
+    100534: rooftop_elements_40
+    100536: rooftop_elements_40 1
+    100538: rooftop_elements_41
+    100540: rooftop_elements_41 1
+    100542: rooftop_elements_42
+    100544: rooftop_elements_42 1
+    100546: rooftop_elements_43
+    100548: rooftop_elements_43 1
+    100550: rooftop_elements_44
+    100552: rooftop_elements_44 1
+    100554: rooftop_elements_45
+    100556: rooftop_elements_45 1
+    100558: rooftop_elements_46
+    100560: rooftop_elements_46 1
+    100562: rooftop_elements_47
+    100564: rooftop_elements_47 1
+    100566: rooftop_elements_48
+    100568: rooftop_elements_48 1
+    100570: rooftop_elements_49
+    100572: rooftop_elements_49 1
+    100574: rooftop_elements_5
+    100576: rooftop_elements_5 1
+    100578: rooftop_elements_50
+    100580: rooftop_elements_50 1
+    100582: rooftop_elements_51
+    100584: rooftop_elements_51 1
+    100586: rooftop_elements_52
+    100588: rooftop_elements_52 1
+    100590: rooftop_elements_53
+    100592: rooftop_elements_53 1
+    100594: rooftop_elements_54
+    100596: rooftop_elements_54 1
+    100598: rooftop_elements_55
+    100600: rooftop_elements_55 1
+    100602: rooftop_elements_56
+    100604: rooftop_elements_56 1
+    100606: rooftop_elements_57
+    100608: rooftop_elements_57 1
+    100610: rooftop_elements_58
+    100612: rooftop_elements_58 1
+    100614: rooftop_elements_59
+    100616: rooftop_elements_59 1
+    100618: rooftop_elements_6
+    100620: rooftop_elements_6 1
+    100622: rooftop_elements_60
+    100624: rooftop_elements_60 1
+    100626: rooftop_elements_61
+    100628: rooftop_elements_61 1
+    100630: rooftop_elements_62
+    100632: rooftop_elements_62 1
+    100634: rooftop_elements_63
+    100636: rooftop_elements_63 1
+    100638: rooftop_elements_64
+    100640: rooftop_elements_64 1
+    100642: rooftop_elements_65
+    100644: rooftop_elements_65 1
+    100646: rooftop_elements_66
+    100648: rooftop_elements_66 1
+    100650: rooftop_elements_67
+    100652: rooftop_elements_67 1
+    100654: rooftop_elements_68
+    100656: rooftop_elements_68 1
+    100658: rooftop_elements_69
+    100660: rooftop_elements_69 1
+    100662: rooftop_elements_7
+    100664: rooftop_elements_7 1
+    100666: rooftop_elements_70
+    100668: rooftop_elements_70 1
+    100670: rooftop_elements_71
+    100672: rooftop_elements_71 1
+    100674: rooftop_elements_72
+    100676: rooftop_elements_72 1
+    100678: rooftop_elements_73
+    100680: rooftop_elements_73 1
+    100682: rooftop_elements_74
+    100684: rooftop_elements_74 1
+    100686: rooftop_elements_75
+    100688: rooftop_elements_75 1
+    100690: rooftop_elements_76
+    100692: rooftop_elements_76 1
+    100694: rooftop_elements_77
+    100696: rooftop_elements_77 1
+    100698: rooftop_elements_78
+    100700: rooftop_elements_78 1
+    100702: rooftop_elements_79
+    100704: rooftop_elements_79 1
+    100706: rooftop_elements_8
+    100708: rooftop_elements_8 1
+    100710: rooftop_elements_80
+    100712: rooftop_elements_80 1
+    100714: rooftop_elements_81
+    100716: rooftop_elements_81 1
+    100718: rooftop_elements_82
+    100720: rooftop_elements_82 1
+    100722: rooftop_elements_83
+    100724: rooftop_elements_83 1
+    100726: rooftop_elements_84
+    100728: rooftop_elements_84 1
+    100730: rooftop_elements_85
+    100732: rooftop_elements_85 1
+    100734: rooftop_elements_86
+    100736: rooftop_elements_86 1
+    100738: rooftop_elements_87
+    100740: rooftop_elements_87 1
+    100742: rooftop_elements_88
+    100744: rooftop_elements_88 1
+    100746: rooftop_elements_89
+    100748: rooftop_elements_89 1
+    100750: rooftop_elements_9
+    100752: rooftop_elements_9 1
+    100754: rooftop_elements_90
+    100756: rooftop_elements_91
+    100758: rooftop_elements_91 1
+    100760: rooftop_elements_92
+    100762: rooftop_elements_92 1
+    100764: rooftop_elements_93
+    100766: rooftop_elements_93 1
+    100768: rooftop_elements_94
+    100770: rooftop_elements_94 1
+    100772: rooftop_elements_95
+    100774: rooftop_elements_95 1
+    100776: rooftop_elements_96
+    100778: rooftop_elements_96 1
+    100780: rooftop_elements_97
+    100782: rooftop_elements_97 1
+    100784: rooftop_elements_98
+    100786: rooftop_elements_98 1
+    100788: rooftop_elements_99
+    100790: //RootNode
+    100792: room_05_city_A
+    100794: room_05_city_B
+    100796: room_05_city_C
+    100798: room_05_city_D
+    100800: sky_dome
+    100802: structure1
+    100804: structure10
+    100806: structure11
+    100808: structure12
+    100810: structure13
+    100812: structure14
+    100814: structure15
+    100816: structure2
+    100818: structure3
+    100820: structure4
+    100822: structure5
+    100824: structure6
+    100826: structure7
+    100828: structure8
+    100830: structure9
+    100832: structure_1
+    100834: structure_16
+    100836: structure_17
+    100838: structure_18
+    100840: structure_19
+    100842: structure_25
+    100844: structure_26
+    100846: structure_27
+    100848: structure_28
+    100850: structure_29
+    100852: structure_29 1
+    100854: structure_30
+    100856: structure_31
+    100858: structure_32
+    100860: structure_33
+    100862: structure_34
+    100864: structure_35
+    100866: structure_36
+    100868: structure_37
+    100870: structure_38
+    100872: structure_39
+    100874: structure_40
+    100876: structure_41
+    100878: structure_42
+    100880: structure_43
+    100882: structure_44
+    100884: structure_45
+    100886: structure_46
+    100888: structure_47
+    100890: structure_48
+    100892: structure_49
+    100894: structure_50
+    100896: structure_51
+    100898: structure_52
+    100900: structure_53
+    100902: structure_54
+    100904: structure_55
+    100906: structure_56
+    100908: structure_57
+    100910: structure_58
+    100912: structure_59
+    100914: structure_60
+    100916: structure_61
+    100918: structure_62
+    100920: structure_63
+    100922: structure_64
+    100924: structure_65
+    100926: structure_66
+    100928: structure_67
+    100930: structure_68
+    100932: windows
+    100934: windows1
+    100936: windows_1
+    100938: windows_10
+    100940: windows_11
+    100942: windows_12
+    100944: windows_13
+    100946: windows_14
+    100948: windows_15
+    100950: windows_16
+    100952: windows_17
+    100954: windows_18
+    100956: windows_19
+    100958: windows_2
+    100960: windows_3
+    100962: windows_4
+    100964: windows_5
+    100966: windows_6
+    100968: windows_7
+    100970: windows_8
+    100972: windows_9
+    100974: curtains_windows
+    400000: building_1
+    400002: building_10
+    400004: building_11
+    400006: building_12
+    400008: building_13
+    400010: building_14
+    400012: building_15
+    400014: building_16
+    400016: building_17
+    400018: building_18
+    400020: building_19
+    400022: building_2
+    400024: building_20
+    400026: building_21
+    400028: building_22
+    400030: building_23
+    400032: building_24
+    400034: building_25
+    400036: building_26
+    400038: building_27
+    400040: building_28
+    400042: building_29
+    400044: building_3
+    400046: building_30
+    400048: building_31
+    400050: building_32
+    400052: building_33
+    400054: building_34
+    400056: building_35
+    400058: building_36
+    400060: building_37
+    400062: building_38
+    400064: building_39
+    400066: building_4
+    400068: building_40
+    400070: building_41
+    400072: building_42
+    400074: building_43
+    400076: building_44
+    400078: building_45
+    400080: building_46
+    400082: building_47
+    400084: building_48
+    400086: building_49
+    400088: building_5
+    400090: building_50
+    400092: building_51
+    400094: building_52
+    400096: building_53
+    400098: building_54
+    400100: building_55
+    400102: building_56
+    400104: building_57
+    400106: building_58
+    400108: building_59
+    400110: building_6
+    400112: building_60
+    400114: building_61
+    400116: building_7
+    400118: building_8
+    400120: building_9
+    400122: flares_1
+    400124: flares_10
+    400126: flares_11
+    400128: flares_12
+    400130: flares_13
+    400132: flares_14
+    400134: flares_15
+    400136: flares_16
+    400138: flares_17
+    400140: flares_18
+    400142: flares_19
+    400144: flares_2
+    400146: flares_20
+    400148: flares_21
+    400150: flares_22
+    400152: flares_23
+    400154: flares_24
+    400156: flares_25
+    400158: flares_26
+    400160: flares_27
+    400162: flares_28
+    400164: flares_29
+    400166: flares_3
+    400168: flares_30
+    400170: flares_31
+    400172: flares_32
+    400174: flares_33
+    400176: flares_34
+    400178: flares_35
+    400180: flares_36
+    400182: flares_37
+    400184: flares_38
+    400186: flares_39
+    400188: flares_4
+    400190: flares_40
+    400192: flares_41
+    400194: flares_42
+    400196: flares_43
+    400198: flares_44
+    400200: flares_45
+    400202: flares_46
+    400204: flares_5
+    400206: flares_6
+    400208: flares_7
+    400210: flares_8
+    400212: flares_9
+    400214: interior
+    400216: light_flares_47
+    400218: light_flares_48
+    400220: light_flares_49
+    400222: light_flares_50
+    400224: light_flares_51
+    400226: light_flares_52
+    400228: light_flares_53
+    400230: light_flares_54
+    400232: light_flares_55
+    400234: light_flares_56
+    400236: light_flares_57
+    400238: light_flares_58
+    400240: light_flares_59
+    400242: light_flares_60
+    400244: light_flares_61
+    400246: rooftop_elements_1
+    400248: rooftop_elements_1 1
+    400250: rooftop_elements_10
+    400252: rooftop_elements_10 1
+    400254: rooftop_elements_100
+    400256: rooftop_elements_101
+    400258: rooftop_elements_102
+    400260: rooftop_elements_103
+    400262: rooftop_elements_104
+    400264: rooftop_elements_105
+    400266: rooftop_elements_106
+    400268: rooftop_elements_107
+    400270: rooftop_elements_108
+    400272: rooftop_elements_109
+    400274: rooftop_elements_11
+    400276: rooftop_elements_11 1
+    400278: rooftop_elements_110
+    400280: rooftop_elements_111
+    400282: rooftop_elements_112
+    400284: rooftop_elements_113
+    400286: rooftop_elements_114
+    400288: rooftop_elements_115
+    400290: rooftop_elements_116
+    400292: rooftop_elements_117
+    400294: rooftop_elements_118
+    400296: rooftop_elements_119
+    400298: rooftop_elements_12
+    400300: rooftop_elements_12 1
+    400302: rooftop_elements_120
+    400304: rooftop_elements_121
+    400306: rooftop_elements_122
+    400308: rooftop_elements_123
+    400310: rooftop_elements_124
+    400312: rooftop_elements_125
+    400314: rooftop_elements_126
+    400316: rooftop_elements_127
+    400318: rooftop_elements_128
+    400320: rooftop_elements_129
+    400322: rooftop_elements_13
+    400324: rooftop_elements_13 1
+    400326: rooftop_elements_130
+    400328: rooftop_elements_131
+    400330: rooftop_elements_132
+    400332: rooftop_elements_133
+    400334: rooftop_elements_134
+    400336: rooftop_elements_135
+    400338: rooftop_elements_136
+    400340: rooftop_elements_137
+    400342: rooftop_elements_138
+    400344: rooftop_elements_139
+    400346: rooftop_elements_14
+    400348: rooftop_elements_14 1
+    400350: rooftop_elements_140
+    400352: rooftop_elements_141
+    400354: rooftop_elements_142
+    400356: rooftop_elements_143
+    400358: rooftop_elements_144
+    400360: rooftop_elements_145
+    400362: rooftop_elements_146
+    400364: rooftop_elements_147
+    400366: rooftop_elements_148
+    400368: rooftop_elements_149
+    400370: rooftop_elements_15
+    400372: rooftop_elements_15 1
+    400374: rooftop_elements_150
+    400376: rooftop_elements_151
+    400378: rooftop_elements_152
+    400380: rooftop_elements_153
+    400382: rooftop_elements_154
+    400384: rooftop_elements_155
+    400386: rooftop_elements_156
+    400388: rooftop_elements_157
+    400390: rooftop_elements_158
+    400392: rooftop_elements_159
+    400394: rooftop_elements_16
+    400396: rooftop_elements_16 1
+    400398: rooftop_elements_160
+    400400: rooftop_elements_161
+    400402: rooftop_elements_162
+    400404: rooftop_elements_163
+    400406: rooftop_elements_164
+    400408: rooftop_elements_165
+    400410: rooftop_elements_166
+    400412: rooftop_elements_167
+    400414: rooftop_elements_168
+    400416: rooftop_elements_169
+    400418: rooftop_elements_17
+    400420: rooftop_elements_17 1
+    400422: rooftop_elements_170
+    400424: rooftop_elements_171
+    400426: rooftop_elements_172
+    400428: rooftop_elements_173
+    400430: rooftop_elements_174
+    400432: rooftop_elements_175
+    400434: rooftop_elements_18
+    400436: rooftop_elements_18 1
+    400438: rooftop_elements_19
+    400440: rooftop_elements_19 1
+    400442: rooftop_elements_2
+    400444: rooftop_elements_2 1
+    400446: rooftop_elements_20
+    400448: rooftop_elements_20 1
+    400450: rooftop_elements_21
+    400452: rooftop_elements_21 1
+    400454: rooftop_elements_22
+    400456: rooftop_elements_22 1
+    400458: rooftop_elements_23
+    400460: rooftop_elements_23 1
+    400462: rooftop_elements_24
+    400464: rooftop_elements_24 1
+    400466: rooftop_elements_25
+    400468: rooftop_elements_25 1
+    400470: rooftop_elements_26
+    400472: rooftop_elements_26 1
+    400474: rooftop_elements_27
+    400476: rooftop_elements_27 1
+    400478: rooftop_elements_28
+    400480: rooftop_elements_28 1
+    400482: rooftop_elements_29
+    400484: rooftop_elements_29 1
+    400486: rooftop_elements_3
+    400488: rooftop_elements_3 1
+    400490: rooftop_elements_30
+    400492: rooftop_elements_30 1
+    400494: rooftop_elements_31
+    400496: rooftop_elements_31 1
+    400498: rooftop_elements_32
+    400500: rooftop_elements_32 1
+    400502: rooftop_elements_33
+    400504: rooftop_elements_33 1
+    400506: rooftop_elements_34
+    400508: rooftop_elements_34 1
+    400510: rooftop_elements_35
+    400512: rooftop_elements_35 1
+    400514: rooftop_elements_36
+    400516: rooftop_elements_36 1
+    400518: rooftop_elements_37
+    400520: rooftop_elements_37 1
+    400522: rooftop_elements_38
+    400524: rooftop_elements_38 1
+    400526: rooftop_elements_39
+    400528: rooftop_elements_39 1
+    400530: rooftop_elements_4
+    400532: rooftop_elements_4 1
+    400534: rooftop_elements_40
+    400536: rooftop_elements_40 1
+    400538: rooftop_elements_41
+    400540: rooftop_elements_41 1
+    400542: rooftop_elements_42
+    400544: rooftop_elements_42 1
+    400546: rooftop_elements_43
+    400548: rooftop_elements_43 1
+    400550: rooftop_elements_44
+    400552: rooftop_elements_44 1
+    400554: rooftop_elements_45
+    400556: rooftop_elements_45 1
+    400558: rooftop_elements_46
+    400560: rooftop_elements_46 1
+    400562: rooftop_elements_47
+    400564: rooftop_elements_47 1
+    400566: rooftop_elements_48
+    400568: rooftop_elements_48 1
+    400570: rooftop_elements_49
+    400572: rooftop_elements_49 1
+    400574: rooftop_elements_5
+    400576: rooftop_elements_5 1
+    400578: rooftop_elements_50
+    400580: rooftop_elements_50 1
+    400582: rooftop_elements_51
+    400584: rooftop_elements_51 1
+    400586: rooftop_elements_52
+    400588: rooftop_elements_52 1
+    400590: rooftop_elements_53
+    400592: rooftop_elements_53 1
+    400594: rooftop_elements_54
+    400596: rooftop_elements_54 1
+    400598: rooftop_elements_55
+    400600: rooftop_elements_55 1
+    400602: rooftop_elements_56
+    400604: rooftop_elements_56 1
+    400606: rooftop_elements_57
+    400608: rooftop_elements_57 1
+    400610: rooftop_elements_58
+    400612: rooftop_elements_58 1
+    400614: rooftop_elements_59
+    400616: rooftop_elements_59 1
+    400618: rooftop_elements_6
+    400620: rooftop_elements_6 1
+    400622: rooftop_elements_60
+    400624: rooftop_elements_60 1
+    400626: rooftop_elements_61
+    400628: rooftop_elements_61 1
+    400630: rooftop_elements_62
+    400632: rooftop_elements_62 1
+    400634: rooftop_elements_63
+    400636: rooftop_elements_63 1
+    400638: rooftop_elements_64
+    400640: rooftop_elements_64 1
+    400642: rooftop_elements_65
+    400644: rooftop_elements_65 1
+    400646: rooftop_elements_66
+    400648: rooftop_elements_66 1
+    400650: rooftop_elements_67
+    400652: rooftop_elements_67 1
+    400654: rooftop_elements_68
+    400656: rooftop_elements_68 1
+    400658: rooftop_elements_69
+    400660: rooftop_elements_69 1
+    400662: rooftop_elements_7
+    400664: rooftop_elements_7 1
+    400666: rooftop_elements_70
+    400668: rooftop_elements_70 1
+    400670: rooftop_elements_71
+    400672: rooftop_elements_71 1
+    400674: rooftop_elements_72
+    400676: rooftop_elements_72 1
+    400678: rooftop_elements_73
+    400680: rooftop_elements_73 1
+    400682: rooftop_elements_74
+    400684: rooftop_elements_74 1
+    400686: rooftop_elements_75
+    400688: rooftop_elements_75 1
+    400690: rooftop_elements_76
+    400692: rooftop_elements_76 1
+    400694: rooftop_elements_77
+    400696: rooftop_elements_77 1
+    400698: rooftop_elements_78
+    400700: rooftop_elements_78 1
+    400702: rooftop_elements_79
+    400704: rooftop_elements_79 1
+    400706: rooftop_elements_8
+    400708: rooftop_elements_8 1
+    400710: rooftop_elements_80
+    400712: rooftop_elements_80 1
+    400714: rooftop_elements_81
+    400716: rooftop_elements_81 1
+    400718: rooftop_elements_82
+    400720: rooftop_elements_82 1
+    400722: rooftop_elements_83
+    400724: rooftop_elements_83 1
+    400726: rooftop_elements_84
+    400728: rooftop_elements_84 1
+    400730: rooftop_elements_85
+    400732: rooftop_elements_85 1
+    400734: rooftop_elements_86
+    400736: rooftop_elements_86 1
+    400738: rooftop_elements_87
+    400740: rooftop_elements_87 1
+    400742: rooftop_elements_88
+    400744: rooftop_elements_88 1
+    400746: rooftop_elements_89
+    400748: rooftop_elements_89 1
+    400750: rooftop_elements_9
+    400752: rooftop_elements_9 1
+    400754: rooftop_elements_90
+    400756: rooftop_elements_91
+    400758: rooftop_elements_91 1
+    400760: rooftop_elements_92
+    400762: rooftop_elements_92 1
+    400764: rooftop_elements_93
+    400766: rooftop_elements_93 1
+    400768: rooftop_elements_94
+    400770: rooftop_elements_94 1
+    400772: rooftop_elements_95
+    400774: rooftop_elements_95 1
+    400776: rooftop_elements_96
+    400778: rooftop_elements_96 1
+    400780: rooftop_elements_97
+    400782: rooftop_elements_97 1
+    400784: rooftop_elements_98
+    400786: rooftop_elements_98 1
+    400788: rooftop_elements_99
+    400790: //RootNode
+    400792: room_05_city_A
+    400794: room_05_city_B
+    400796: room_05_city_C
+    400798: room_05_city_D
+    400800: sky_dome
+    400802: structure1
+    400804: structure10
+    400806: structure11
+    400808: structure12
+    400810: structure13
+    400812: structure14
+    400814: structure15
+    400816: structure2
+    400818: structure3
+    400820: structure4
+    400822: structure5
+    400824: structure6
+    400826: structure7
+    400828: structure8
+    400830: structure9
+    400832: structure_1
+    400834: structure_16
+    400836: structure_17
+    400838: structure_18
+    400840: structure_19
+    400842: structure_25
+    400844: structure_26
+    400846: structure_27
+    400848: structure_28
+    400850: structure_29
+    400852: structure_29 1
+    400854: structure_30
+    400856: structure_31
+    400858: structure_32
+    400860: structure_33
+    400862: structure_34
+    400864: structure_35
+    400866: structure_36
+    400868: structure_37
+    400870: structure_38
+    400872: structure_39
+    400874: structure_40
+    400876: structure_41
+    400878: structure_42
+    400880: structure_43
+    400882: structure_44
+    400884: structure_45
+    400886: structure_46
+    400888: structure_47
+    400890: structure_48
+    400892: structure_49
+    400894: structure_50
+    400896: structure_51
+    400898: structure_52
+    400900: structure_53
+    400902: structure_54
+    400904: structure_55
+    400906: structure_56
+    400908: structure_57
+    400910: structure_58
+    400912: structure_59
+    400914: structure_60
+    400916: structure_61
+    400918: structure_62
+    400920: structure_63
+    400922: structure_64
+    400924: structure_65
+    400926: structure_66
+    400928: structure_67
+    400930: structure_68
+    400932: windows
+    400934: windows1
+    400936: windows_1
+    400938: windows_10
+    400940: windows_11
+    400942: windows_12
+    400944: windows_13
+    400946: windows_14
+    400948: windows_15
+    400950: windows_16
+    400952: windows_17
+    400954: windows_18
+    400956: windows_19
+    400958: windows_2
+    400960: windows_3
+    400962: windows_4
+    400964: windows_5
+    400966: windows_6
+    400968: windows_7
+    400970: windows_8
+    400972: windows_9
+    400974: curtains_windows
+    2300000: flares_1
+    2300002: flares_10
+    2300004: flares_11
+    2300006: flares_12
+    2300008: flares_13
+    2300010: flares_14
+    2300012: flares_15
+    2300014: flares_16
+    2300016: flares_17
+    2300018: flares_18
+    2300020: flares_19
+    2300022: flares_2
+    2300024: flares_20
+    2300026: flares_21
+    2300028: flares_22
+    2300030: flares_23
+    2300032: flares_24
+    2300034: flares_25
+    2300036: flares_26
+    2300038: flares_27
+    2300040: flares_28
+    2300042: flares_29
+    2300044: flares_3
+    2300046: flares_30
+    2300048: flares_31
+    2300050: flares_32
+    2300052: flares_33
+    2300054: flares_34
+    2300056: flares_35
+    2300058: flares_36
+    2300060: flares_37
+    2300062: flares_38
+    2300064: flares_39
+    2300066: flares_4
+    2300068: flares_40
+    2300070: flares_41
+    2300072: flares_42
+    2300074: flares_43
+    2300076: flares_44
+    2300078: flares_45
+    2300080: flares_46
+    2300082: flares_5
+    2300084: flares_6
+    2300086: flares_7
+    2300088: flares_8
+    2300090: flares_9
+    2300092: interior
+    2300094: light_flares_47
+    2300096: light_flares_48
+    2300098: light_flares_49
+    2300100: light_flares_50
+    2300102: light_flares_51
+    2300104: light_flares_52
+    2300106: light_flares_53
+    2300108: light_flares_54
+    2300110: light_flares_55
+    2300112: light_flares_56
+    2300114: light_flares_57
+    2300116: light_flares_58
+    2300118: light_flares_59
+    2300120: light_flares_60
+    2300122: light_flares_61
+    2300124: rooftop_elements_1
+    2300126: rooftop_elements_1 1
+    2300128: rooftop_elements_10
+    2300130: rooftop_elements_10 1
+    2300132: rooftop_elements_100
+    2300134: rooftop_elements_101
+    2300136: rooftop_elements_102
+    2300138: rooftop_elements_103
+    2300140: rooftop_elements_104
+    2300142: rooftop_elements_105
+    2300144: rooftop_elements_106
+    2300146: rooftop_elements_107
+    2300148: rooftop_elements_108
+    2300150: rooftop_elements_109
+    2300152: rooftop_elements_11
+    2300154: rooftop_elements_11 1
+    2300156: rooftop_elements_110
+    2300158: rooftop_elements_111
+    2300160: rooftop_elements_112
+    2300162: rooftop_elements_113
+    2300164: rooftop_elements_114
+    2300166: rooftop_elements_115
+    2300168: rooftop_elements_116
+    2300170: rooftop_elements_117
+    2300172: rooftop_elements_118
+    2300174: rooftop_elements_119
+    2300176: rooftop_elements_12
+    2300178: rooftop_elements_12 1
+    2300180: rooftop_elements_120
+    2300182: rooftop_elements_121
+    2300184: rooftop_elements_122
+    2300186: rooftop_elements_123
+    2300188: rooftop_elements_124
+    2300190: rooftop_elements_125
+    2300192: rooftop_elements_126
+    2300194: rooftop_elements_127
+    2300196: rooftop_elements_128
+    2300198: rooftop_elements_129
+    2300200: rooftop_elements_13
+    2300202: rooftop_elements_13 1
+    2300204: rooftop_elements_130
+    2300206: rooftop_elements_131
+    2300208: rooftop_elements_132
+    2300210: rooftop_elements_133
+    2300212: rooftop_elements_134
+    2300214: rooftop_elements_135
+    2300216: rooftop_elements_136
+    2300218: rooftop_elements_137
+    2300220: rooftop_elements_138
+    2300222: rooftop_elements_139
+    2300224: rooftop_elements_14
+    2300226: rooftop_elements_14 1
+    2300228: rooftop_elements_140
+    2300230: rooftop_elements_141
+    2300232: rooftop_elements_142
+    2300234: rooftop_elements_143
+    2300236: rooftop_elements_144
+    2300238: rooftop_elements_145
+    2300240: rooftop_elements_146
+    2300242: rooftop_elements_147
+    2300244: rooftop_elements_148
+    2300246: rooftop_elements_149
+    2300248: rooftop_elements_15
+    2300250: rooftop_elements_15 1
+    2300252: rooftop_elements_150
+    2300254: rooftop_elements_151
+    2300256: rooftop_elements_152
+    2300258: rooftop_elements_153
+    2300260: rooftop_elements_154
+    2300262: rooftop_elements_155
+    2300264: rooftop_elements_156
+    2300266: rooftop_elements_157
+    2300268: rooftop_elements_158
+    2300270: rooftop_elements_159
+    2300272: rooftop_elements_16
+    2300274: rooftop_elements_16 1
+    2300276: rooftop_elements_160
+    2300278: rooftop_elements_161
+    2300280: rooftop_elements_162
+    2300282: rooftop_elements_163
+    2300284: rooftop_elements_164
+    2300286: rooftop_elements_165
+    2300288: rooftop_elements_166
+    2300290: rooftop_elements_167
+    2300292: rooftop_elements_168
+    2300294: rooftop_elements_169
+    2300296: rooftop_elements_17
+    2300298: rooftop_elements_17 1
+    2300300: rooftop_elements_170
+    2300302: rooftop_elements_171
+    2300304: rooftop_elements_172
+    2300306: rooftop_elements_173
+    2300308: rooftop_elements_174
+    2300310: rooftop_elements_175
+    2300312: rooftop_elements_18
+    2300314: rooftop_elements_18 1
+    2300316: rooftop_elements_19
+    2300318: rooftop_elements_19 1
+    2300320: rooftop_elements_2
+    2300322: rooftop_elements_2 1
+    2300324: rooftop_elements_20
+    2300326: rooftop_elements_20 1
+    2300328: rooftop_elements_21
+    2300330: rooftop_elements_21 1
+    2300332: rooftop_elements_22
+    2300334: rooftop_elements_22 1
+    2300336: rooftop_elements_23
+    2300338: rooftop_elements_23 1
+    2300340: rooftop_elements_24
+    2300342: rooftop_elements_24 1
+    2300344: rooftop_elements_25
+    2300346: rooftop_elements_25 1
+    2300348: rooftop_elements_26
+    2300350: rooftop_elements_26 1
+    2300352: rooftop_elements_27
+    2300354: rooftop_elements_27 1
+    2300356: rooftop_elements_28
+    2300358: rooftop_elements_28 1
+    2300360: rooftop_elements_29
+    2300362: rooftop_elements_29 1
+    2300364: rooftop_elements_3
+    2300366: rooftop_elements_3 1
+    2300368: rooftop_elements_30
+    2300370: rooftop_elements_30 1
+    2300372: rooftop_elements_31
+    2300374: rooftop_elements_31 1
+    2300376: rooftop_elements_32
+    2300378: rooftop_elements_32 1
+    2300380: rooftop_elements_33
+    2300382: rooftop_elements_33 1
+    2300384: rooftop_elements_34
+    2300386: rooftop_elements_34 1
+    2300388: rooftop_elements_35
+    2300390: rooftop_elements_35 1
+    2300392: rooftop_elements_36
+    2300394: rooftop_elements_36 1
+    2300396: rooftop_elements_37
+    2300398: rooftop_elements_37 1
+    2300400: rooftop_elements_38
+    2300402: rooftop_elements_38 1
+    2300404: rooftop_elements_39
+    2300406: rooftop_elements_39 1
+    2300408: rooftop_elements_4
+    2300410: rooftop_elements_4 1
+    2300412: rooftop_elements_40
+    2300414: rooftop_elements_40 1
+    2300416: rooftop_elements_41
+    2300418: rooftop_elements_41 1
+    2300420: rooftop_elements_42
+    2300422: rooftop_elements_42 1
+    2300424: rooftop_elements_43
+    2300426: rooftop_elements_43 1
+    2300428: rooftop_elements_44
+    2300430: rooftop_elements_44 1
+    2300432: rooftop_elements_45
+    2300434: rooftop_elements_45 1
+    2300436: rooftop_elements_46
+    2300438: rooftop_elements_46 1
+    2300440: rooftop_elements_47
+    2300442: rooftop_elements_47 1
+    2300444: rooftop_elements_48
+    2300446: rooftop_elements_48 1
+    2300448: rooftop_elements_49
+    2300450: rooftop_elements_49 1
+    2300452: rooftop_elements_5
+    2300454: rooftop_elements_5 1
+    2300456: rooftop_elements_50
+    2300458: rooftop_elements_50 1
+    2300460: rooftop_elements_51
+    2300462: rooftop_elements_51 1
+    2300464: rooftop_elements_52
+    2300466: rooftop_elements_52 1
+    2300468: rooftop_elements_53
+    2300470: rooftop_elements_53 1
+    2300472: rooftop_elements_54
+    2300474: rooftop_elements_54 1
+    2300476: rooftop_elements_55
+    2300478: rooftop_elements_55 1
+    2300480: rooftop_elements_56
+    2300482: rooftop_elements_56 1
+    2300484: rooftop_elements_57
+    2300486: rooftop_elements_57 1
+    2300488: rooftop_elements_58
+    2300490: rooftop_elements_58 1
+    2300492: rooftop_elements_59
+    2300494: rooftop_elements_59 1
+    2300496: rooftop_elements_6
+    2300498: rooftop_elements_6 1
+    2300500: rooftop_elements_60
+    2300502: rooftop_elements_60 1
+    2300504: rooftop_elements_61
+    2300506: rooftop_elements_61 1
+    2300508: rooftop_elements_62
+    2300510: rooftop_elements_62 1
+    2300512: rooftop_elements_63
+    2300514: rooftop_elements_63 1
+    2300516: rooftop_elements_64
+    2300518: rooftop_elements_64 1
+    2300520: rooftop_elements_65
+    2300522: rooftop_elements_65 1
+    2300524: rooftop_elements_66
+    2300526: rooftop_elements_66 1
+    2300528: rooftop_elements_67
+    2300530: rooftop_elements_67 1
+    2300532: rooftop_elements_68
+    2300534: rooftop_elements_68 1
+    2300536: rooftop_elements_69
+    2300538: rooftop_elements_69 1
+    2300540: rooftop_elements_7
+    2300542: rooftop_elements_7 1
+    2300544: rooftop_elements_70
+    2300546: rooftop_elements_70 1
+    2300548: rooftop_elements_71
+    2300550: rooftop_elements_71 1
+    2300552: rooftop_elements_72
+    2300554: rooftop_elements_72 1
+    2300556: rooftop_elements_73
+    2300558: rooftop_elements_73 1
+    2300560: rooftop_elements_74
+    2300562: rooftop_elements_74 1
+    2300564: rooftop_elements_75
+    2300566: rooftop_elements_75 1
+    2300568: rooftop_elements_76
+    2300570: rooftop_elements_76 1
+    2300572: rooftop_elements_77
+    2300574: rooftop_elements_77 1
+    2300576: rooftop_elements_78
+    2300578: rooftop_elements_78 1
+    2300580: rooftop_elements_79
+    2300582: rooftop_elements_79 1
+    2300584: rooftop_elements_8
+    2300586: rooftop_elements_8 1
+    2300588: rooftop_elements_80
+    2300590: rooftop_elements_80 1
+    2300592: rooftop_elements_81
+    2300594: rooftop_elements_81 1
+    2300596: rooftop_elements_82
+    2300598: rooftop_elements_82 1
+    2300600: rooftop_elements_83
+    2300602: rooftop_elements_83 1
+    2300604: rooftop_elements_84
+    2300606: rooftop_elements_84 1
+    2300608: rooftop_elements_85
+    2300610: rooftop_elements_85 1
+    2300612: rooftop_elements_86
+    2300614: rooftop_elements_86 1
+    2300616: rooftop_elements_87
+    2300618: rooftop_elements_87 1
+    2300620: rooftop_elements_88
+    2300622: rooftop_elements_88 1
+    2300624: rooftop_elements_89
+    2300626: rooftop_elements_89 1
+    2300628: rooftop_elements_9
+    2300630: rooftop_elements_9 1
+    2300632: rooftop_elements_90
+    2300634: rooftop_elements_91
+    2300636: rooftop_elements_91 1
+    2300638: rooftop_elements_92
+    2300640: rooftop_elements_92 1
+    2300642: rooftop_elements_93
+    2300644: rooftop_elements_93 1
+    2300646: rooftop_elements_94
+    2300648: rooftop_elements_94 1
+    2300650: rooftop_elements_95
+    2300652: rooftop_elements_95 1
+    2300654: rooftop_elements_96
+    2300656: rooftop_elements_96 1
+    2300658: rooftop_elements_97
+    2300660: rooftop_elements_97 1
+    2300662: rooftop_elements_98
+    2300664: rooftop_elements_98 1
+    2300666: rooftop_elements_99
+    2300668: sky_dome
+    2300670: structure1
+    2300672: structure10
+    2300674: structure11
+    2300676: structure12
+    2300678: structure13
+    2300680: structure14
+    2300682: structure15
+    2300684: structure2
+    2300686: structure3
+    2300688: structure4
+    2300690: structure5
+    2300692: structure6
+    2300694: structure7
+    2300696: structure8
+    2300698: structure9
+    2300700: structure_1
+    2300702: structure_16
+    2300704: structure_17
+    2300706: structure_18
+    2300708: structure_19
+    2300710: structure_25
+    2300712: structure_26
+    2300714: structure_27
+    2300716: structure_28
+    2300718: structure_29
+    2300720: structure_29 1
+    2300722: structure_30
+    2300724: structure_31
+    2300726: structure_32
+    2300728: structure_33
+    2300730: structure_34
+    2300732: structure_35
+    2300734: structure_36
+    2300736: structure_37
+    2300738: structure_38
+    2300740: structure_39
+    2300742: structure_40
+    2300744: structure_41
+    2300746: structure_42
+    2300748: structure_43
+    2300750: structure_44
+    2300752: structure_45
+    2300754: structure_46
+    2300756: structure_47
+    2300758: structure_48
+    2300760: structure_49
+    2300762: structure_50
+    2300764: structure_51
+    2300766: structure_52
+    2300768: structure_53
+    2300770: structure_54
+    2300772: structure_55
+    2300774: structure_56
+    2300776: structure_57
+    2300778: structure_58
+    2300780: structure_59
+    2300782: structure_60
+    2300784: structure_61
+    2300786: structure_62
+    2300788: structure_63
+    2300790: structure_64
+    2300792: structure_65
+    2300794: structure_66
+    2300796: structure_67
+    2300798: structure_68
+    2300800: windows
+    2300802: windows1
+    2300804: windows_1
+    2300806: windows_10
+    2300808: windows_11
+    2300810: windows_12
+    2300812: windows_13
+    2300814: windows_14
+    2300816: windows_15
+    2300818: windows_16
+    2300820: windows_17
+    2300822: windows_18
+    2300824: windows_19
+    2300826: windows_2
+    2300828: windows_3
+    2300830: windows_4
+    2300832: windows_5
+    2300834: windows_6
+    2300836: windows_7
+    2300838: windows_8
+    2300840: windows_9
+    2300842: curtains_windows
+    3300000: flares_1
+    3300002: flares_10
+    3300004: flares_11
+    3300006: flares_12
+    3300008: flares_13
+    3300010: flares_14
+    3300012: flares_15
+    3300014: flares_16
+    3300016: flares_17
+    3300018: flares_18
+    3300020: flares_19
+    3300022: flares_2
+    3300024: flares_20
+    3300026: flares_21
+    3300028: flares_22
+    3300030: flares_23
+    3300032: flares_24
+    3300034: flares_25
+    3300036: flares_26
+    3300038: flares_27
+    3300040: flares_28
+    3300042: flares_29
+    3300044: flares_3
+    3300046: flares_30
+    3300048: flares_31
+    3300050: flares_32
+    3300052: flares_33
+    3300054: flares_34
+    3300056: flares_35
+    3300058: flares_36
+    3300060: flares_37
+    3300062: flares_38
+    3300064: flares_39
+    3300066: flares_4
+    3300068: flares_40
+    3300070: flares_41
+    3300072: flares_42
+    3300074: flares_43
+    3300076: flares_44
+    3300078: flares_45
+    3300080: flares_46
+    3300082: flares_5
+    3300084: flares_6
+    3300086: flares_7
+    3300088: flares_8
+    3300090: flares_9
+    3300092: interior
+    3300094: light_flares_47
+    3300096: light_flares_48
+    3300098: light_flares_49
+    3300100: light_flares_50
+    3300102: light_flares_51
+    3300104: light_flares_52
+    3300106: light_flares_53
+    3300108: light_flares_54
+    3300110: light_flares_55
+    3300112: light_flares_56
+    3300114: light_flares_57
+    3300116: light_flares_58
+    3300118: light_flares_59
+    3300120: light_flares_60
+    3300122: light_flares_61
+    3300124: rooftop_elements_1
+    3300126: rooftop_elements_1 1
+    3300128: rooftop_elements_10
+    3300130: rooftop_elements_10 1
+    3300132: rooftop_elements_100
+    3300134: rooftop_elements_101
+    3300136: rooftop_elements_102
+    3300138: rooftop_elements_103
+    3300140: rooftop_elements_104
+    3300142: rooftop_elements_105
+    3300144: rooftop_elements_106
+    3300146: rooftop_elements_107
+    3300148: rooftop_elements_108
+    3300150: rooftop_elements_109
+    3300152: rooftop_elements_11
+    3300154: rooftop_elements_11 1
+    3300156: rooftop_elements_110
+    3300158: rooftop_elements_111
+    3300160: rooftop_elements_112
+    3300162: rooftop_elements_113
+    3300164: rooftop_elements_114
+    3300166: rooftop_elements_115
+    3300168: rooftop_elements_116
+    3300170: rooftop_elements_117
+    3300172: rooftop_elements_118
+    3300174: rooftop_elements_119
+    3300176: rooftop_elements_12
+    3300178: rooftop_elements_12 1
+    3300180: rooftop_elements_120
+    3300182: rooftop_elements_121
+    3300184: rooftop_elements_122
+    3300186: rooftop_elements_123
+    3300188: rooftop_elements_124
+    3300190: rooftop_elements_125
+    3300192: rooftop_elements_126
+    3300194: rooftop_elements_127
+    3300196: rooftop_elements_128
+    3300198: rooftop_elements_129
+    3300200: rooftop_elements_13
+    3300202: rooftop_elements_13 1
+    3300204: rooftop_elements_130
+    3300206: rooftop_elements_131
+    3300208: rooftop_elements_132
+    3300210: rooftop_elements_133
+    3300212: rooftop_elements_134
+    3300214: rooftop_elements_135
+    3300216: rooftop_elements_136
+    3300218: rooftop_elements_137
+    3300220: rooftop_elements_138
+    3300222: rooftop_elements_139
+    3300224: rooftop_elements_14
+    3300226: rooftop_elements_14 1
+    3300228: rooftop_elements_140
+    3300230: rooftop_elements_141
+    3300232: rooftop_elements_142
+    3300234: rooftop_elements_143
+    3300236: rooftop_elements_144
+    3300238: rooftop_elements_145
+    3300240: rooftop_elements_146
+    3300242: rooftop_elements_147
+    3300244: rooftop_elements_148
+    3300246: rooftop_elements_149
+    3300248: rooftop_elements_15
+    3300250: rooftop_elements_15 1
+    3300252: rooftop_elements_150
+    3300254: rooftop_elements_151
+    3300256: rooftop_elements_152
+    3300258: rooftop_elements_153
+    3300260: rooftop_elements_154
+    3300262: rooftop_elements_155
+    3300264: rooftop_elements_156
+    3300266: rooftop_elements_157
+    3300268: rooftop_elements_158
+    3300270: rooftop_elements_159
+    3300272: rooftop_elements_16
+    3300274: rooftop_elements_16 1
+    3300276: rooftop_elements_160
+    3300278: rooftop_elements_161
+    3300280: rooftop_elements_162
+    3300282: rooftop_elements_163
+    3300284: rooftop_elements_164
+    3300286: rooftop_elements_165
+    3300288: rooftop_elements_166
+    3300290: rooftop_elements_167
+    3300292: rooftop_elements_168
+    3300294: rooftop_elements_169
+    3300296: rooftop_elements_17
+    3300298: rooftop_elements_17 1
+    3300300: rooftop_elements_170
+    3300302: rooftop_elements_171
+    3300304: rooftop_elements_172
+    3300306: rooftop_elements_173
+    3300308: rooftop_elements_174
+    3300310: rooftop_elements_175
+    3300312: rooftop_elements_18
+    3300314: rooftop_elements_18 1
+    3300316: rooftop_elements_19
+    3300318: rooftop_elements_19 1
+    3300320: rooftop_elements_2
+    3300322: rooftop_elements_2 1
+    3300324: rooftop_elements_20
+    3300326: rooftop_elements_20 1
+    3300328: rooftop_elements_21
+    3300330: rooftop_elements_21 1
+    3300332: rooftop_elements_22
+    3300334: rooftop_elements_22 1
+    3300336: rooftop_elements_23
+    3300338: rooftop_elements_23 1
+    3300340: rooftop_elements_24
+    3300342: rooftop_elements_24 1
+    3300344: rooftop_elements_25
+    3300346: rooftop_elements_25 1
+    3300348: rooftop_elements_26
+    3300350: rooftop_elements_26 1
+    3300352: rooftop_elements_27
+    3300354: rooftop_elements_27 1
+    3300356: rooftop_elements_28
+    3300358: rooftop_elements_28 1
+    3300360: rooftop_elements_29
+    3300362: rooftop_elements_29 1
+    3300364: rooftop_elements_3
+    3300366: rooftop_elements_3 1
+    3300368: rooftop_elements_30
+    3300370: rooftop_elements_30 1
+    3300372: rooftop_elements_31
+    3300374: rooftop_elements_31 1
+    3300376: rooftop_elements_32
+    3300378: rooftop_elements_32 1
+    3300380: rooftop_elements_33
+    3300382: rooftop_elements_33 1
+    3300384: rooftop_elements_34
+    3300386: rooftop_elements_34 1
+    3300388: rooftop_elements_35
+    3300390: rooftop_elements_35 1
+    3300392: rooftop_elements_36
+    3300394: rooftop_elements_36 1
+    3300396: rooftop_elements_37
+    3300398: rooftop_elements_37 1
+    3300400: rooftop_elements_38
+    3300402: rooftop_elements_38 1
+    3300404: rooftop_elements_39
+    3300406: rooftop_elements_39 1
+    3300408: rooftop_elements_4
+    3300410: rooftop_elements_4 1
+    3300412: rooftop_elements_40
+    3300414: rooftop_elements_40 1
+    3300416: rooftop_elements_41
+    3300418: rooftop_elements_41 1
+    3300420: rooftop_elements_42
+    3300422: rooftop_elements_42 1
+    3300424: rooftop_elements_43
+    3300426: rooftop_elements_43 1
+    3300428: rooftop_elements_44
+    3300430: rooftop_elements_44 1
+    3300432: rooftop_elements_45
+    3300434: rooftop_elements_45 1
+    3300436: rooftop_elements_46
+    3300438: rooftop_elements_46 1
+    3300440: rooftop_elements_47
+    3300442: rooftop_elements_47 1
+    3300444: rooftop_elements_48
+    3300446: rooftop_elements_48 1
+    3300448: rooftop_elements_49
+    3300450: rooftop_elements_49 1
+    3300452: rooftop_elements_5
+    3300454: rooftop_elements_5 1
+    3300456: rooftop_elements_50
+    3300458: rooftop_elements_50 1
+    3300460: rooftop_elements_51
+    3300462: rooftop_elements_51 1
+    3300464: rooftop_elements_52
+    3300466: rooftop_elements_52 1
+    3300468: rooftop_elements_53
+    3300470: rooftop_elements_53 1
+    3300472: rooftop_elements_54
+    3300474: rooftop_elements_54 1
+    3300476: rooftop_elements_55
+    3300478: rooftop_elements_55 1
+    3300480: rooftop_elements_56
+    3300482: rooftop_elements_56 1
+    3300484: rooftop_elements_57
+    3300486: rooftop_elements_57 1
+    3300488: rooftop_elements_58
+    3300490: rooftop_elements_58 1
+    3300492: rooftop_elements_59
+    3300494: rooftop_elements_59 1
+    3300496: rooftop_elements_6
+    3300498: rooftop_elements_6 1
+    3300500: rooftop_elements_60
+    3300502: rooftop_elements_60 1
+    3300504: rooftop_elements_61
+    3300506: rooftop_elements_61 1
+    3300508: rooftop_elements_62
+    3300510: rooftop_elements_62 1
+    3300512: rooftop_elements_63
+    3300514: rooftop_elements_63 1
+    3300516: rooftop_elements_64
+    3300518: rooftop_elements_64 1
+    3300520: rooftop_elements_65
+    3300522: rooftop_elements_65 1
+    3300524: rooftop_elements_66
+    3300526: rooftop_elements_66 1
+    3300528: rooftop_elements_67
+    3300530: rooftop_elements_67 1
+    3300532: rooftop_elements_68
+    3300534: rooftop_elements_68 1
+    3300536: rooftop_elements_69
+    3300538: rooftop_elements_69 1
+    3300540: rooftop_elements_7
+    3300542: rooftop_elements_7 1
+    3300544: rooftop_elements_70
+    3300546: rooftop_elements_70 1
+    3300548: rooftop_elements_71
+    3300550: rooftop_elements_71 1
+    3300552: rooftop_elements_72
+    3300554: rooftop_elements_72 1
+    3300556: rooftop_elements_73
+    3300558: rooftop_elements_73 1
+    3300560: rooftop_elements_74
+    3300562: rooftop_elements_74 1
+    3300564: rooftop_elements_75
+    3300566: rooftop_elements_75 1
+    3300568: rooftop_elements_76
+    3300570: rooftop_elements_76 1
+    3300572: rooftop_elements_77
+    3300574: rooftop_elements_77 1
+    3300576: rooftop_elements_78
+    3300578: rooftop_elements_78 1
+    3300580: rooftop_elements_79
+    3300582: rooftop_elements_79 1
+    3300584: rooftop_elements_8
+    3300586: rooftop_elements_8 1
+    3300588: rooftop_elements_80
+    3300590: rooftop_elements_80 1
+    3300592: rooftop_elements_81
+    3300594: rooftop_elements_81 1
+    3300596: rooftop_elements_82
+    3300598: rooftop_elements_82 1
+    3300600: rooftop_elements_83
+    3300602: rooftop_elements_83 1
+    3300604: rooftop_elements_84
+    3300606: rooftop_elements_84 1
+    3300608: rooftop_elements_85
+    3300610: rooftop_elements_85 1
+    3300612: rooftop_elements_86
+    3300614: rooftop_elements_86 1
+    3300616: rooftop_elements_87
+    3300618: rooftop_elements_87 1
+    3300620: rooftop_elements_88
+    3300622: rooftop_elements_88 1
+    3300624: rooftop_elements_89
+    3300626: rooftop_elements_89 1
+    3300628: rooftop_elements_9
+    3300630: rooftop_elements_9 1
+    3300632: rooftop_elements_90
+    3300634: rooftop_elements_91
+    3300636: rooftop_elements_91 1
+    3300638: rooftop_elements_92
+    3300640: rooftop_elements_92 1
+    3300642: rooftop_elements_93
+    3300644: rooftop_elements_93 1
+    3300646: rooftop_elements_94
+    3300648: rooftop_elements_94 1
+    3300650: rooftop_elements_95
+    3300652: rooftop_elements_95 1
+    3300654: rooftop_elements_96
+    3300656: rooftop_elements_96 1
+    3300658: rooftop_elements_97
+    3300660: rooftop_elements_97 1
+    3300662: rooftop_elements_98
+    3300664: rooftop_elements_98 1
+    3300666: rooftop_elements_99
+    3300668: sky_dome
+    3300670: structure1
+    3300672: structure10
+    3300674: structure11
+    3300676: structure12
+    3300678: structure13
+    3300680: structure14
+    3300682: structure15
+    3300684: structure2
+    3300686: structure3
+    3300688: structure4
+    3300690: structure5
+    3300692: structure6
+    3300694: structure7
+    3300696: structure8
+    3300698: structure9
+    3300700: structure_1
+    3300702: structure_16
+    3300704: structure_17
+    3300706: structure_18
+    3300708: structure_19
+    3300710: structure_25
+    3300712: structure_26
+    3300714: structure_27
+    3300716: structure_28
+    3300718: structure_29
+    3300720: structure_29 1
+    3300722: structure_30
+    3300724: structure_31
+    3300726: structure_32
+    3300728: structure_33
+    3300730: structure_34
+    3300732: structure_35
+    3300734: structure_36
+    3300736: structure_37
+    3300738: structure_38
+    3300740: structure_39
+    3300742: structure_40
+    3300744: structure_41
+    3300746: structure_42
+    3300748: structure_43
+    3300750: structure_44
+    3300752: structure_45
+    3300754: structure_46
+    3300756: structure_47
+    3300758: structure_48
+    3300760: structure_49
+    3300762: structure_50
+    3300764: structure_51
+    3300766: structure_52
+    3300768: structure_53
+    3300770: structure_54
+    3300772: structure_55
+    3300774: structure_56
+    3300776: structure_57
+    3300778: structure_58
+    3300780: structure_59
+    3300782: structure_60
+    3300784: structure_61
+    3300786: structure_62
+    3300788: structure_63
+    3300790: structure_64
+    3300792: structure_65
+    3300794: structure_66
+    3300796: structure_67
+    3300798: structure_68
+    3300800: windows
+    3300802: windows1
+    3300804: windows_1
+    3300806: windows_10
+    3300808: windows_11
+    3300810: windows_12
+    3300812: windows_13
+    3300814: windows_14
+    3300816: windows_15
+    3300818: windows_16
+    3300820: windows_17
+    3300822: windows_18
+    3300824: windows_19
+    3300826: windows_2
+    3300828: windows_3
+    3300830: windows_4
+    3300832: windows_5
+    3300834: windows_6
+    3300836: windows_7
+    3300838: windows_8
+    3300840: windows_9
+    3300842: curtains_windows
+    4300000: windows1
+    4300002: structure9
+    4300004: windows_8
+    4300006: structure12
+    4300008: rooftop_elements_87
+    4300010: rooftop_elements_88
+    4300012: rooftop_elements_89
+    4300014: windows_9
+    4300016: structure10
+    4300018: windows_10
+    4300020: structure11
+    4300022: rooftop_elements_75
+    4300024: rooftop_elements_76
+    4300026: rooftop_elements_77
+    4300028: rooftop_elements_78
+    4300030: rooftop_elements_79
+    4300032: rooftop_elements_80
+    4300034: rooftop_elements_81
+    4300036: rooftop_elements_82
+    4300038: rooftop_elements_83
+    4300040: rooftop_elements_84
+    4300042: rooftop_elements_85
+    4300044: rooftop_elements_86
+    4300046: structure1
+    4300048: rooftop_elements_1
+    4300050: rooftop_elements_2
+    4300052: structure6
+    4300054: rooftop_elements_51
+    4300056: rooftop_elements_52
+    4300058: rooftop_elements_53
+    4300060: rooftop_elements_54
+    4300062: rooftop_elements_55
+    4300064: rooftop_elements_56
+    4300066: light_flares_60
+    4300068: light_flares_59
+    4300070: light_flares_61
+    4300072: windows_7
+    4300074: rooftop_elements_22
+    4300076: rooftop_elements_23
+    4300078: structure5
+    4300080: rooftop_elements_50
+    4300082: light_flares_57
+    4300084: light_flares_58
+    4300086: windows_1
+    4300088: rooftop_elements_24
+    4300090: rooftop_elements_25
+    4300092: rooftop_elements_26
+    4300094: rooftop_elements_27
+    4300096: rooftop_elements_28
+    4300098: rooftop_elements_29
+    4300100: rooftop_elements_30
+    4300102: rooftop_elements_31
+    4300104: rooftop_elements_32
+    4300106: rooftop_elements_33
+    4300108: rooftop_elements_34
+    4300110: rooftop_elements_35
+    4300112: rooftop_elements_36
+    4300114: structure3
+    4300116: rooftop_elements_17
+    4300118: rooftop_elements_18
+    4300120: rooftop_elements_19
+    4300122: rooftop_elements_20
+    4300124: rooftop_elements_21
+    4300126: structure15
+    4300128: windows_3
+    4300130: rooftop_elements_3
+    4300132: rooftop_elements_4
+    4300134: rooftop_elements_5
+    4300136: rooftop_elements_6
+    4300138: rooftop_elements_7
+    4300140: rooftop_elements_8
+    4300142: rooftop_elements_9
+    4300144: rooftop_elements_10
+    4300146: rooftop_elements_11
+    4300148: rooftop_elements_12
+    4300150: rooftop_elements_13
+    4300152: rooftop_elements_14
+    4300154: rooftop_elements_15
+    4300156: rooftop_elements_16
+    4300158: structure2
+    4300160: windows_4
+    4300162: structure14
+    4300164: rooftop_elements_90
+    4300166: rooftop_elements_91
+    4300168: rooftop_elements_92
+    4300170: rooftop_elements_93
+    4300172: rooftop_elements_94
+    4300174: rooftop_elements_95
+    4300176: rooftop_elements_96
+    4300178: rooftop_elements_97
+    4300180: rooftop_elements_98
+    4300182: windows_5
+    4300184: structure13
+    4300186: windows_2
+    4300188: rooftop_elements_37
+    4300190: rooftop_elements_38
+    4300192: rooftop_elements_39
+    4300194: rooftop_elements_40
+    4300196: rooftop_elements_41
+    4300198: rooftop_elements_42
+    4300200: rooftop_elements_43
+    4300202: rooftop_elements_44
+    4300204: rooftop_elements_45
+    4300206: rooftop_elements_46
+    4300208: rooftop_elements_47
+    4300210: rooftop_elements_48
+    4300212: rooftop_elements_49
+    4300214: structure4
+    4300216: structure7
+    4300218: rooftop_elements_57
+    4300220: rooftop_elements_58
+    4300222: rooftop_elements_59
+    4300224: rooftop_elements_60
+    4300226: rooftop_elements_61
+    4300228: windows_6
+    4300230: structure8
+    4300232: rooftop_elements_62
+    4300234: rooftop_elements_63
+    4300236: rooftop_elements_64
+    4300238: rooftop_elements_65
+    4300240: rooftop_elements_66
+    4300242: rooftop_elements_67
+    4300244: rooftop_elements_68
+    4300246: rooftop_elements_69
+    4300248: rooftop_elements_70
+    4300250: rooftop_elements_71
+    4300252: rooftop_elements_72
+    4300254: rooftop_elements_73
+    4300256: rooftop_elements_74
+    4300258: structure_25
+    4300260: windows_11
+    4300262: structure_19
+    4300264: structure_16
+    4300266: structure_17
+    4300268: structure_18
+    4300270: windows
+    4300272: windows_12
+    4300274: windows_13
+    4300276: structure_26
+    4300278: rooftop_elements_57
+    4300280: rooftop_elements_58
+    4300282: rooftop_elements_59
+    4300284: rooftop_elements_60
+    4300286: rooftop_elements_61
+    4300288: rooftop_elements_62
+    4300290: rooftop_elements_63
+    4300292: rooftop_elements_64
+    4300294: rooftop_elements_65
+    4300296: windows_17
+    4300298: rooftop_elements_1
+    4300300: rooftop_elements_2
+    4300302: rooftop_elements_3
+    4300304: rooftop_elements_4
+    4300306: rooftop_elements_5
+    4300308: rooftop_elements_6
+    4300310: rooftop_elements_36
+    4300312: rooftop_elements_37
+    4300314: rooftop_elements_38
+    4300316: rooftop_elements_40
+    4300318: rooftop_elements_41
+    4300320: rooftop_elements_7
+    4300322: rooftop_elements_8
+    4300324: rooftop_elements_9
+    4300326: rooftop_elements_10
+    4300328: rooftop_elements_11
+    4300330: rooftop_elements_12
+    4300332: rooftop_elements_13
+    4300334: rooftop_elements_14
+    4300336: rooftop_elements_15
+    4300338: rooftop_elements_16
+    4300340: rooftop_elements_17
+    4300342: windows_16
+    4300344: rooftop_elements_39
+    4300346: structure_1
+    4300348: light_flares_54
+    4300350: light_flares_56
+    4300352: light_flares_55
+    4300354: light_flares_53
+    4300356: rooftop_elements_87
+    4300358: rooftop_elements_66
+    4300360: rooftop_elements_79
+    4300362: rooftop_elements_84
+    4300364: rooftop_elements_85
+    4300366: rooftop_elements_70
+    4300368: rooftop_elements_71
+    4300370: rooftop_elements_72
+    4300372: rooftop_elements_73
+    4300374: rooftop_elements_88
+    4300376: rooftop_elements_89
+    4300378: rooftop_elements_86
+    4300380: windows_14
+    4300382: windows_19
+    4300384: rooftop_elements_83
+    4300386: rooftop_elements_77
+    4300388: rooftop_elements_78
+    4300390: rooftop_elements_80
+    4300392: rooftop_elements_81
+    4300394: rooftop_elements_82
+    4300396: rooftop_elements_74
+    4300398: rooftop_elements_75
+    4300400: rooftop_elements_76
+    4300402: structure_27
+    4300404: interior
+    4300406: rooftop_elements_69
+    4300408: rooftop_elements_67
+    4300410: rooftop_elements_68
+    4300412: light_flares_50
+    4300414: light_flares_51
+    4300416: light_flares_47
+    4300418: light_flares_48
+    4300420: light_flares_49
+    4300422: light_flares_52
+    4300424: windows_15
+    4300426: rooftop_elements_42
+    4300428: rooftop_elements_43
+    4300430: rooftop_elements_44
+    4300432: rooftop_elements_45
+    4300434: rooftop_elements_46
+    4300436: rooftop_elements_47
+    4300438: rooftop_elements_48
+    4300440: rooftop_elements_49
+    4300442: rooftop_elements_50
+    4300444: rooftop_elements_51
+    4300446: rooftop_elements_52
+    4300448: rooftop_elements_53
+    4300450: rooftop_elements_18
+    4300452: rooftop_elements_54
+    4300454: rooftop_elements_20
+    4300456: rooftop_elements_21
+    4300458: rooftop_elements_55
+    4300460: rooftop_elements_56
+    4300462: structure_28
+    4300464: rooftop_elements_19
+    4300466: windows_18
+    4300468: structure_29
+    4300470: rooftop_elements_22
+    4300472: rooftop_elements_23
+    4300474: rooftop_elements_24
+    4300476: rooftop_elements_25
+    4300478: rooftop_elements_26
+    4300480: rooftop_elements_27
+    4300482: rooftop_elements_28
+    4300484: rooftop_elements_29
+    4300486: rooftop_elements_30
+    4300488: rooftop_elements_31
+    4300490: rooftop_elements_32
+    4300492: rooftop_elements_33
+    4300494: rooftop_elements_34
+    4300496: rooftop_elements_35
+    4300498: structure_40
+    4300500: flares_20
+    4300502: flares_21
+    4300504: structure_39
+    4300506: structure_68
+    4300508: flares_15
+    4300510: flares_16
+    4300512: flares_17
+    4300514: flares_18
+    4300516: flares_19
+    4300518: flares_22
+    4300520: structure_45
+    4300522: rooftop_elements_151
+    4300524: rooftop_elements_152
+    4300526: rooftop_elements_153
+    4300528: rooftop_elements_154
+    4300530: structure_35
+    4300532: flares_31
+    4300534: flares_33
+    4300536: flares_34
+    4300538: structure_41
+    4300540: rooftop_elements_106
+    4300542: rooftop_elements_107
+    4300544: rooftop_elements_108
+    4300546: flares_10
+    4300548: structure_59
+    4300550: rooftop_elements_172
+    4300552: rooftop_elements_173
+    4300554: rooftop_elements_174
+    4300556: rooftop_elements_126
+    4300558: rooftop_elements_127
+    4300560: structure_44
+    4300562: flares_27
+    4300564: flares_28
+    4300566: structure_60
+    4300568: rooftop_elements_103
+    4300570: rooftop_elements_104
+    4300572: rooftop_elements_105
+    4300574: flares_9
+    4300576: flares_11
+    4300578: flares_12
+    4300580: flares_14
+    4300582: structure_58
+    4300584: rooftop_elements_99
+    4300586: rooftop_elements_100
+    4300588: rooftop_elements_101
+    4300590: rooftop_elements_102
+    4300592: structure_55
+    4300594: structure_54
+    4300596: structure_51
+    4300598: flares_23
+    4300600: flares_24
+    4300602: flares_25
+    4300604: flares_26
+    4300606: structure_57
+    4300608: rooftop_elements_155
+    4300610: rooftop_elements_156
+    4300612: rooftop_elements_157
+    4300614: rooftop_elements_158
+    4300616: rooftop_elements_159
+    4300618: structure_56
+    4300620: rooftop_elements_142
+    4300622: rooftop_elements_143
+    4300624: structure_48
+    4300626: structure_53
+    4300628: structure_36
+    4300630: rooftop_elements_112
+    4300632: rooftop_elements_113
+    4300634: rooftop_elements_114
+    4300636: rooftop_elements_115
+    4300638: rooftop_elements_116
+    4300640: rooftop_elements_117
+    4300642: rooftop_elements_118
+    4300644: rooftop_elements_119
+    4300646: rooftop_elements_120
+    4300648: rooftop_elements_121
+    4300650: rooftop_elements_122
+    4300652: rooftop_elements_123
+    4300654: rooftop_elements_124
+    4300656: rooftop_elements_125
+    4300658: structure_43
+    4300660: flares_1
+    4300662: flares_2
+    4300664: flares_13
+    4300666: structure_42
+    4300668: rooftop_elements_175
+    4300670: rooftop_elements_91
+    4300672: rooftop_elements_92
+    4300674: rooftop_elements_93
+    4300676: rooftop_elements_94
+    4300678: rooftop_elements_95
+    4300680: flares_3
+    4300682: flares_4
+    4300684: flares_5
+    4300686: flares_6
+    4300688: flares_7
+    4300690: flares_8
+    4300692: structure_46
+    4300694: rooftop_elements_144
+    4300696: rooftop_elements_145
+    4300698: rooftop_elements_146
+    4300700: rooftop_elements_147
+    4300702: rooftop_elements_148
+    4300704: rooftop_elements_149
+    4300706: rooftop_elements_150
+    4300708: structure_50
+    4300710: structure_52
+    4300712: rooftop_elements_128
+    4300714: rooftop_elements_129
+    4300716: rooftop_elements_130
+    4300718: rooftop_elements_131
+    4300720: rooftop_elements_132
+    4300722: rooftop_elements_133
+    4300724: rooftop_elements_134
+    4300726: rooftop_elements_135
+    4300728: rooftop_elements_136
+    4300730: rooftop_elements_137
+    4300732: rooftop_elements_138
+    4300734: rooftop_elements_139
+    4300736: rooftop_elements_140
+    4300738: rooftop_elements_141
+    4300740: structure_49
+    4300742: flares_29
+    4300744: flares_30
+    4300746: flares_32
+    4300748: structure_62
+    4300750: rooftop_elements_109
+    4300752: rooftop_elements_110
+    4300754: rooftop_elements_111
+    4300756: structure_47
+    4300758: structure_34
+    4300760: structure_38
+    4300762: flares_43
+    4300764: flares_44
+    4300766: flares_45
+    4300768: flares_46
+    4300770: structure_37
+    4300772: rooftop_elements_166
+    4300774: rooftop_elements_167
+    4300776: rooftop_elements_168
+    4300778: rooftop_elements_169
+    4300780: rooftop_elements_170
+    4300782: rooftop_elements_171
+    4300784: flares_36
+    4300786: flares_38
+    4300788: rooftop_elements_160
+    4300790: rooftop_elements_161
+    4300792: rooftop_elements_162
+    4300794: rooftop_elements_163
+    4300796: rooftop_elements_164
+    4300798: rooftop_elements_165
+    4300800: structure_33
+    4300802: flares_39
+    4300804: flares_40
+    4300806: flares_41
+    4300808: flares_42
+    4300810: structure_32
+    4300812: flares_35
+    4300814: flares_37
+    4300816: rooftop_elements_96
+    4300818: rooftop_elements_97
+    4300820: rooftop_elements_98
+    4300822: structure_31
+    4300824: structure_30
+    4300826: structure_61
+    4300828: structure_65
+    4300830: structure_63
+    4300832: structure_67
+    4300834: structure_29
+    4300836: structure_64
+    4300838: structure_66
+    4300840: sky_dome
+    4300842: curtains_windows
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 1
+  userData: 

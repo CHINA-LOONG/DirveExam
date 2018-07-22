@@ -82,7 +82,7 @@ public class KnobSwitch : MonoBehaviour
             {
                 isTriggerOn = value;
 
-                knobTrigger.transform.localScale = Vector3.one * (isTriggerOn ? 0.8f : 1f);
+                knobTrigger.transform.localScale = Vector3.one * (isTriggerOn ? 1.1f : 1f);
                 if (onChangeSwitch != null)
                 {
                     onChangeSwitch(value);

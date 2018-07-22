@@ -12,7 +12,7 @@ public class VideoPlayWarp : MonoBehaviour
     private RawImage rawImage;
     private void Start()
     {
-        RenderTexture renderTexture = new RenderTexture(512, 512, 24);
+        RenderTexture renderTexture = new RenderTexture(1280, 720, 24);
 
         rawImage = gameObject.GetComponent<RawImage>();
         rawImage.texture = renderTexture;

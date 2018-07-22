@@ -5,11 +5,13 @@ using System.IO;
 
 public class ConfigDataMgr : XSingleton<ConfigDataMgr>
 {
-    public static string ExamStart = "灯光考试开始:";
+    public static string ExamStart = "下面将进行模拟夜间行驶场景灯光使用的考试，请按语音指令在5秒内做出相应的灯光操作";
+    public static string ExamEnd = "模拟夜间考试完成请关闭所有灯光";
+    public static string ExamEndAnswer = "答案：关闭所有灯光";
 
     public GameConfig gameConfig = new GameConfig();
     public List<QuestionData> questions = new List<QuestionData>();
-    public Dictionary<string, string> audioDict = new Dictionary<string, string>();
+    public Dictionary<string, string> resourceDict = new Dictionary<string, string>();
 
     public override void OnInit()
     {
@@ -42,19 +44,19 @@ public class ConfigDataMgr : XSingleton<ConfigDataMgr>
     /// Reads the audio dict data from audioDict.json.
     /// </summary>
     public void ReadAudioDictData(){
-        string filePath = Path.Combine(ResourcesMgr.ConfigPath, "audioDict.json");
+        string filePath = Path.Combine(ResourcesMgr.ConfigPath, "resourceDict.json");
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            audioDict = LitJson.JsonMapper.ToObject<Dictionary<string, string>>(json);
+            resourceDict = LitJson.JsonMapper.ToObject<Dictionary<string, string>>(json);
         }
     }
     /// <summary>
     /// Writes the audio dict data to audioDict.json.
     /// </summary>
     public void WriteAudioDictData(){
-        string filePath = Path.Combine(ResourcesMgr.ConfigPath, "audioDict.json");
-        string json = LitJson.JsonMapper.ToJson(audioDict);
+        string filePath = Path.Combine(ResourcesMgr.ConfigPath, "resourceDict.json");
+        string json = LitJson.JsonMapper.ToJson(resourceDict);
         File.WriteAllText(filePath, json, System.Text.Encoding.UTF8);
     }
 

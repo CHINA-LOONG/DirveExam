@@ -1,5 +1,11 @@
 ﻿using System.Collections.Generic;
 
+public enum CarType
+{
+    DAZHONG = 1,
+    AILISHE = 2
+}
+
 public class Data_Base { }
 
 /// <summary>

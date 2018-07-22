@@ -160,7 +160,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.loongx.DriveExam
     Standalone: com.loong.DriveExam
-    iOS: com.loongx.ProductName
+    iOS: com.loong.DriveExam
   buildNumber: {}
   AndroidBundleVersionCode: 0
   AndroidMinSdkVersion: 16

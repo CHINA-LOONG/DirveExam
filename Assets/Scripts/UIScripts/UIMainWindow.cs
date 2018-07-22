@@ -17,17 +17,44 @@ public class UIMainWindow : UIWindow
     }
 
     /// <summary>
+    /// 检测是是否进入视频界面
+    /// </summary>
+    void ShowDetailWindow()
+    {
+        List<VideoData> videoDatas;
+        if (ConfigDataMgr.Instance.gameConfig.video.ContainsKey(GameDataMgr.Instance.carType.ToString()))
+        {
+            videoDatas = ConfigDataMgr.Instance.gameConfig.video[GameDataMgr.Instance.carType.ToString()];
+        }
+        else
+        {
+            videoDatas = new List<VideoData>();
+        }
+
+        if (videoDatas.Count > 0)
+        {
+            UIDetailWindow uiDetailWindow = UIManager.Instance.OpenUI<UIDetailWindow>();
+        }
+        else
+        {
+            SwitchSceneMgr.Instance.SwitchToExam();
+        }
+    }
+
+    /// <summary>
     /// Ons the click jieda.
     /// </summary>
     void OnClickJieda()
     {
-        UIDetailWindow uiDetailWindow = UIManager.Instance.OpenWindow<UIDetailWindow>();
+        GameDataMgr.Instance.carType = CarType.DAZHONG;
+        ShowDetailWindow();
     }
     /// <summary>
     /// Ons the click ailishe.
     /// </summary>
     void OnClickAilishe()
     {
-        UIDetailWindow uiDetailWindow = UIManager.Instance.OpenWindow<UIDetailWindow>();
+        GameDataMgr.Instance.carType = CarType.AILISHE;
+        ShowDetailWindow();
     }
 }

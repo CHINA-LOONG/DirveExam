@@ -13,7 +13,4 @@ EditorBuildSettings:
     guid: 4483b82617f634a26abc56dbce3bbc0e
   - enabled: 1
     path: Assets/Scenes/ExamScene.unity
-    guid: f0ac3619bf7f34459a993920fd20bf31
-  - enabled: 1
-    path: Assets/WitBaiduAip/Examples/Tts/TtsDemo.unity
-    guid: b0c69f86367702e4cb8230b836868587
+    guid: e835b31280ac2ec42944556d1da9a7de
