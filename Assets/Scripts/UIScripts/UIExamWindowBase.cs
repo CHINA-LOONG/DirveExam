@@ -23,6 +23,21 @@ public class UIExamWindowBase : UIWindow
 
 
     public Text textQuestion;
-    public Image imgResul;
+    public Image imgResult;
     public Text textAnswer;
+
+    private bool isShowVideo;
+    private bool isShowAnswer;
+
+    public bool IsShowAnswer
+    {
+        get {return isShowAnswer;}
+        set
+        {
+            if (isShowAnswer!=value)
+            {
+                
+            }
+        }
+    }
 }
