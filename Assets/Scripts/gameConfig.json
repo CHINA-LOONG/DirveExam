@@ -1,0 +1,306 @@
+{
+  "version": "1",
+  "questions": [
+    {
+      "question": "请开启前照灯",
+      "answer": "答案：开启大灯，注意是近光",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间在没有路灯，照明不良条件下行驶",
+      "answer": "答案：开大灯（远光灯）",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": false,
+      "HigBeamLight": true,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "请将前照灯变换成远光",
+      "answer": "答案：开启远光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": false,
+      "HigBeamLight": true,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间在窄路与非机动车会车",
+      "answer": "答案：开启近光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间同方向近距离跟车行驶",
+      "answer": "答案：开启近光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间在道路上发生故障，妨碍交通又难以移动",
+      "answer": "答案：开启示宽灯和危险警示灯",
+      "DoubleJumpLamp": true,
+      "ClearAnceLamp": true,
+      "LowBeamLight": false,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间在窄桥与非机动车会车",
+      "answer": "答案：开启近光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "雾天行驶",
+      "answer": "答案：大灯（近光灯）+ 危险警示灯 + 雾灯",
+      "DoubleJumpLamp": true,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": true,
+      "RearFogLamp": true,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间与机动车会车",
+      "answer": "答案：开启近光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间通过拱桥、人行通道",
+      "answer": "答案：变换远近光灯，完成操作后仍为近光",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": true
+    },
+    {
+      "question": "夜间通没有交通信号灯控制的路口",
+      "answer": "答案：变换远近光灯，完成操作后仍为近光",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": true
+    },
+    {
+      "question": "夜间通过急弯、坡路",
+      "answer": "答案：变换远近光灯，完成操作后仍为近光",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": true
+    },
+    {
+      "question": "夜间超越前方车辆",
+      "answer": "答案：变换远近光灯，完成操作后仍为近光",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": true
+    },
+    {
+      "question": "在路边临时停车",
+      "answer": "答案：开启小灯(示宽灯) + 危险警示灯",
+      "DoubleJumpLamp": true,
+      "ClearAnceLamp": true,
+      "LowBeamLight": false,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间路口直行",
+      "answer": "答案：开启近光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间路口左转弯",
+      "answer": "答案：开启近光灯+左转向灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": true,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间路口右转弯",
+      "answer": "答案：开启近光灯+右转向灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": true,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间在照明良好的道路行驶",
+      "answer": "答案：开启近光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间直行通过路口",
+      "answer": "答案：开启近光灯",
+      "DoubleJumpLamp": false,
+      "ClearAnceLamp": true,
+      "LowBeamLight": true,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    },
+    {
+      "question": "夜间路边临时停车",
+      "answer": "答案：开启小灯（示宽灯）+ 危险警示灯",
+      "DoubleJumpLamp": true,
+      "ClearAnceLamp": true,
+      "LowBeamLight": false,
+      "HigBeamLight": false,
+      "FrontFogLamp": false,
+      "RearFogLamp": false,
+      "LeftIndicator": false,
+      "RightIndicator": false,
+      "LowToHigLight": false
+    }
+  ],
+  "video": {
+    "DAZHONG": [
+      {
+        "imgurl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight001.jpg",
+        "videourl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight001.mp4",
+        "videoname": "2001709210000032101.mp4"
+      },
+      {
+        "imgurl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight002.jpg",
+        "videourl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight002.mp4",
+        "videoname": "2001709210000032102.mp4"
+      },
+      {
+        "imgurl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight003.jpg",
+        "videourl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight003.mp4",
+        "videoname": "2001709210000032103.mp4"
+      },
+      {
+        "imgurl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight004.jpg",
+        "videourl": "http://jiakaojiayuan.com/kemu3/videotutorial/DZlight/DZlight004.mp4",
+        "videoname": "2001709210000032104.mp4"
+      }
+    ],
+    "AILISHE": [
+      {
+        "imgurl": "http://jiakaojiayuan.com/kemu3/videotutorial/XTLlight/XTLlight001.jpg",
+        "videourl": "http://jiakaojiayuan.com/kemu3/videotutorial/XTLlight/XTLlight001.mp4",
+        "videoname": "2001709210000032201.mp4"
+      },
+      {
+        "imgurl": "http://jiakaojiayuan.com/kemu3/videotutorial/XTLlight/XTLlight002.jpg",
+        "videourl": "http://jiakaojiayuan.com/kemu3/videotutorial/XTLlight/XTLlight002.mp4",
+        "videoname": "2001709210000032202.mp4"
+      },
+      {
+        "imgurl": "http://jiakaojiayuan.com/kemu3/videotutorial/XTLlight/XTLlight003.jpg",
+        "videourl": "http://jiakaojiayuan.com/kemu3/videotutorial/XTLlight/XTLlight003.mp4",
+        "videoname": "2001709210000032203.mp4"
+      }
+    ]
+  }
+}
