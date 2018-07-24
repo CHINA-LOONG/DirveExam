@@ -85,7 +85,6 @@ public class UILoginWindow : UIWindow
         textState.text = strState;
     }
 
-
     void OnClickLogin()
     {
         UIManager.Instance.OpenUI<UIMainWindow>();

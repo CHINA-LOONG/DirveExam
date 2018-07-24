@@ -40,6 +40,43 @@ public class QuestionData : Data_Base
     /// 试题答案文案.
     /// </summary>
     public string answer;
+
+    /// <summary>
+    /// 双闪灯
+    /// </summary>
+    public bool DoubleJumpLamp;
+    /// <summary>
+    /// 示廓灯
+    /// </summary>
+    public bool ClearAnceLamp;
+    /// <summary>
+    /// 近光灯
+    /// </summary>
+    public bool LowBeamLight;
+    /// <summary>
+    /// 远光灯
+    /// </summary>
+    public bool HigBeamLight;
+    /// <summary>
+    /// 前雾灯
+    /// </summary>
+    public bool FrontFogLamp;
+    /// <summary>
+    /// 后雾灯
+    /// </summary>
+    public bool RearFogLamp;
+    /// <summary>
+    /// 左指示器
+    /// </summary>
+    public bool LeftIndicator;
+    /// <summary>
+    /// 右指示器
+    /// </summary>
+    public bool RightIndicator;
+    /// <summary>
+    /// 远近灯光切换--两次
+    /// </summary>
+    public bool LowToHigLight;
 }
 
 /// <summary>

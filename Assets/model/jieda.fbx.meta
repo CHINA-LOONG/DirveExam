@@ -22,6 +22,7 @@ ModelImporter:
     100028: jieda
     100030: pCube1
     100032: pCube2
+    100034: bottom
     400000: dishboard
     400002: fender
     400004: hood
@@ -39,6 +40,8 @@ ModelImporter:
     400028: jieda
     400030: pCube1
     400032: pCube2
+    400034: bottom
+    2000000: bottom
     2100000: 'Material #1505'
     2100002: 'Material #1509'
     2100004: 'Material #1508'
@@ -53,6 +56,7 @@ ModelImporter:
     2100022: 'Material #1468'
     2100024: 'Material #1449'
     2100026: lambert1
+    2100028: lambert2
     2300000: dishboard
     2300002: fender
     2300004: hood
