@@ -36,8 +36,23 @@ public class PlayVideoController : MonoBehaviour
         btnScreen.onClick.AddListener(OnClickScreen);
 
         sliderProg.onValueChanged.AddListener(OnSliderChange);
+        UIEventListener.Get(sliderProg.gameObject).onDown += (go) => { Debug.Log("down"); };
+        UIEventListener.Get(sliderProg.gameObject).onUp += (go) => {Debug.Log("up"); };
 
         videoPlayer.prepareCompleted += prepareCompleted;
+        videoPlayer.frameDropped += frameDropped;
+
+        sliderProg.maxValue = 100f;
+        sliderProg.minValue = 0.0f;
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            sliderProg.value = Random.Range(0.0f, 100f);
+        }
     }
 
     public void InitWith(List<VideoData> videoList)
@@ -84,6 +99,9 @@ public class PlayVideoController : MonoBehaviour
         int second = time % 60;
         textTotalTime.text = string.Format("{0:D2}:{1:D2}", minute.ToString(), second.ToString());
     }
+    void frameDropped(VideoPlayer source){
+        
+    }
 
     void OnClickStart()
     {
@@ -100,8 +118,10 @@ public class PlayVideoController : MonoBehaviour
         showList = !showList;
         objVideoList.SetActive(showList);
     }
+
     void OnSliderChange(float value)
     {
+        Debug.Log(value);
         if (videoPlayer.isPrepared)
         {
             videoPlayer.time = (long)value;
@@ -111,6 +131,7 @@ public class PlayVideoController : MonoBehaviour
             textPlayTime.text = string.Format("{0:D2}:{1:D2}", minute.ToString(), second.ToString());
         }
     }
+
     void OnClickPlay()
     {
         if (videoPlayer.isPlaying)
@@ -124,6 +145,17 @@ public class PlayVideoController : MonoBehaviour
             (btnPlay.targetGraphic as Image).sprite = sprPause;
         }
     }
+
+
+
+
+
+
+
+
+    /// <summary>
+    /// 全屏显示
+    /// </summary>
     void OnClickScreen()
     {
 

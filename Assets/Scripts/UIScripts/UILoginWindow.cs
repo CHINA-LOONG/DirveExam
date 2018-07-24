@@ -92,7 +92,7 @@ public class UILoginWindow : UIWindow
     }
     void OnClickWechat()
     {
-
+        UITipsDialog.ShowTips("此接口当前未开放");
     }
     void OnClickRegister()
     {
