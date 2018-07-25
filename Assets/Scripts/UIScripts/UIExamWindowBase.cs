@@ -67,7 +67,7 @@ public abstract class UIExamWindowBase : UIWindow
             {
                 isRandom = value;
                 btsRandom.image.sprite = value ? btsRandom.sprSelect : btsRandom.sprNormal;
-                btsNext.button.gameObject.SetActive(isLightExam);
+                btsNext.button.gameObject.SetActive(isRandom);
                 (btsNext.button.targetGraphic as Image).sprite = btsNext.sprSelect;
             }
         }
@@ -99,7 +99,6 @@ public abstract class UIExamWindowBase : UIWindow
         }
     }
 
-    public List<int> questions = new List<int>(5);
     public override void OnCreate()
     {
         base.OnCreate();
@@ -142,6 +141,14 @@ public abstract class UIExamWindowBase : UIWindow
     {
         IsLightExam = false;
         IsRandom = !IsRandom;
+        if (IsRandom)
+        {
+            StartExercise();
+        }
+        else
+        {
+            CleanQuestion();
+        }
     }
     /// <summary>
     /// 点击灯光考试
@@ -152,7 +159,11 @@ public abstract class UIExamWindowBase : UIWindow
         IsLightExam = !IsLightExam;
         if (IsLightExam)
         {
-            BeginLightExam();
+            StartLightExam();
+        }
+        else
+        {
+            CleanQuestion();
         }
     }
     /// <summary>
@@ -162,11 +173,11 @@ public abstract class UIExamWindowBase : UIWindow
     {
         if (IsLightExam)//灯光考试
         {
-
+            StartLightExam();
         }
         else if (IsRandom)//随机练习
         {
-
+            StartExercise();
         }
     }
     #endregion
@@ -181,11 +192,11 @@ public abstract class UIExamWindowBase : UIWindow
         get { return clearanceSwitch; }
         set
         {
-                clearanceSwitch = value;
-                if (value)
-                {
-                    HeadlightSwitch = false;
-                }
+            clearanceSwitch = value;
+            if (value)
+            {
+                HeadlightSwitch = false;
+            }
         }
     }
     /// <summary>
@@ -213,7 +224,7 @@ public abstract class UIExamWindowBase : UIWindow
         get { return frontFogSwitch; }
         set
         {
-                frontFogSwitch = value;
+            frontFogSwitch = value;
         }
     }
     /// <summary>
@@ -308,7 +319,11 @@ public abstract class UIExamWindowBase : UIWindow
         get { return toggleHeadlightSwitch; }
         set
         {
-            toggleHeadlightSwitch = value;
+            if (value != toggleHeadlightSwitch)
+            {
+                toggleHeadlightSwitch = value;
+                LowToHigCount += 1;
+            }
         }
     }
     /// <summary>
@@ -369,6 +384,19 @@ public abstract class UIExamWindowBase : UIWindow
     #endregion
 
     /// <summary>
+    /// 考试试题列表
+    /// </summary>
+    private List<int> examList = new List<int>();
+    /// <summary>
+    /// 前一道试题
+    /// </summary>
+    private int prevIndex;
+    /// <summary>
+    /// 语音播放控件
+    /// </summary>
+    private AudioObject audioObject;
+
+    /// <summary>
     /// 关闭所有灯光
     /// </summary>
     private void CloseAllLight()
@@ -383,70 +411,110 @@ public abstract class UIExamWindowBase : UIWindow
         FarHeadlightSwitch = false;
         ToggleHeadlightSwitch = false;
     }
-
-    private List<int> examList = new List<int>();
-    void BeginLightExam()
+    /// <summary>
+    /// 清理试题信息
+    /// </summary>
+    private void CleanQuestion()
     {
+        PauseQuestion();
         CloseAllLight();
+        textQuestion.text = "";
+        textAnswer.text = "";
+        imgResult.gameObject.SetActive(false);
+    }
+    /// <summary>
+    /// 停止试题运行
+    /// </summary>
+    private void PauseQuestion()
+    {
         StopAllCoroutines();
+        AudioSystemMgr.Instance.StopSoundByAudio(audioObject);
+        imgResult.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// 开始灯光考试
+    /// </summary>
+    private void StartLightExam()
+    {
+        PauseQuestion();
+        CloseAllLight();
         //生成试题列表
         examList.Add(0);
         examList.Add(1);
         examList.Add(2);
-        examList.Add(3);
-        examList.Add(4);
-        examList.Add(5);
-        examList.Add(6);
-        StartCoroutine(_BeginLightExam(examList));
+        StartCoroutine(_BeginLightExam());
 
-    }
-    IEnumerator _BeginLightExam(List<int> examList)
+         }
+
+    IEnumerator _BeginLightExam()
     {
-        textQuestion.text = ConfigDataMgr.ExamStart;
+        textQuestion.text = ConfigDataMgr.ExamStartTip;
         textAnswer.text = "";
-        AudioObject audioObject = AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr(ConfigDataMgr.ExamStart));
+        audioObject = AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr(ConfigDataMgr.ExamStartTip));
         yield return new WaitForSeconds(audioObject.playTime);
+        audioObject = null;
         yield return new WaitForSeconds(5f);
         for (int i = 0; i < examList.Count; i++)
         {
-            yield return StartCoroutine(_BeginQuestion(examList[i], true));
+            QuestionData question = ConfigDataMgr.Instance.GetQuestionByIndex(examList[i]);
+            yield return StartCoroutine(BeginQuestion(question));
         }
-    }
-    
-    private int prevIndex;
-    void BeginExercise()
-    {
-        CloseAllLight();
-        int index = 1;
-        StartCoroutine(_BeginQuestion(index,false));
+        yield return StartCoroutine(BeginQuestion(ConfigDataMgr.ExamEnd));
+        textAnswer.text = "恭喜你全部操作成功！！！";
+
     }
 
-    IEnumerator _BeginQuestion(int index, bool isExam)
+    /// <summary>
+    /// 开始随机练习
+    /// </summary>
+    private void StartExercise()
     {
-        QuestionData questionData = ConfigDataMgr.Instance.GetQuestionByIndex(index);
-        textQuestion.text = questionData.question;
-        textAnswer.text = questionData.answer;
+        PauseQuestion();
+        CloseAllLight();
+        int index = 1;
+        QuestionData question = ConfigDataMgr.Instance.GetQuestionByIndex(index);
+        StartCoroutine(BeginQuestion(question));
+    }
+
+    /// <summary>
+    /// Begins the question.
+    /// </summary>
+    /// <returns>The question.</returns>
+    /// <param name="question">Question.</param>
+    IEnumerator BeginQuestion(QuestionData question)
+    {
+        textQuestion.text = question.question;
+        textAnswer.text = question.answer;
         textAnswer.gameObject.SetActive(false || IsShowAnswer);
-        AudioObject audioObject = AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr(questionData.question));
+        audioObject = AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr(question.question));
         yield return new WaitForSeconds(audioObject.playTime);
+        audioObject = null;
         LowToHigCount = 0;//防止抢先操作
         yield return new WaitForSeconds(5f);//操作时间
 
         bool result = true;
-        result &= (questionData.DoubleJumpLamp == DoubleJumpLamp);
-        result &= (questionData.ClearAnceLamp == ClearanceLamp);
-        result &= (questionData.LowBeamLight == LowBeamLight);
-        result &= (questionData.HigBeamLight == HigBeamLight);
-        result &= (questionData.FrontFogLamp == FrontFogLamp);
-        result &= (questionData.RearFogLamp == RearFogLamp);
-        result &= (questionData.LeftIndicator == LeftIndicator);
-        result &= (questionData.RightIndicator == RightIndicator);
-        result &= (questionData.LowToHigLight == (LowToHigCount == 2));
+        result &= (question.DoubleJumpLamp == DoubleJumpLamp);
+        result &= (question.ClearAnceLamp == ClearanceLamp);
+        result &= (question.LowBeamLight == LowBeamLight);
+        result &= (question.HigBeamLight == HigBeamLight);
+        result &= (question.FrontFogLamp == FrontFogLamp);
+        result &= (question.RearFogLamp == RearFogLamp);
+        result &= (question.LeftIndicator == LeftIndicator);
+        result &= (question.RightIndicator == RightIndicator);
+        result &= (question.LowToHigLight == (LowToHigCount == 2));
 
         textAnswer.gameObject.SetActive(true);
         imgResult.gameObject.SetActive(true);
         imgResult.sprite = result ? sprRight : sprError;
-
-        yield return new WaitForSeconds(3.0f);
+        if (result)
+        {
+            yield return new WaitForSeconds(3.0f);
+            imgResult.gameObject.SetActive(false);
+        }
+        else
+        {
+            PauseQuestion();
+        }
     }
 }

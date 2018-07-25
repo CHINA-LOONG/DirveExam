@@ -237,7 +237,7 @@ public class AudioSystemMgr : MonoBehaviour
 
     public void StopSoundByAudio(AudioObject audioObj)
     {
-        if (audioObj.isUsed)
+        if (audioObj!=null&&audioObj.isUsed)
         {
             StopCoroutine(audioObj.flagController);
             audioObj.isUsed = false;

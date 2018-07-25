@@ -100,13 +100,15 @@ public class MainSceneMgr : MonoBehaviour
         List<string> updateList = new List<string>();
 
         //通用语音检测部分
-        CheckStringToAudio(ConfigDataMgr.ExamStart, updateList);
+        CheckStringToAudio(ConfigDataMgr.ExamStartTip, updateList);
+        CheckStringToAudio(ConfigDataMgr.ExamEnd.question, updateList);
         //试题语音检测部分
         for (int i = 0; i < gameConfig.questions.Count; i++)
         {
             QuestionData questionData = gameConfig.questions[i];
             CheckStringToAudio(questionData.question, updateList);
         }
+
         for (int i = 0; i < updateList.Count; i++)
         {
             //设置转换进度
