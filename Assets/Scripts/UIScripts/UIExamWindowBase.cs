@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIExamWindowBase : UIWindow
+public abstract class UIExamWindowBase : UIWindow
 {
     [System.Serializable]
     public class ButtonState
@@ -19,8 +19,7 @@ public class UIExamWindowBase : UIWindow
     public ButtonState btsVideo;    //视频讲解
     public ButtonState btsLightExam;//灯光考试
     public ButtonState btsRules;    //新规内容
-
-    public Button btnNext;
+    public ButtonState btsNext;     //下一题/下一套
     public Button btnHelp;          //内容提示
 
     public Text textQuestion;
@@ -66,6 +65,8 @@ public class UIExamWindowBase : UIWindow
             {
                 isRandom = value;
                 btsRandom.image.sprite = value ? btsRandom.sprSelect : btsRandom.sprNormal;
+                btsNext.button.gameObject.SetActive(isLightExam);
+                (btsNext.button.targetGraphic as Image).sprite = btsNext.sprSelect;
             }
         }
     }
@@ -78,6 +79,8 @@ public class UIExamWindowBase : UIWindow
             {
                 isLightExam = value;
                 btsLightExam.image.sprite = value ? btsLightExam.sprSelect : btsLightExam.sprNormal;
+                btsNext.button.gameObject.SetActive(isLightExam);
+                (btsNext.button.targetGraphic as Image).sprite = btsNext.sprNormal;
             }
         }
     }
@@ -94,6 +97,7 @@ public class UIExamWindowBase : UIWindow
         }
     }
 
+    public List<int> questions = new List<int>(5);
     public override void OnCreate()
     {
         base.OnCreate();
@@ -102,22 +106,11 @@ public class UIExamWindowBase : UIWindow
         btsVideo.button.onClick.AddListener(OnClickVideo);
         btsLightExam.button.onClick.AddListener(OnClickExam);
         btsRules.button.onClick.AddListener(OnClickRules);
+
+        btsNext.button.onClick.AddListener(OnClickNext);
     }
 
-    /// <summary>
-    /// 点击显示答案
-    /// </summary>
-    protected virtual void OnClickAnswer()
-    {
-
-    }
-    /// <summary>
-    /// 点击随机题目
-    /// </summary>
-    protected virtual void OnClickRandom()
-    {
-
-    }
+    #region BaseFunction
     /// <summary>
     /// 点击视频教学
     /// </summary>
@@ -126,50 +119,86 @@ public class UIExamWindowBase : UIWindow
 
     }
     /// <summary>
-    /// 点击灯光考试
-    /// </summary>
-    void OnClickExam()
-    {
-
-    }
-    /// <summary>
     /// 点击查看新规
     /// </summary>
     void OnClickRules()
     {
-
+        UIManager.Instance.OpenUI<UIRulesDialog>();
     }
 
+    /// <summary>
+    /// 点击显示答案
+    /// </summary>
+    void OnClickAnswer()
+    {
+        IsShowAnswer = !IsShowAnswer;
+    }
+    /// <summary>
+    /// 点击随机题目
+    /// </summary>
+    void OnClickRandom()
+    {
+        IsLightExam = false;
+        IsRandom = !IsRandom;
+    }
+    /// <summary>
+    /// 点击灯光考试
+    /// </summary>
+    void OnClickExam()
+    {
+        IsRandom = false;
+        IsLightExam = !IsLightExam;
+        if (IsLightExam)
+        {
+
+        }
+    }
+    /// <summary>
+    /// 点击下一套/下一题
+    /// </summary>
+    void OnClickNext()
+    {
+        if (IsLightExam)//灯光考试
+        {
+
+        }
+        else if (IsRandom)//随机练习
+        {
+
+        }
+    }
+    #endregion
 
     #region SwitchModule
     /// <summary>
     /// 示廓灯开关
     /// </summary>
     private bool clearanceSwitch;
-    public bool ClearanceSwitch
+    public virtual bool ClearanceSwitch
     {
         get { return clearanceSwitch; }
         set
         {
-            if (value != clearanceSwitch)
-            {
                 clearanceSwitch = value;
-            }
+                if (value)
+                {
+                    HeadlightSwitch = false;
+                }
         }
     }
     /// <summary>
     /// 前照灯开关
     /// </summary>
     private bool headlightSwitch;
-    public bool HeadlightSwitch
+    public virtual bool HeadlightSwitch
     {
         get { return headlightSwitch; }
         set
         {
-            if (value != headlightSwitch)
+            headlightSwitch = value;
+            if (value)
             {
-                headlightSwitch = value;
-
+                ClearanceSwitch = false;
             }
         }
     }
@@ -177,22 +206,19 @@ public class UIExamWindowBase : UIWindow
     /// 前雾灯开关
     /// </summary>
     private bool frontFogSwitch;
-    public bool FrontFogSwitch
+    public virtual bool FrontFogSwitch
     {
         get { return frontFogSwitch; }
         set
         {
-            if (value != frontFogSwitch)
-            {
                 frontFogSwitch = value;
-            }
         }
     }
     /// <summary>
     /// 后雾灯开关
     /// </summary>
     private bool rearFogSwitch;
-    public bool RearFogSwitch
+    public virtual bool RearFogSwitch
     {
         get { return rearFogSwitch; }
         set
@@ -207,7 +233,7 @@ public class UIExamWindowBase : UIWindow
     /// 左指示器开关
     /// </summary>
     private bool leftIndicatorSwitch;
-    public bool LeftIndicatorSwitch
+    public virtual bool LeftIndicatorSwitch
     {
         get { return leftIndicatorSwitch; }
         set
@@ -215,7 +241,10 @@ public class UIExamWindowBase : UIWindow
             if (value != leftIndicatorSwitch)
             {
                 leftIndicatorSwitch = value;
-
+                if (value)
+                {
+                    RightIndicatorSwitch = false;
+                }
             }
         }
     }
@@ -223,7 +252,7 @@ public class UIExamWindowBase : UIWindow
     /// 右指示器开关
     /// </summary>
     private bool rightIndicatorSwitch;
-    public bool RightIndicatorSwitch
+    public virtual bool RightIndicatorSwitch
     {
         get { return rightIndicatorSwitch; }
         set
@@ -231,7 +260,10 @@ public class UIExamWindowBase : UIWindow
             if (value != rightIndicatorSwitch)
             {
                 rightIndicatorSwitch = value;
-
+                if (value)
+                {
+                    LeftIndicatorSwitch = false;
+                }
             }
         }
     }
@@ -239,7 +271,7 @@ public class UIExamWindowBase : UIWindow
     /// 双闪灯开关
     /// </summary>
     private bool doubleJumpSwitch;
-    public bool DoubleJumpSwitch
+    public virtual bool DoubleJumpSwitch
     {
         get { return doubleJumpSwitch; }
         set
@@ -254,7 +286,7 @@ public class UIExamWindowBase : UIWindow
     /// 远光大灯开关
     /// </summary>
     private bool farHeadlightSwitch;//默认是近光状态
-    public bool FarHeadlightSwitch
+    public virtual bool FarHeadlightSwitch
     {
         get { return farHeadlightSwitch; }
         set
@@ -263,6 +295,18 @@ public class UIExamWindowBase : UIWindow
             {
                 farHeadlightSwitch = value;
             }
+        }
+    }
+    /// <summary>
+    /// 远近切换开关
+    /// </summary>
+    private bool toggleHeadlightSwitch;
+    public virtual bool ToggleHeadlightSwitch
+    {
+        get { return toggleHeadlightSwitch; }
+        set
+        {
+            toggleHeadlightSwitch = value;
         }
     }
     /// <summary>
@@ -285,42 +329,75 @@ public class UIExamWindowBase : UIWindow
     #region LightStatus
     public bool DoubleJumpLamp
     {
-        get
-        {
-            return true;
-        }
+        get { return DoubleJumpSwitch; }
     }
     public bool ClearanceLamp
     {
-        get { return true; }
+        get { return ClearanceSwitch || HeadlightSwitch; }
     }
     public bool LowBeamLight
     {
-        get { return true; }
+        get { return HeadlightSwitch && !FarHeadlightSwitch; }
     }
     public bool HigBeamLight
     {
-        get { return true; }
+        get { return HeadlightSwitch && FarHeadlightSwitch; }
     }
     public bool FrontFogLamp
     {
-        get { return true; }
+        get { return FrontFogSwitch && (ClearanceSwitch || HeadlightSwitch); }
     }
     public bool RearFogLamp
     {
-        get { return true; }
+        get { return RearFogSwitch && (ClearanceSwitch || HeadlightSwitch); }
     }
     public bool LeftIndicator
     {
-        get { return true; }
+        get { return LeftIndicatorSwitch; }
     }
     public bool RightIndicator
     {
-        get { return true; }
+        get { return RightIndicatorSwitch; }
     }
     public bool LowToHigLight
     {
-        get { return true; }
+        get { return lowToHigCount == 2; }
     }
+
     #endregion
+
+    /// <summary>
+    /// 关闭所有灯光
+    /// </summary>
+    protected void CloseAllLight()
+    {
+        ClearanceSwitch = false;
+        HeadlightSwitch = false;
+        FrontFogSwitch = false;
+        RearFogSwitch = false;
+        LeftIndicatorSwitch = false;
+        RightIndicatorSwitch = false;
+        DoubleJumpSwitch = false;
+        FarHeadlightSwitch = false;
+        ToggleHeadlightSwitch = false;
+    }
+
+    void BeginLightExam()
+    {
+        CloseAllLight();
+        //生成试题列表
+
+    }
+    void BeginExercise()
+    {
+        CloseAllLight();
+    }
+
+    IEnumerator _BeginQuestion(int id)
+    {
+        LowToHigCount = 0;//清空远近切换
+        //ConfigDataMgr.in
+        //AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr())
+        yield return null;
+    }
 }

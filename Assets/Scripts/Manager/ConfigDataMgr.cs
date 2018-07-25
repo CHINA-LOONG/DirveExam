@@ -59,8 +59,7 @@ public class ConfigDataMgr : XSingleton<ConfigDataMgr>
         string json = LitJson.JsonMapper.ToJson(resourceDict);
         File.WriteAllText(filePath, json, System.Text.Encoding.UTF8);
     }
-
-
+    
     public void CheckTurnAudio(string text){
         
     }

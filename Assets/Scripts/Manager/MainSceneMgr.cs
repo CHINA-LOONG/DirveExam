@@ -48,7 +48,8 @@ public class MainSceneMgr : MonoBehaviour
     void CheckConfigUpdate()
     {
         //检查配置更新
-        string questionUrl = "http://localhost/gameConfig.json";
+        //string questionUrl = "http://localhost/gameConfig.json";
+        string questionUrl = "http://loong.gz01.bdysite.com/gameConfig.json";
         StartCoroutine(RequestNetworkFile(questionUrl, (result, content, data) =>
         {
             if (result)
