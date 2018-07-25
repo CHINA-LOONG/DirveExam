@@ -11,7 +11,7 @@ public class ResourcesMgr : Singleton<ResourcesMgr>
         get
         {
 #if UNITY_EDITOR
-            string configPath = Path.Combine(Application.dataPath, "config");
+            string configPath = Path.Combine(Application.dataPath, "Temp/config");
 #else
             string configPath = Path.Combine(Application.persistentDataPath, "config");
 #endif
@@ -27,7 +27,7 @@ public class ResourcesMgr : Singleton<ResourcesMgr>
         get
         {
 #if UNITY_EDITOR
-            string audioPath = Path.Combine(Application.dataPath, "audio");
+            string audioPath = Path.Combine(Application.dataPath, "Temp/audio");
 #else
             string audioPath = Path.Combine(Application.persistentDataPath, "audio");
 #endif
@@ -42,7 +42,7 @@ public class ResourcesMgr : Singleton<ResourcesMgr>
         get
         {
 #if UNITY_EDITOR
-            string audioPath = Path.Combine(Application.dataPath, "texture");
+            string audioPath = Path.Combine(Application.dataPath, "Temp/texture");
 #else
             string audioPath = Path.Combine(Application.persistentDataPath, "texture");
 #endif

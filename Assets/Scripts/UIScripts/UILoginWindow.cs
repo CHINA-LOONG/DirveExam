@@ -87,6 +87,7 @@ public class UILoginWindow : UIWindow
 
     void OnClickLogin()
     {
+        AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr(ConfigDataMgr.ExamStart));
         UIManager.Instance.OpenUI<UIMainWindow>();
     }
     void OnClickWechat()
