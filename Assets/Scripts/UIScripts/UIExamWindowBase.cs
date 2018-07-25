@@ -23,8 +23,10 @@ public abstract class UIExamWindowBase : UIWindow
     public Button btnHelp;          //内容提示
 
     public Text textQuestion;
-    public Image imgResult;
     public Text textAnswer;
+    public Image imgResult;
+    public Sprite sprRight;
+    public Sprite sprError;
 
     private bool isShowVideo;   //显示视频
     private bool isNewRules;    //显示新规
@@ -150,7 +152,7 @@ public abstract class UIExamWindowBase : UIWindow
         IsLightExam = !IsLightExam;
         if (IsLightExam)
         {
-
+            BeginLightExam();
         }
     }
     /// <summary>
@@ -369,7 +371,7 @@ public abstract class UIExamWindowBase : UIWindow
     /// <summary>
     /// 关闭所有灯光
     /// </summary>
-    protected void CloseAllLight()
+    private void CloseAllLight()
     {
         ClearanceSwitch = false;
         HeadlightSwitch = false;
@@ -382,22 +384,69 @@ public abstract class UIExamWindowBase : UIWindow
         ToggleHeadlightSwitch = false;
     }
 
+    private List<int> examList = new List<int>();
     void BeginLightExam()
     {
         CloseAllLight();
+        StopAllCoroutines();
         //生成试题列表
+        examList.Add(0);
+        examList.Add(1);
+        examList.Add(2);
+        examList.Add(3);
+        examList.Add(4);
+        examList.Add(5);
+        examList.Add(6);
+        StartCoroutine(_BeginLightExam(examList));
 
     }
+    IEnumerator _BeginLightExam(List<int> examList)
+    {
+        textQuestion.text = ConfigDataMgr.ExamStart;
+        textAnswer.text = "";
+        AudioObject audioObject = AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr(ConfigDataMgr.ExamStart));
+        yield return new WaitForSeconds(audioObject.playTime);
+        yield return new WaitForSeconds(5f);
+        for (int i = 0; i < examList.Count; i++)
+        {
+            yield return StartCoroutine(_BeginQuestion(examList[i], true));
+        }
+    }
+    
+    private int prevIndex;
     void BeginExercise()
     {
         CloseAllLight();
+        int index = 1;
+        StartCoroutine(_BeginQuestion(index,false));
     }
 
-    IEnumerator _BeginQuestion(int id)
+    IEnumerator _BeginQuestion(int index, bool isExam)
     {
-        LowToHigCount = 0;//清空远近切换
-        //ConfigDataMgr.in
-        //AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr())
-        yield return null;
+        QuestionData questionData = ConfigDataMgr.Instance.GetQuestionByIndex(index);
+        textQuestion.text = questionData.question;
+        textAnswer.text = questionData.answer;
+        textAnswer.gameObject.SetActive(false || IsShowAnswer);
+        AudioObject audioObject = AudioSystemMgr.Instance.PlaySoundByClip(ResourcesMgr.Instance.GetAudioWithStr(questionData.question));
+        yield return new WaitForSeconds(audioObject.playTime);
+        LowToHigCount = 0;//防止抢先操作
+        yield return new WaitForSeconds(5f);//操作时间
+
+        bool result = true;
+        result &= (questionData.DoubleJumpLamp == DoubleJumpLamp);
+        result &= (questionData.ClearAnceLamp == ClearanceLamp);
+        result &= (questionData.LowBeamLight == LowBeamLight);
+        result &= (questionData.HigBeamLight == HigBeamLight);
+        result &= (questionData.FrontFogLamp == FrontFogLamp);
+        result &= (questionData.RearFogLamp == RearFogLamp);
+        result &= (questionData.LeftIndicator == LeftIndicator);
+        result &= (questionData.RightIndicator == RightIndicator);
+        result &= (questionData.LowToHigLight == (LowToHigCount == 2));
+
+        textAnswer.gameObject.SetActive(true);
+        imgResult.gameObject.SetActive(true);
+        imgResult.sprite = result ? sprRight : sprError;
+
+        yield return new WaitForSeconds(3.0f);
     }
 }

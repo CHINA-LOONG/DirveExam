@@ -10,7 +10,7 @@ public class ConfigDataMgr : XSingleton<ConfigDataMgr>
     public static string ExamEndAnswer = "答案：关闭所有灯光";
 
     public GameConfig gameConfig = new GameConfig();
-    public List<QuestionData> questions = new List<QuestionData>();
+    public List<QuestionData> questions { get { return gameConfig.questions; } }
     public Dictionary<string, string> resourceDict = new Dictionary<string, string>();
 
     public override void OnInit()
@@ -28,7 +28,7 @@ public class ConfigDataMgr : XSingleton<ConfigDataMgr>
         if (File.Exists(filePath))
         {
             string json = File.ReadAllText(filePath);
-            questions = LitJson.JsonMapper.ToObject<List<QuestionData>>(json);
+            GameConfig gameConfig = LitJson.JsonMapper.ToObject<GameConfig>(json);
         }
     }
     /// <summary>
@@ -65,4 +65,16 @@ public class ConfigDataMgr : XSingleton<ConfigDataMgr>
     }
 
 
+    public QuestionData GetQuestionByIndex(int index)
+    {
+        if (index >= 0 && index < questions.Count)
+        {
+            return questions[index];
+        }
+        else
+        {
+            Debug.LogError("question index error");
+            return null;
+        }
+    }
 }
